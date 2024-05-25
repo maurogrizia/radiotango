@@ -68,7 +68,7 @@ const Component = () => {
 };
 
 const data = {
-    title: 'Artists',
+    title: 'Artistas',
     body: <Component/>
 };
 

@@ -5,45 +5,59 @@ import './styles.css';
 const Component = () => {
     return (
         <>
-        <h2>¡Bienvenido al apasionante mundo del tango!</h2>
+        <h2>¡Bienvenido/a al apasionante mundo del tango!</h2>
         <br/>
         <h5>
-            Siente el ritmo, explora la historia y descubre la magia
+            Sentí el ritmo, explorá la historia y descubrí la magia
         </h5>
         <p>
-            En este espacio virtual te invitamos a sumergirte en el universo del tango, un baile y una música que han cautivado al mundo entero con su pasión, elegancia y profunda expresión.
+            En este espacio te invitamos a sumergirte en el universo del tango, un baile y una música que han cautivado al mundo entero con su pasión, elegancia y profunda expresión.
+        </p>
+        <p>
+            Acá vas a poder disfrutar de la música mientras te informás sobre la historia de los distintos artistas y la historia del género en sí.
         </p>
         
         <h5>
-            Navega por nuestra amplia colección de playlists
+            Navegá por nuestra amplia colección de playlists
         </h5>
         <p>
             Te ofrecemos una experiencia musical única, donde podrás disfrutar de una selección cuidadosamente curada de tangos clásicos y modernos.
         </p>
-
+        <p>
+            Vas a encontrarte con artistas referentes del género como Villoldo y Piazolla, así como vas a descubrir artistas emergentes que le dan una vuelta de rosca y aportan nuevos sonidos.
+        </p>
+        
         <h5>
-            Explora por artistas, épocas y subgéneros
+            Explorá por artistas, épocas y subgéneros
         </h5>
         <p>
-            Adéntrate en la rica historia del tango y descubre a los grandes maestros que han dado forma a este arte.
+            Sumergite en la rica historia del tango y descubrí a los grandes maestros que han dado forma a este arte.
+        </p>
+        <p>
+            Desde el tango tradicional hasta las vanguardistas fusiones contemporáneas, acá vas a encontrar una amplia variedad de estilos para deleitarte.
+        </p>
+        <p>
+            Vas a encontrar múltiples caminos para transitar el mismo sendero
+        </p>
+        <p>
+            ¿Querés escuchar todo lo que ofrece cada artista individual?
+            <br/>
+            ¿Querés explorar cronológicamente la evolución del tango?
+            <br/>
+            ¿Querés descubrir distintos subgéneros?
+            <br/>
+            Hay algo para todos los gustos.
         </p>
 
         <h5>
-            Aprende sobre los diferentes estilos y expresiones del tango
+            Preparate para ser cautivado
         </h5>
         <p>
-            Desde el tango tradicional hasta las vanguardistas fusiones contemporáneas, aquí encontrarás una amplia variedad de estilos para deleitarte.
+            Dejá que el ritmo te envuelva, emocionate al descubrir los secretos detrás de cada letra y descubrí el encanto que ha hecho del tango un ícono cultural a nivel mundial.
         </p>
 
         <h5>
-            Prepárate para ser cautivado
-        </h5>
-        <p>
-            Deja que el ritmo te envuelva, siente la emoción en cada paso y descubre la magia que ha hecho del tango un ícono cultural a nivel mundial.
-        </p>
-
-        <h5>
-            ¡Empieza tu viaje musical ahora mismo!
+            ¡Empezá tu viaje musical ahora mismo!
         </h5>
         </>
     );

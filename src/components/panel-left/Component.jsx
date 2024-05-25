@@ -50,7 +50,7 @@ const PanelLeft = (props) => {
         
         <Card className="mb-0 card-first">
           <Card.Header>
-            <h1>
+            <h1 title={contentLeft.title}>
               {contentLeft.title}
             </h1>
           </Card.Header>

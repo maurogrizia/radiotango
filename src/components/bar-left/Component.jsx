@@ -3,7 +3,7 @@ import {  useContext,
 
 import {  FaHome, 
           FaStar,
-          FaMusic, 
+//          FaMusic, 
           FaMicrophone,
 //          FaShoppingCart,
           FaBlog,
@@ -24,6 +24,21 @@ const BarLeft = () => {
   const { changeContentLeft, changeContentRight } = useContext(ContentContext);
 
   const ref = useRef(null);
+
+  // Generos
+  /*
+
+                <Button 
+                  variant="secondary"
+                  data-tooltip-id="tt-genres"
+                  data-tooltip-content="Géneros"
+                  data-tooltip-place="right"
+                  onClick={() => {changeContentLeft('Genres');}}
+                >
+                  <FaMusic/>
+                </Button>
+                <Tooltip id="tt-genres" />
+  */
 
   // Atlas
   // IDEA: Cuando se hace hover en algún post a estos términos que salten cartelitos con la descripción
@@ -46,7 +61,7 @@ const BarLeft = () => {
                 <Button 
                   variant="secondary"
                   data-tooltip-id="tt-home"
-                  data-tooltip-content="Home"
+                  data-tooltip-content="Inicio"
                   data-tooltip-place="right"
                   onClick={() => {changeContentLeft('Home');}}
                 >
@@ -56,19 +71,8 @@ const BarLeft = () => {
 
                 <Button 
                   variant="secondary"
-                  data-tooltip-id="tt-genres"
-                  data-tooltip-content="Genres"
-                  data-tooltip-place="right"
-                  onClick={() => {changeContentLeft('Genres');}}
-                >
-                  <FaMusic/>
-                </Button>
-                <Tooltip id="tt-genres" />
-
-                <Button 
-                  variant="secondary"
                   data-tooltip-id="tt-artist"
-                  data-tooltip-content="Artists"
+                  data-tooltip-content="Artistas"
                   data-tooltip-place="right"
                   onClick={() => {changeContentLeft('Artists');}}
                 >
@@ -93,7 +97,7 @@ const BarLeft = () => {
                 className="btn-star"
                 variant="primary"
                 data-tooltip-id="tt-star"
-                data-tooltip-content="Week's artist"
+                data-tooltip-content="Artista de la semana"
                 data-tooltip-place="right"
                 onClick={() => {changeContentRight('Star');}}
               >
@@ -108,7 +112,7 @@ const BarLeft = () => {
                 <Button
                   variant="secondary"
                   data-tooltip-id="tt-info"
-                  data-tooltip-content="Info"
+                  data-tooltip-content="Sobre"
                   data-tooltip-place="right"
                   onClick={() => {changeContentLeft('Info');}}
                 >
@@ -119,7 +123,7 @@ const BarLeft = () => {
                 <Button 
                   variant="secondary"
                   data-tooltip-id="tt-mode"
-                  data-tooltip-content="Change mode"
+                  data-tooltip-content="Configuración"
                   data-tooltip-place="right"
                   onClick={() => {changeContentLeft('Mode');}}>
                   <FaExchangeAlt/>

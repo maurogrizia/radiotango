@@ -59,7 +59,6 @@ h2,h3,h4,h5,h6 {
 /* Boostrap style patch */
 .card input, .card input:focus{
   color: #222222CC;
-  width: 100%
 }
 button.btn {
   --bs-btn-color: var(--color-text);
@@ -94,4 +93,14 @@ button.btn-secondary {
 
 .welcome-title {
   color: var(--color-text);
+}
+
+.container-socials-inline {
+  margin-bottom: 1.5em;
+  display: flex;
+  justify-content: space-around;
+}
+.container-socials-inline a{
+  color: var(--color-secondary-soft);
+  font-size: 1.5em;
 }

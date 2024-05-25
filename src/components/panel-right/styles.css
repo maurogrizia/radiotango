@@ -1,5 +1,5 @@
 :root {
-    --width-panel-right: 42vw;
+    --width-panel-right: calc(43vw + 8vw);
 }
 
 #but-slide-panel {
@@ -232,7 +232,7 @@
 
 @media (max-width: 1200px) {
     :root {
-        --width-panel-right: 42vw;
+        --width-panel-right: calc(55vw + 8vw);
     }
     #panel-right {
         right: 0;

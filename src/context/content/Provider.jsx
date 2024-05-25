@@ -16,11 +16,9 @@ const ContextProvider = ({ children }) => {
     const defaultPlayer = strDefaultPlayer? JSON.parse(strDefaultPlayer) : defaultSong;
     const [player, setPlayer] = useState(defaultPlayer);
     
-    const idxRight = 0;
-    const keysRight = Object.keys(Genres);
     const [isAnimated, setIsAnimated] = useState(false);
     const [contentLeft, setContentLeft] = useState('Home');
-    const [contentRight, setContentRight] = useState(Genres[keysRight[idxRight]].default);
+    const [contentRight, setContentRight] = useState({...defaultArtist, title: 'Artista de la semana'});
     const [isClosedLeft, setIsClosedLeft] = useState(true);
     const [isClosedRight, setIsClosedRight] = useState(true);
     const [showCanvas, setShowCanvas] = useState(false);

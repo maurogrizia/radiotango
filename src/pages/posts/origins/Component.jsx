@@ -125,7 +125,7 @@ const body = <>
     </p>
     
     <h3>Referencias</h3> 
-    <ul>
+    <ol>
         <li>
             <a href="https://www.youtube.com/watch?v=r3lj7WahuKc" target="_blank">
                 Cesar Lorenzano - Nacimiento y evolución de los estilos en el tango. Período 1884-1912.
@@ -136,7 +136,7 @@ const body = <>
                 El tango y sus orígenes
             </a>
         </li>
-    </ul>
+    </ol>
 </>;
 
 const data = {

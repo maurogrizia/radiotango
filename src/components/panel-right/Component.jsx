@@ -105,7 +105,7 @@ const PanelRight = (props) => {
         
         <Card className="mb-0 card-first">
           <Card.Header>
-            <h1>
+            <h1 title={contentRight.title}>
               {contentRight.title}
             </h1>
           </Card.Header>
@@ -143,7 +143,8 @@ const PanelRight = (props) => {
               className="text-center"
               videoId={player.yt}
               title={`${player.artist} - ${player.song}`}
-              //opts={opts}
+              //onEnd={func}
+              opts={{width: "100%", height: "auto"}}
             />
           </Card.Body>
         </Card>

@@ -50,7 +50,7 @@ const Social = () => {
                     <FaSpotify/>
                 </div>
                 <div className="btn-app">
-                    <a href="https://www.instagram.com/@griziamauro" target='_blank'>
+                    <a href="https://www.instagram.com/maurogrizia" target='_blank'>
                         <FaInstagram/>
                     </a>
                 </div>
