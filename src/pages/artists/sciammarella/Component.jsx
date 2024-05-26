@@ -4,7 +4,7 @@ import {FaWikipediaW,
 
 const body = <>
     <p>
-        Sciammarella Tango es una orquesta única fundada por la doctora en Física Denise Sciammarella en 2013. Lo que hace que esta orquesta sea tan particular es su enfoque reinterpretativo del tango desde una perspectiva de género moderna.
+        <b>Sciammarella Tango</b> es una orquesta única fundada por la doctora en Física Denise Sciammarella en 2013. Lo que hace que esta orquesta sea tan particular es su enfoque reinterpretativo del tango desde una perspectiva de género moderna.
     </p>
     <p>
         La orquesta está integrada completamente por mujeres de diferentes partes del mundo, incluyendo Japón, Corea, Ucrania, Italia, Chile y Argentina. Estas músicas provienen de prestigiosas orquestas de Buenos Aires, como la Orquesta del Tango de Buenos Aires, la Orquesta Académica del Teatro Colón y la Orquesta Sinfónica Nacional.

@@ -1,3 +1,8 @@
+:root {
+    --height-button: 2em;
+    --width-button: 5.25em;
+}
+
 .stack-container {
     position: absolute;
     display: flex;
@@ -12,7 +17,9 @@
     max-width: 100px;
 }
 .stack-left button {
-    width: 100%;
+    width: var(--width-button);
+    height: var(--height-button);
+    display: block;
 }
 
 .btn-star {
@@ -28,5 +35,24 @@
 @media (max-width: 478px) {
     .stack-container {
         width: 23vw;
+    }
+}
+
+@media (max-height: 700px) {
+    .stack-container {
+        --height-button: 2em;
+        --width-button: 5em;
+    }
+}
+@media (max-height: 500px) {
+    .stack-container {
+        --height-button: 2em;
+        --width-button: 5em;
+    }
+}
+@media (max-height: 300px) {
+    .stack-container {
+        --height-button: 2em;
+        --width-button: 5em;
     }
 }

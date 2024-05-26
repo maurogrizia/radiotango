@@ -3,7 +3,7 @@
     height: 100vh;
     width: 42vw;
     background-color: var(--color-background-soft);
-    left: 7vw;
+    left: calc(var(--width-button));
     z-index: 120;
     opacity: 1;
 
@@ -39,9 +39,10 @@
 .card-header h1 {
     font-size: 2.25em;
     font-weight: bold;
-    color: var(--color-text);
+    color: var(--color-secondary);
     overflow: hidden;
     text-overflow: ellipsis;
+    text-transform: uppercase;
     white-space: nowrap;
 }
 
@@ -52,10 +53,6 @@
 #panel-left .card-first {
     box-sizing: border-box;
     height: 100vh;
-}
-#panel-left .card-header h1 {
-    color: var(--color-secondary);
-    text-transform: uppercase;
 }
 #panel-left .card-body h1, #panel-left .card-body h2{
     color: var(--color-primary);
@@ -107,19 +104,16 @@
 
 @media (max-width: 1200px) {
     #panel-left {
-        left: 7vw;
         --width-panel-left: 42vw;
     }
 }
 @media (max-width: 767px) {
     #panel-left {
-        left: 13vw;
         --width-panel-left: 70vw;
     }
 }
 @media (max-width: 478px) {
     #panel-left {
-        left: 23vw;
         --width-panel-left: 77vw;
     }
 }

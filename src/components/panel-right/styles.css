@@ -2,6 +2,23 @@
     --width-panel-right: calc(43vw + 8vw);
 }
 
+#panel-right {
+    position: absolute;
+    height: 100vh;
+    /*right: calc(7vw + 0.5em);*/
+    right: 0;
+    z-index: 100;
+    opacity: 1;
+    box-shadow: -1.5px 0px 1px 1px var(--color-background-soft);
+    overflow-x: clip;
+    width: var(--width-panel-right);
+
+    --height-header: 15vh;
+    --height-body: 75vh;
+    --height-but-playlist: 10vh;
+    --fs-but-playlist: 1.5em;
+}
+
 #but-slide-panel {
     position: absolute;
     top: calc(50% - 1em);
@@ -20,22 +37,6 @@
     animation: slideRightBut 750ms ease forwards;
 }
 
-
-#panel-right {
-    position: absolute;
-    height: 100vh;
-    /*right: calc(7vw + 0.5em);*/
-    right: 0;
-    z-index: 100;
-    opacity: 1;
-    box-shadow: -1.5px 0px 1px 1px var(--color-background-soft);
-    overflow-x: clip;
-    width: var(--width-panel-right);
-}
-#panel-right .card-header h1 {
-    color: var(--color-secondary);
-    text-transform: uppercase;
-}
 #panel-right .card-body h1, #panel-right .card-body h2, #panel-right .card-body h3{
     color: var(--color-primary);
 }
@@ -57,7 +58,7 @@
 #panel-right.open .but-close{
     font-size: 2em;
     color: var(--color-text);
-    right: 1em;
+    right: 0.9em;
     width: 1em;
     text-align: center;
     cursor: pointer;
@@ -82,6 +83,7 @@
     
 .but-close {
     position: absolute;
+    background-color: var(--color-background-soft);
 }
 
 .card-body {
@@ -92,16 +94,17 @@
     box-sizing: border-box;
 }
 .card-first .card-header {
-    height: 15vh;
+    height: var(--height-header);
 }
 .card-first .card-body {
-    height: 70vh;
+    height: var(--height-body);
 }
 .card-first .card-body.close {
     height: 0;
 }
 .card-first .card-body.open {
     animation: grow 750ms ease forwards;
+    font-size: 1.2em;
 }
 .card-first .card-body.close {
     animation: shrink 750ms ease forwards;
@@ -131,8 +134,10 @@
 }
 
 #but-playlist {
-    height: 15%;
+    height: var(--height-but-playlist);
     width: 100%;
+    font-size: var(--fs-but-playlist);
+    color: var(--color-background);
 }
 
 @keyframes grow {
@@ -143,14 +148,14 @@
     }
 
     to {
-        height: 70vh;
+        height: var(--height-body);
         opacity: 1;
     }
 
 }
 @keyframes shrink {
     from {
-        height: 70vh;
+        height: var(--height-body);
         opacity: 1;
     }
 
@@ -170,14 +175,14 @@
 
     to {
         top: 0;
-        height: 70vh;
+        height: var(--height-body);
         opacity: 1;
     }
 }
 @keyframes slideDown {
     from {
         top: 0;
-        height: 70vh;
+        height: var(--height-body);
         opacity: 1;
     }
 
@@ -261,5 +266,60 @@
     }
     #but-slide-panel.open {
         right: var(--width-panel-right);
+    }
+}
+
+@media (max-height: 700px) {
+    :root {
+        --height-but-playlist: 12%;
+        --fs-but-playlist: 1.2em;
+    }
+    #panel-right {
+        --height-header: 15vh;
+        --height-body: 75vh;
+        --height-but-playlist: 10vh;
+        --fs-but-playlist: 1.5em;
+    }
+    .card-first .card-header {
+        height: var(--height-header);
+    }
+    .card-first .card-body {
+        height: 85vh;
+    }
+}
+@media (max-height: 500px) {
+    :root {
+        --height-but-playlist: 15%;
+        --fs-but-playlist: 1.5em;
+    }
+    #panel-right {
+        --height-header: 15vh;
+        --height-body: 70vh;
+        --height-but-playlist: 15vh;
+        --fs-but-playlist: 1.4em;
+    }
+    .card-first .card-header {
+        height: 17vh;
+    }
+    .card-first .card-body {
+        height: 83vh;
+    }
+}
+@media (max-height: 300px) {
+    :root {
+        --height-but-playlist: 18%;
+        --fs-but-playlist: 1.6em;
+    }
+    #panel-right {
+        --height-header: 15vh;
+        --height-body: 65vh;
+        --height-but-playlist: 20vh;
+        --fs-but-playlist: 1.3em;
+    }
+    .card-first .card-header {
+        height: 20vh;
+    }
+    .card-first .card-body {
+        height: 80vh;
     }
 }
