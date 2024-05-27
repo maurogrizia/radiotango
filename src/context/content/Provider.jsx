@@ -7,7 +7,7 @@ import * as Artists         from "pages/artists/index";
 import * as Pages           from "pages/pages/index";
 
 const ContextProvider = ({ children }) => {
-    const weeksArtist = 'Sciammarella';//'Piazolla';
+    const weeksArtist = 'Sciammarella';//'Piazzolla';
     const defaultArtist = Artists[weeksArtist].default;
     const defaultPlaylist = defaultArtist.playlist;
     const defaultSong = defaultPlaylist[0];

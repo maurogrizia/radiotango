@@ -16,14 +16,9 @@ const Component = () => {
             genre: 'neo',
         },
         {
-            name: 'Piazolla',
-            href: 'Piazolla',
+            name: 'Piazzolla',
+            href: 'Piazzolla',
             genre: 'modern',
-        },
-        {
-            name: 'Test',
-            href: 'test',
-            genre: 'classic',
         },
     ];
     //const neoArtists = artists.filter((x) => {return x.genre === 'neo'});
