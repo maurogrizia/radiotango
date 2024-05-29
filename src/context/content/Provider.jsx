@@ -14,13 +14,12 @@ const ContextProvider = ({ children }) => {
 
     const strDefaultPlayer = window.localStorage.getItem('player');
     const defaultPlayer = strDefaultPlayer? JSON.parse(strDefaultPlayer) : defaultSong;
-    const [player, setPlayer] = useState({defaultPlayer, idx: 0});
+    const [player, setPlayer] = useState({...defaultPlayer, idx: 0});
     
     const [isAnimated, setIsAnimated] = useState(false);
     const [contentLeft, setContentLeft] = useState('Home');
     const [contentRight, setContentRight] = useState({...defaultArtist, title: 'Artista de la semana'});
     const [isAutoplay, setIsAutoplay] = useState(0);
-    const [idxPlayer, setIdxPlayer] = useState(0);
     const [isClosedLeft, setIsClosedLeft] = useState(true);
     const [isClosedRight, setIsClosedRight] = useState(true);
     const [showCanvas, setShowCanvas] = useState(false);
@@ -66,12 +65,14 @@ const ContextProvider = ({ children }) => {
         player,
         contentLeft,
         contentRight,
-        idxPlayer,
         isAutoplay,
         isClosedLeft,
         isClosedRight,
         showCanvas,
         changePlayer: song => {
+            if (isAutoplay === 0) {
+                setIsAutoplay(1);
+            }
             setPlayer(song);
             //window.localStorage.setItem('player', JSON.stringify(newPlayer));
         },
@@ -113,13 +114,6 @@ const ContextProvider = ({ children }) => {
                     removeNoAnimateClass();
                     setIsAnimated(true);
                 }
-            }
-        },
-        changeIdxPlayer: idx => {
-            setPlayer(contentRight.playlist[idx]);
-            setIdxPlayer(idx);
-            if (isAutoplay === 0) {
-                setIsAutoplay(1);
             }
         },
         changeIsClosedLeft,

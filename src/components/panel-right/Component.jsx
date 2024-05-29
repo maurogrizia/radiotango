@@ -79,11 +79,31 @@ const PanelRight = (props) => {
     target.classList.toggle('act');
   };
 
-  const pickNextSong = () => {
-    const playlist = contentRight.playlist;
-    const newIdx = (player.idx + 1) % playlist.length;
-    
-    changePlayer({...playlist[newIdx], idx: newIdx});
+  const chooseSong = (instruction) => {
+    const playlist = [...contentRight.playlist];
+    const chooseNewIdx = {
+      next: (idx) => {
+        return (idx + 1) % playlist.length;
+      },
+      prev: (idx) => {
+        return (idx - 1 + playlist.length) % playlist.length;
+      },
+      random: () => {
+        return Math.floor(Math.random() * playlist.length);
+      }
+    };
+
+    let newSong = instruction.song;
+
+    if (!newSong) {
+      const newIdx = chooseNewIdx[instruction.go](player.idx || 0);
+      
+      newSong = {...playlist[newIdx], idx: newIdx};
+    } else {
+      newSong.idx = instruction.idx;
+    }
+
+    changePlayer(newSong);
   };
   
   return (
@@ -154,7 +174,7 @@ const PanelRight = (props) => {
                     className={song.artist === player.artist && song.song === player.song? "act" : ""}
                     variant="secondary"
                     key={label}
-                    onClick={(e) => {toggleLI(e); changeIdxPlayer(idx); /*changePlayer(song);*/}}>
+                    onClick={(e) => {toggleLI(e); chooseSong({song, idx})}}>
                     {label}
                   </ListGroup.Item>
                 );
@@ -165,7 +185,7 @@ const PanelRight = (props) => {
               className="text-center"
               videoId={player.yt}
               title={`${player.artist} - ${player.song}`}
-              onEnd={pickNextSong}
+              onEnd={() => {chooseSong({go: 'next'})}}
               //onEnd={() => {changeIdxPlayer((idxPlayer + 1) % contentRight.playlist.length)}}
               opts={{width: "100%", height: "auto", playerVars: {autoplay: isAutoplay}}}
             />
