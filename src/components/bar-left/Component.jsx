@@ -90,7 +90,6 @@ const BarLeft = () => {
                   <FaBlog/>
                 </Button>
                 <Tooltip id="tt-blog" />
-                <hr/>
             </div>
             <div className="stack-section text-center" ref={ref}>
               <Button 
@@ -106,8 +105,6 @@ const BarLeft = () => {
               <Tooltip id="tt-star" />
             </div>
             <div className="stack-section text-center">
-                <hr/>
-
                 
                 <Button
                   variant="secondary"

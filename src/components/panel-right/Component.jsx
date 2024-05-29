@@ -16,7 +16,7 @@ import {  Tooltip }         from 'react-tooltip';
 import './styles.css';
 
 const PanelRight = (props) => {
-  const { isClosedRight, contentRight, player, changeIsClosedRight, changePlayer } = useContext(ContentContext);
+  const { isClosedRight, contentRight, player, changeIsClosedRight, changePlayer, changeIdxPlayer, isAutoplay } = useContext(ContentContext);
   const [isClosedUp, setIsClosedUp] = useState(true);
 
   const togglePanel = () => {
@@ -67,6 +67,23 @@ const PanelRight = (props) => {
       cardSecond.classList.add('close');
       setIsClosedUp(true);
     }
+  };
+
+  const toggleLI = (e) => {
+    const target = e.currentTarget;
+    const siblings = target.parentElement.childNodes;
+
+    siblings.forEach((s) => {
+      s.classList.remove('act');
+    })
+    target.classList.toggle('act');
+  };
+
+  const pickNextSong = () => {
+    const playlist = contentRight.playlist;
+    const newIdx = (player.idx + 1) % playlist.length;
+    
+    changePlayer({...playlist[newIdx], idx: newIdx});
   };
   
   return (
@@ -132,7 +149,12 @@ const PanelRight = (props) => {
                 const label = `${song.artist} - ${song.song}`;
 
                 return (
-                  <ListGroup.Item action variant="secondary" key={label} onClick={() => {changePlayer(song)}}>
+                  <ListGroup.Item
+                    action
+                    className={song.artist === player.artist && song.song === player.song? "act" : ""}
+                    variant="secondary"
+                    key={label}
+                    onClick={(e) => {toggleLI(e); changeIdxPlayer(idx); /*changePlayer(song);*/}}>
                     {label}
                   </ListGroup.Item>
                 );
@@ -143,8 +165,9 @@ const PanelRight = (props) => {
               className="text-center"
               videoId={player.yt}
               title={`${player.artist} - ${player.song}`}
-              //onEnd={func}
-              opts={{width: "100%", height: "auto"}}
+              onEnd={pickNextSong}
+              //onEnd={() => {changeIdxPlayer((idxPlayer + 1) % contentRight.playlist.length)}}
+              opts={{width: "100%", height: "auto", playerVars: {autoplay: isAutoplay}}}
             />
           </Card.Body>
         </Card>
