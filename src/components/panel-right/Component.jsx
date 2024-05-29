@@ -37,12 +37,12 @@ const PanelRight = (props) => {
 
     if (panel.classList.contains('open')) {
       butClose.textContent = '>';
-      butClose.dataset['tooltipContent'] = "Close";
+      butClose.dataset['tooltipContent'] = "Cerrar";
       butClose.classList.remove('close');
       butClose.classList.add('open');
     } else {
       butClose.textContent = '<';
-      butClose.dataset['tooltipContent'] = "Open";
+      butClose.dataset['tooltipContent'] = "Abrir";
       butClose.classList.remove('open');
       butClose.classList.add('close');
     }
