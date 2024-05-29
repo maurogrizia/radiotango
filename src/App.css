@@ -20,13 +20,11 @@ html,body {
 }
 
 html,body {
-  width: 100vw;
-  height: 100vh;
   overflow-y: hidden;
-  background-color: black;
+  background-color: #0C0E10;
   background-image: url('assets/img/radio-tango.webp');
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: contain;
   background-position: center;
 
   /*Word breaking*/
@@ -37,11 +35,11 @@ html,body {
   /*Support for old browsers*/
   word-wrap: break-word;
 
-  background-color: var(--color-background);
   color: var(--color-text);  
 }
 
 html.bg-hide, body.bg-hide {
+  background-color: #000C;
   background-blend-mode: overlay;
 }
 

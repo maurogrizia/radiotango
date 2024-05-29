@@ -2,8 +2,8 @@ import React          from 'react';
 
 import ContentProvider from 'context/content/Provider';
 
-import About          from 'pages/about/Component';
-import Contact        from 'pages/contact/Component';
+//import About          from 'pages/about/Component';
+//import Contact        from 'pages/contact/Component';
 
 import BarLeft        from 'components/bar-left/Component';
 import BarRight       from 'components/bar-right/Component';
@@ -14,6 +14,7 @@ import Canvas         from 'components/canvas/Component';
 //import {drawFunc}     from 'components/canvas/utils';
 import {drawFunc}     from 'components/canvas/draw2';
 
+import './index.css';
 import './App.css';
 
 const App = () => {

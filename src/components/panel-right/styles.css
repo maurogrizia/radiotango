@@ -1,10 +1,14 @@
 :root {
+    --height-panel-right-total: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    --height-panel-right-total: -moz-available;          /* WebKit-based browsers will ignore this. */
+    --height-panel-right-total: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    --height-panel-right-total: fill-available;
     --width-panel-right: calc(43vw + 8vw);
+    --vh: 1vh;
 }
 
 #panel-right {
     position: absolute;
-    height: 100vh;
     /*right: calc(7vw + 0.5em);*/
     right: 0;
     z-index: 100;
@@ -12,10 +16,11 @@
     box-shadow: -1.5px 0px 1px 1px var(--color-background-soft);
     overflow-x: clip;
     width: var(--width-panel-right);
+    height: calc(var(--vh) * 100);
 
-    --height-header: 15vh;
-    --height-body: 75vh;
-    --height-but-playlist: 10vh;
+    --height-header: calc(var(--vh) * 15);
+    --height-body: calc(var(--vh) * 75);
+    --height-but-playlist: calc(var(--vh) * 10);
     --fs-but-playlist: 1.5em;
 }
 
@@ -117,7 +122,7 @@
 }
 
 .card-first .card-body.open .social-container a{
-    margin-left: 0.5em;;
+    margin-left: 0.5em;
     color: var(--color-secondary);
 }
 
@@ -276,16 +281,16 @@
         --fs-but-playlist: 1.2em;
     }
     #panel-right {
-        --height-header: 15vh;
-        --height-body: 75vh;
-        --height-but-playlist: 10vh;
+        --height-header: calc(var(--vh) * 15);
+        --height-body: calc(var(--vh) * 75);
+        --height-but-playlist: calc(var(--vh) * 10);
         --fs-but-playlist: 1.5em;
     }
     .card-first .card-header {
         height: var(--height-header);
     }
     .card-first .card-body {
-        height: 85vh;
+        height: calc(var(--vh) * 85);
     }
 }
 @media (max-height: 500px) {
@@ -294,16 +299,16 @@
         --fs-but-playlist: 1.5em;
     }
     #panel-right {
-        --height-header: 15vh;
-        --height-body: 70vh;
-        --height-but-playlist: 15vh;
+        --height-header: calc(var(--vh) * 15);
+        --height-body: calc(var(--vh) * 70);
+        --height-but-playlist: calc(var(--vh) * 15);
         --fs-but-playlist: 1.4em;
     }
     .card-first .card-header {
-        height: 17vh;
+        height: calc(var(--vh) * 17);
     }
     .card-first .card-body {
-        height: 83vh;
+        height: calc(var(--vh) * 83);
     }
 }
 @media (max-height: 300px) {
@@ -312,15 +317,15 @@
         --fs-but-playlist: 1.6em;
     }
     #panel-right {
-        --height-header: 15vh;
-        --height-body: 65vh;
-        --height-but-playlist: 20vh;
+        --height-header: calc(var(--vh) * 15);
+        --height-body: calc(var(--vh) * 65);
+        --height-but-playlist: calc(var(--vh) * 20);
         --fs-but-playlist: 1.3em;
     }
     .card-first .card-header {
-        height: 20vh;
+        height: calc(var(--vh) * 20);
     }
     .card-first .card-body {
-        height: 80vh;
+        height: calc(var(--vh) * 80);
     }
 }
