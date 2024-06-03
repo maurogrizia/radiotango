@@ -20,6 +20,11 @@ const Component = () => {
             href: 'Piazzolla',
             genre: 'modern',
         },
+        {
+            name: 'Gotan',
+            href: 'Gotan',
+            genre: 'neo',
+        },
     ];
     //const neoArtists = artists.filter((x) => {return x.genre === 'neo'});
     //const modernArtists = artists.filter((x) => {return x.genre === 'modern'});
