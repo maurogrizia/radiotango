@@ -1,4 +1,11 @@
-import {FaWikipediaW} from "react-icons/fa";
+import {
+        FaGlobe,
+        FaYoutube,
+        FaSpotify,
+        FaWikipediaW,
+        FaInstagram,
+        FaFacebook
+        }          from "react-icons/fa";
 
 const body = <>
     <h2>Introducción</h2>
@@ -45,6 +52,26 @@ const body = <>
     <p>
         Amarrados a su identidad como músicos, si bien son famosos, rechazan realizar trabajos que no representen su o sus ideales, por ejemplo, rechazan trabajos promocionando alcohol o cigarrilos (con excepción del Campari, aman el Campari).
     </p>
+    <div className="social-container">
+        <a href="https://www.gotanproject.com/" target="_blank">
+            <FaGlobe/>
+        </a>
+        <a href="https://www.youtube.com/@GotanOfficial" target='_blank'>
+            <FaYoutube/>
+        </a>
+        <a href="https://open.spotify.com/intl-es/artist/44ejFPE33H5aOInxNV2BFP" target="_blank">
+            <FaSpotify/>
+        </a>
+        <a href="https://es.wikipedia.org/wiki/Gotan_Project" target="_blank">
+            <FaWikipediaW/>
+        </a>
+        <a href="https://www.instagram.com/gotanprojectofficial" target="_blank">
+            <FaInstagram/>
+        </a>
+        <a href="https://www.facebook.com/gotanprojectofficial/" target="_blank">
+            <FaFacebook/>
+        </a>
+    </div>
 </>;
 
 const data = {
