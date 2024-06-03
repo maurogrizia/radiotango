@@ -7,10 +7,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // PATCH to improve mobile visuals
-window.onresize = () => {
-  const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
+(() => {
+  let vh = window.innerHeight * 0.01;
+
+  window.onresize = () => {
+    vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+})();
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
