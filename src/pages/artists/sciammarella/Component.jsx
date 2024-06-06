@@ -2,7 +2,7 @@ import {FaWikipediaW,
         FaYoutube,
         FaSpotify}          from "react-icons/fa";
 
-const body = <>
+const body = <article>
     <p>
         <b>Sciammarella Tango</b> es una orquesta única fundada por la doctora en Física Denise Sciammarella en 2013. Lo que hace que esta orquesta sea tan particular es su enfoque reinterpretativo del tango desde una perspectiva de género moderna.
     </p>
@@ -29,7 +29,7 @@ const body = <>
             <FaSpotify/>
         </a>
     </div>
-</>;
+</article>;
 
 const data = {
     title: 'Sciamarella Tango',

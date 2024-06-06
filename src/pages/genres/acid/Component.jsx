@@ -1,11 +1,11 @@
-const body = <>
+const body = <article>
     <p>
         <b>Acid Jazz</b> is a crossover genre gone too far: there is barely any Jazz left in it. There’s actually almost zero ‘acid’ about it as well, except a slight psychedelic sound, placing it high on the chart for poorly chosen genre names. In fact it’s more of the deepest funky Fusion combined with Rap, so Fusion Rap would be more appropriate. But the name is no error: Acid Jazz was a deliberate and firm reaction from the British Soul scene against the fiddling “nonsense” of Acid House. The leading record label – also named Acid Jazz – was determined to compensate Acid House with what they regarded as “quality music”, heavily influenced by Rare Groove records.
     </p>
     <p>
         A steady Hip-Hop breakbeat, lots of percussion, Jazz harmonies and funky basslines (often with the aid of a synthesizer) are the key flavors of Acid Jazz. These elements blend perfectly until the roots of the genre are no longer traceable. It was a short but popular craze, right before EDM conquered the music scene. Due to its highly danceable nature, a new type of dance, Jazzdance, was invented along with it (which became more or less a synonym of the music itself). It can be hard to separate Acid Jazz from Jazz Funk with heavy breaks, if it wasn’t for the (abundant) use of vocals.
     </p>
-</>;
+</article>;
 
 const data = {
     title: 'ACID JAZZ / JAZZDANCE',

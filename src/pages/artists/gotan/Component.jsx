@@ -7,7 +7,7 @@ import {
         FaFacebook
         }          from "react-icons/fa";
 
-const body = <>
+const body = <article>
     <h2>Introducción</h2>
     <p>
         <b>Gotan Project</b> es una banda de neotango asentada en París, integrada por artistas internacionales de varios trasfondos: el suizo <b>Christoph H. Müller</b>, el francés <b>Philippe Cohen Solal</b> y el argentino <b>Eduardo Makaroff</b>.
@@ -72,7 +72,7 @@ const body = <>
             <FaFacebook/>
         </a>
     </div>
-</>;
+</article>;
 
 const data = {
     title: 'Gotan Project',

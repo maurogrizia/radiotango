@@ -1,4 +1,4 @@
-const body = <>
+const body = <article>
     <p>
         El tango es un fenomeno muy curioso producto de hibridacion y superposicion de tradiciones europeas y rioplatenses.
         <br/>
@@ -137,7 +137,7 @@ const body = <>
             </a>
         </li>
     </ol>
-</>;
+</article>;
 
 const data = {
     time: 7,

@@ -1,8 +1,8 @@
-const body = <>
+const body = <article>
     <p>
         
     </p>
-</>;
+</article>;
 
 const data = {
     title: '',

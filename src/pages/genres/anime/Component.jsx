@@ -1,4 +1,4 @@
-const body = <>
+const body = <article>
     <p>
         There are plenty of animes where jazz is played.
     </p>
@@ -8,7 +8,7 @@ const body = <>
         <li>Baccano! This fast-paced action anime utilizes a blend of Jazz, classical, and rock to match its energetic narrative [Baccano! soundtrack samples].</li>
         <li>Kids on the Slope: This coming-of-age story set in post-war Japan features a beautiful and nostalgic Jazz soundtrack that perfectly captures the era [Kids on the Slope soundtrack samples].</li>
     </ul>
-</>;
+</article>;
 
 const data = {
     title: 'Anime',

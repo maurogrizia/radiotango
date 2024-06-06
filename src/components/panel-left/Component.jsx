@@ -42,7 +42,7 @@ const PanelLeft = (props) => {
   };
   
   return (
-    <div id="panel-left" className={isClosedLeft? "close" : "open"}>
+    <section id="panel-left" className={isClosedLeft? "close" : "open"}>
         <div className="but-close" onClick={() => {changeIsClosedLeft(true); togglePanel();}}>
           <FaRegWindowClose/>
         </div>
@@ -58,7 +58,7 @@ const PanelLeft = (props) => {
             {contentLeft.body}
           </Card.Body>
         </Card>
-    </div>
+    </section>
   );
 }
 

@@ -134,7 +134,7 @@ const PanelRight = (props) => {
     }
     <Tooltip id="tt-slide-panel" />
 
-    <div id="panel-right" className={isClosedRight? "close" : "open"}>
+    <section id="panel-right" className={isClosedRight? "close" : "open"}>
         <div className="but-close" onClick={() => {changeIsClosedRight(true); togglePanel(); toggleButton();}}>
           <FaRegWindowClose/>
         </div>
@@ -191,7 +191,7 @@ const PanelRight = (props) => {
             />
           </Card.Body>
         </Card>
-    </div>
+    </section>
     </>
     
   );

@@ -1,4 +1,4 @@
-const body = <>
+const body = <article>
     <h2>Concentración y Flujo para tus Estudios</h2>
     <p>
         ¿Buscás la banda sonora ideal para tus estudios? Esta playlist de electrotango chill es tu herramienta perfecta para alcanzar la <b>concentración y la productividad</b> que necesitás.
@@ -29,7 +29,7 @@ const body = <>
     </ul>
 
     <b>Esperamos que esta playlist te ayude a alcanzar tus metas académicas y a disfrutar al máximo de tu proceso de aprendizaje.</b>
-</>;
+</article>;
 
 const data = {
     title: 'Electrotango Chill',

@@ -1,6 +1,6 @@
 import {FaWikipediaW} from "react-icons/fa";
 
-const body = <>
+const body = <article>
     <h2>Introducción</h2>
     <p>
         <b>Astor Pantaleón Piazzolla</b> nació el 11 de marzo de 1921, en Mar del Plata. Fue compositor argentino, bandoneonista virtuoso y figura clave en la reinvención del tango.
@@ -154,7 +154,7 @@ const body = <>
             <a href="https://www.todotango.com/Creadores/Ficha/26/Astor-Piazzolla/" target="_blank">Todo tango</a>
         </li>
     </ol>
-</>;
+</article>;
 
 const data = {
     title: 'Astor Piazzolla',

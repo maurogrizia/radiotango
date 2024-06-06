@@ -56,7 +56,7 @@ const BarLeft = () => {
   <Tooltip id="tt-atlas" />*/
 
   return (
-    <div className="stack-container">
+    <nav className="stack-container">
         <Stack gap={2} className="col-md-5 mx-auto stack-left" style={{justifyContent: "space-between"}}>
             <div className="stack-section text-center">
                 <Button 
@@ -141,7 +141,7 @@ const BarLeft = () => {
             </div>
             
         </Stack>
-    </div>
+    </nav>
   );
 }
 

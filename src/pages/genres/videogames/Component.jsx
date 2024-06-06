@@ -1,4 +1,4 @@
-const body = <>
+const body = <article>
     <p>
         There are plenty of animes where jazz is played.
     </p>
@@ -8,7 +8,7 @@ const body = <>
         <li>Mafia: This immersive gangster game set in the 1930s features a beautiful big band soundtrack that perfectly captures the era's nightlife [Mafia soundtrack samples].</li>
         <li>Cuphead: This run-and-gun game boasts a fantastic soundtrack heavily influenced by 1930s Jazz and big band styles [Cuphead soundtrack samples].</li>
     </ul>
-</>;
+</article>;
 
 const data = {
     title: 'Videogames',

@@ -1,4 +1,4 @@
-const body = <>
+const body = <article>
     <p>
         Genres that grow too big eventually will fall. This was no different with Swing. Not only became it difficult to maintain such large, expensive orchestras, but more and more white people were copying the music. Though Jazz had always been less racially restricted than Blues, a number of black Jazz musicians felt a need to redefine black Jazz culture with a new, radical genre: Bebop. Their dissatisfaction is reflected in Bebop’s trademarks: frantic, chaotic and aggressive.
     </p>
@@ -11,7 +11,7 @@ const body = <>
     <p>
         Around 1982, Bebop experiences a strong revival known as Neobop (or sometimes called Neo-Con (= conservative) Jazz). A lot of young Jazz scholars were not interested in the new possibilities of Fusion, and chose to concentrate on the old school (with influences from Free and Modal Jazz): straight, acoustic Jazz but rich and vibrant. A type of Jazz where they could show off their technical skills that would otherwise have been masked by the eclecticism of Fusion.
     </p>
-</>;
+</article>;
 
 const data = {
     title: 'BEBOP',
