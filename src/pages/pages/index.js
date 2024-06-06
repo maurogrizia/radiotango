@@ -6,5 +6,6 @@ import * as Home        from 'pages/pages/home/Component';
 import * as Info        from 'pages/pages/info/Component';
 import * as Mode        from 'pages/pages/mode/Component';
 import * as Shop        from 'pages/pages/shop/Component';
+import * as Special     from 'pages/pages/special/Component';
 
-export {Artists, Atlas, Blog, Genres, Home, Info, Mode, Shop};
+export {Artists, Atlas, Blog, Genres, Home, Info, Mode, Shop, Special};

@@ -8,7 +8,8 @@ import {  FaHome,
 //          FaShoppingCart,
           FaBlog,
 //          FaAtlas, 
-          FaExchangeAlt, 
+          FaExchangeAlt,
+          FaPlayCircle, 
           FaInfo }    from "react-icons/fa";
 
 import ContentContext from 'context/content/Context';
@@ -90,6 +91,17 @@ const BarLeft = () => {
                   <FaBlog/>
                 </Button>
                 <Tooltip id="tt-blog" />
+
+                <Button 
+                  variant="secondary"
+                  data-tooltip-id="tt-special"
+                  data-tooltip-content="Special playlists"
+                  data-tooltip-place="right"
+                  onClick={() => {changeContentLeft('Special');}}
+                >
+                  <FaPlayCircle/>
+                </Button>
+                <Tooltip id="tt-special" />
             </div>
             <div className="stack-section text-center" ref={ref}>
               <Button 

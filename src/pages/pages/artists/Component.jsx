@@ -16,12 +16,12 @@ const Component = () => {
             genre: 'neo',
         },
         {
-            name: 'Piazzolla',
+            name: 'Astor Piazzolla',
             href: 'Piazzolla',
             genre: 'modern',
         },
         {
-            name: 'Gotan',
+            name: 'Gotan Project',
             href: 'Gotan',
             genre: 'neo',
         },

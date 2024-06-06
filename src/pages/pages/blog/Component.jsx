@@ -30,7 +30,7 @@ const Component = () => {
         <>
         <ListGroup as="ul" variant="secondary">
             {ordered.map((post) => {
-                const label = `${post.date} - ${post.name} (${post.time}min)`;
+                const label = `${post.name} (${post.time}min)`;
                 const href = post.href;
 
                 return (

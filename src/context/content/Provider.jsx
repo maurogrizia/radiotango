@@ -5,6 +5,7 @@ import * as Posts           from "pages/posts/index";
 import * as Genres          from "pages/genres/index";
 import * as Artists         from "pages/artists/index";
 import * as Pages           from "pages/pages/index";
+import * as Special         from "pages/special/index";
 
 const ContextProvider = ({ children }) => {
     const weeksArtist = 'Gotan';
@@ -95,7 +96,7 @@ const ContextProvider = ({ children }) => {
             }
         },
         changeContentRight: cr => {
-            const content = Posts[cr] || Genres[cr] || Artists[cr] || (cr === 'Star' && Artists[weeksArtist]);
+            const content = Special[cr] || Posts[cr] || Genres[cr] || Artists[cr] || (cr === 'Star' && Artists[weeksArtist]);
 
             if (content) {
                 const newContent = {...content.default};
