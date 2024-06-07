@@ -1,3 +1,5 @@
+import Link from 'components/link/Component';
+
 import {
         FaGlobe,
         FaYoutube,
@@ -7,6 +9,48 @@ import {
         FaFacebook
         }          from "react-icons/fa";
 
+const playlist = [
+    {
+        artist: 'Gotan Project',
+        song: 'Peligro',
+        yt: 'EsYVPlFj6_s',
+    },
+    {
+        artist: 'Gotan Project',
+        song: 'Tu Misterio',
+        yt: 'Vr5x5slFCMg',
+    },
+    {
+        artist: 'Gotan Project',
+        song: 'Rayuela',
+        yt: 'xHBeF1HlBsM',
+    },
+    {
+        artist: 'Gotan Project',
+        song: 'La Gloria',
+        yt: 'jNZO7joN8ng',
+    },
+    {
+        artist: 'Gotan Project',
+        song: 'De Hombre a Hombre',
+        yt: 'vCcKWOVC620',
+    },
+    {
+        artist: 'Gotan Project',
+        song: 'Cité Tango',
+        yt: 'tNpbcQWgvAs',
+    },
+    {
+        artist: 'Gotan Project',
+        song: 'Santa Maria (Del Buen Ayre)',
+        yt: 'bp55S6Wta4M',
+    },
+    {
+        artist: 'Gotan Project',
+        song: 'El Capitalismo Foráneo',
+        yt: 'OXx3U0udjPo',
+    },   
+];
 const body = <article>
     <h2>Introducción</h2>
     <p>
@@ -26,17 +70,17 @@ const body = <article>
     <blockquote>
         Gotan Project fue el primero en llevar con éxito lo tradicional y lo folclórico al espacio electrónico.
         <br/>
-	    (...) Beats discretos, estados de ánimo reflexivos y atmósferas arraigadas en las polvorientas callejuelas de Buenos Aires y París, mezcladas con voces maravillosas como la de Cristina Vilallonga en 'Peligro' o Melingo bendiciendo 'Tu Misterio'.
+	    (...) Beats discretos, estados de ánimo reflexivos y atmósferas arraigadas en las polvorientas callejuelas de Buenos Aires y París, mezcladas con voces maravillosas como la de Cristina Vilallonga en <Link type="song" data={{song: playlist[0], idx: 0}}>Peligro</Link> o Melingo bendiciendo <Link type="song" data={{song: playlist[1], idx: 1}}>Tu Misterio</Link>.
     </blockquote>
     <p>
-        La influencia de la cultura argentina sobre Eduardo Makaroff no pasa desapercibida. En su álbum del 2010 <b>Tango 3.0</b> se rinde homenaje a ciertos personajes argentinos como al autor Julio Cortázar a través de la lectura de su novela <i>Rayuela</i> sobre la canción del mismo nombre y Víctor Hugo Morales, el comentarista de fútbol, hace una aparición en su sencillo <i>La Gloria</i> narrando un partido de fútbol. Se puede escuchar claramente un ¡GOOOOO...!, que se espera que termine siendo un ¡GOL! y termina sorpresivamente transformándose en ¡GOOOOO...TÁN!
+        La influencia de la cultura argentina sobre Eduardo Makaroff no pasa desapercibida. En su álbum del 2010 <b>Tango 3.0</b> se rinde homenaje a ciertos personajes argentinos como al autor Julio Cortázar a través de la lectura de su novela <i>Rayuela</i> sobre <Link type="song" data={{song: playlist[2], idx: 2}}>la canción del mismo nombre</Link> y Víctor Hugo Morales, el comentarista de fútbol, hace una aparición en su sencillo <Link type="song" data={{song: playlist[3], idx: 3}}>La Gloria</Link> narrando un partido de fútbol. Se puede escuchar claramente un ¡GOOOOO...!, que se espera que termine siendo un ¡GOL! y termina sorpresivamente transformándose en ¡GOOOOO...TÁN!
     </p>
     <p>
         El trío describe su música como cinemática, han trabajado previamente, no en conjunto, en películas.
         <br/>
         Tratan de expresar los sentimientos del tango a través de una mezcla entre el soundtrack y la atmósfera.
         <br/>
-        La canción <b>De hombre a hombre</b>, de su disco Tango 3.0, es inspirado por David Lynch. 
+        La canción <Link type="song" data={{song: playlist[4], idx: 4}}>De Hombre a Hombre</Link>, de su disco Tango 3.0, es inspirado por David Lynch. 
     </p>
 
     <h2>Apariciones</h2>
@@ -44,9 +88,9 @@ const body = <article>
         La música del trío ha tenido una repercusión internacional inesperada, no solamente vendiendo miles de discos alrededor del mundo, sino también realizando apariciones en películas y series de televisión. Entre ellas:
     </p>
     <ul>
-        <li>En la serie de televisión argentina <b>Los simuladores</b>. Se usa su versión de <i>Cité Tango</i> tanto en la presentación del programa como en los celulares de los protagonistas como ringtone.</li>
-        <li>En la serie de televisión estadounidense <b>Nip/Tuck</b> se usa <i>Santa María del Buen Ayre</i> como soundtrack en el capítulo 15 de la temporada 3.</li>
-        <li>En la película <b>Ocean's Twelve</b> se escucha la canción <i>El capitalismo foráneo</i>.</li>
+        <li>En la serie de televisión argentina <b>Los simuladores</b>. Se usa su versión de <Link type="song" data={{song: playlist[5], idx: 5}}>Cité Tango</Link> tanto en la presentación del programa como en los celulares de los protagonistas como ringtone.</li>
+        <li>En la serie de televisión estadounidense <b>Nip/Tuck</b> se usa <Link type="song" data={{song: playlist[6], idx: 6}}>Santa María del Buen Ayre</Link> como soundtrack en el capítulo 15 de la temporada 3.</li>
+        <li>En la película <b>Ocean's Twelve</b> se escucha la canción <Link type="song" data={{song: playlist[7], idx: 7}}>El capitalismo foráneo</Link>.</li>
     </ul>
 
     <p>
@@ -77,48 +121,8 @@ const body = <article>
 const data = {
     title: 'Gotan Project',
     body,
-    playlist: [
-        {
-            artist: 'Gotan Project',
-            song: 'Peligro',
-            yt: 'EsYVPlFj6_s',
-        },
-        {
-            artist: 'Gotan Project',
-            song: 'Tu misterio',
-            yt: 'Vr5x5slFCMg',
-        },
-        {
-            artist: 'Gotan Project',
-            song: 'Rayuela',
-            yt: 'xHBeF1HlBsM',
-        },
-        {
-            artist: 'Gotan Project',
-            song: 'La Gloria',
-            yt: 'jNZO7joN8ng',
-        },
-        {
-            artist: 'Gotan Project',
-            song: 'De Hombre a Hombre',
-            yt: 'vCcKWOVC620',
-        },
-        {
-            artist: 'Gotan Project',
-            song: 'Cité Tango',
-            yt: 'tNpbcQWgvAs',
-        },
-        {
-            artist: 'Gotan Project',
-            song: 'Santa Maria (Del Buen Ayre)',
-            yt: 'bp55S6Wta4M',
-        },
-        {
-            artist: 'Gotan Project',
-            song: 'El Capitalismo Foráneo',
-            yt: 'OXx3U0udjPo',
-        },   
-    ]
+    playlist,
+    genre: 'neo'
 };
 
 export default data;

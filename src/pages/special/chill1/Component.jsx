@@ -40,11 +40,12 @@ const data = {
             song: 'ElectroTANGO',
             yt: 'M7IZw7mEntE',
         },
-        {
+        // Unavailable on other websites
+        /*{
             artist: 'DJ-Zen',
             song: 'ElectroTANGO II REMIX',
             yt: 'BmNH_dGr_K8',
-        },
+        },*/
     ]
 };
 

@@ -1,22 +1,63 @@
+import Link from 'components/link/Component';
+
+const playlist = [
+    {
+        artist: 'Juan D\'Arienzo',
+        song: 'El entrerriano',
+        yt: '6hwJrH8LHIU',
+    },
+    {
+        artist: 'Juan D\'Arienzo y su Orquesta Típica',
+        song: 'La Cumparsita',
+        yt: 'RlJAlla0y9E',
+    },
+    {
+        artist: 'Francisco Cnaro (En honor al negro Casimiro)',
+        song: 'Cara Sucia',
+        yt: 'HySRj0dKTt8',
+    },
+    {
+        artist: 'Ángel Villoldo',
+        song: 'El Choclo',
+        yt: 'xFL1hIqqhag',
+    },
+    {
+        artist: 'Georges Bizet, compositor. Angela Gheorghiu, cantante.',
+        song: 'Habanera',
+        yt: 'tSsNFPk2vNA',
+    },
+    {
+        artist: 'Mario Marzan',
+        song: 'Estilos de tango',
+        yt: '44SqzyUHn2k',
+        skipAutoPlay: true,
+    },
+    {
+        artist: 'Destiny Quartet',
+        song: 'El Choclo',
+        yt: 'zcZeaUZve88',
+    },
+];
+
 const body = <article>
     <p>
-        El tango es un fenomeno muy curioso producto de hibridacion y superposicion de tradiciones europeas y rioplatenses.
+        El tango es un fenómeno muy curioso producto de hibridación y superposición de tradiciones europeas y rioplatenses.
         <br/>
-        Desde sus origines hasta el dia de hoy ha sabido abrirse entre los espacios de la cultura argentina hasta lugares insospechados, alcanzando admiracion global.
+        Desde sus orígenes hasta el día de hoy ha sabido abrirse entre los espacios de la cultura argentina hasta lugares insospechados, alcanzando admiración global.
     </p>
     <p>
         ¿Cómo nació este proceso? Esta es una pregunta que ha generado constante debate y que elaboraremos en esta entrada.
     </p>
     <p>
-        Para empezar, debemos mencionar el mito de los origenes. Lo cierto es que en el arte y la ciencia no es posible establecer un momento puntual en el que inequivocamente nacen las teorias o los generos. Sí, hay varias propuestas para indicar un origen. Entre ellos:    
+        Para empezar, debemos mencionar el mito de los orígenes. Lo cierto es que en el arte y la ciencia no es posible establecer un momento puntual en el que inequívocamente nacen las teorías o los géneros. Sí, hay varias propuestas para indicar un origen. Entre ellas:    
     </p>
     
     <ul>
-        <li>Con el estreno de Concha Sucia, en 1884*</li>
+        <li>Con el estreno de <Link type="song" data={{song: playlist[2], idx: 2}}>Cara Sucia</Link>, en 1884*</li>
         <li>Con la incorporación del bandoneón, instrumento típico del tango argentino, en 1910.</li>
-        <li>Con la exposición de El Choclo de Villoldo en 1903**</li>
-        <li>Con la Cumparsita, compuesta por Gerardo Matos Rodriguez, uruguayo.</li>
-        <li>Con la primera partitura de tango, el entrerriano, en 1868</li>
+        <li>Con la exposición de <Link type="song" data={{song: playlist[3], idx: 3}}>El Choclo</Link> de Villoldo en 1903**</li>
+        <li>Con <Link type="song" data={{song: playlist[1], idx: 1}}>La Cumparsita</Link>, compuesta por Gerardo Matos Rodriguez, uruguayo.</li>
+        <li>Con la primera partitura de tango, <Link type="song" data={{song: playlist[0], idx: 0}}>El entrerriano</Link>, en 1868</li>
         <li>Con los ritmos del candombe</li>
     </ul>
 
@@ -36,7 +77,7 @@ const body = <article>
 
     <h3>Precursores</h3>
     <p>
-        Musicalmente hablando, el tango argentino parece haber surgido de la convergencia de varias fuentes de origen africano, europeo, americano y criollo: el candombé, el tango andaluz y el fandango, con influencias también de la polka y otros sonidos europeos.
+        Musicalmente hablando, el tango argentino parece haber surgido de la convergencia de varias fuentes de origen africano, europeo, americano y criollo: el candombe, el tango andaluz y el fandango, con influencias también de la polka y otros sonidos europeos.
     </p>
     <p>
         Desde el principio, el tango fue una música popular, rechazada y prohibida por las clases altas y la Iglesia Católica, por lo que se desarrolló en los conventillos de los barrios pobres de los suburbios (los arrabales), los puertos, los prostíbulos, los bodegones y las cárceles, donde interactuaban inmigrantes y la población local, descendientes en su mayoría de indígenas y esclavos africanos.
@@ -46,13 +87,13 @@ const body = <article>
     </p>
     <hr/>
     <p>
-        Otra de las influencias sobre el tango argentino es la Habanera. ¿Conocen la ópera Carmen? Aún si no conocen la obra completa, seguramente habán escuchado la Habanera. Es un clásico que se ha escuchado en múltiples teatros y se han hecho múltiples covers que han llegado a la televisión, como en famosos cartoons como ¡Oye Arnold!
+        Otra de las influencias sobre el tango argentino es la <Link type="song" data={{song: playlist[4], idx: 4}}>Habanera</Link>. ¿Conocen la ópera Carmen? Aún si no conocen la obra completa, seguramente habrán escuchado la Habanera. Es un clásico que se ha escuchado en múltiples teatros y se han hecho múltiples covers que han llegado a la televisión, como en famosos cartoons como ¡Oye Arnold!
     </p>
     <p>
         Se dice que este ha sido el principal antecesor del tango de la vieja guardia. Los invito a escuchar la Habanera y el Choclo a ver qué piensan.
     </p>
     <p>
-        ¿Se logra esuchar el parecido? El video "Estilos de tango" de Mario Marzan, nos ayuda a ver la transición entre ambos.
+        ¿Se logra escuchar el parecido? El video <Link type="song" data={{song: playlist[5], idx: 5}}>Estilos de tango</Link> de Mario Marzan, nos ayuda a ver la transición entre ambos.
     </p>
 
     <h3>Estructura</h3>    
@@ -143,44 +184,7 @@ const data = {
     time: 7,
     title: 'Orígenes',
     body,
-    playlist: [
-        {
-            artist: 'Juan D\'Arienzo',
-            song: 'El entrerriano',
-            yt: '6hwJrH8LHIU',
-        },
-        {
-            artist: 'Juan D\'Arienzo y su Orquesta Típica',
-            song: 'La Cumparsita',
-            yt: 'RlJAlla0y9E',
-        },
-        {
-            artist: 'Francisco Cnaro (En honor al negro Casimiro)',
-            song: 'Cara Sucia',
-            yt: 'HySRj0dKTt8',
-        },
-        {
-            artist: 'Ángel Villoldo',
-            song: 'El Choclo',
-            yt: 'xFL1hIqqhag',
-        },
-        {
-            artist: 'Georges Bizet, compositor. Angela Gheorghiu, cantante.',
-            song: 'Habanera',
-            yt: 'tSsNFPk2vNA',
-        },
-        {
-            artist: 'Mario Marzan',
-            song: 'Estilos de tango',
-            yt: '44SqzyUHn2k',
-            skipAutoPlay: true,
-        },
-        {
-            artist: 'Destiny Quartet',
-            song: 'El Choclo',
-            yt: 'zcZeaUZve88',
-        },
-    ]
+    playlist
 };
 
 export default data;

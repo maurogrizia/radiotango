@@ -1,5 +1,82 @@
-import {FaWikipediaW} from "react-icons/fa";
+import Link from 'components/link/Component';
 
+const playlist = [
+    /*{
+        artist: 'Astor Piazzolla',
+        song: 'La Catinga',
+        yt: '',
+    },*/
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Buenos Aires: I. Moderato',
+        yt: 'lCv4ChCaYdI',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Buenos Aires: II. Lento',
+        yt: '1OK4heqSKTg',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Buenos Aires: III. Presto marcato',
+        yt: 'ITOEzkBFwTQ',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Picasso',
+        yt: '3JWva0UgMtM',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Luz y sombra',
+        yt: 'fB5SNu-xPbA',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Bandó',
+        yt: '2cHkNntGWxw',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Prepárense',
+        yt: 'SW2QCv5sfOU',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Adiós Nonino',
+        yt: 'VTPec8z5vdY',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Las Estaciones porteñas',
+        yt: '8BdtEAUnBrs',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Buenos Aires Hora Cero',
+        yt: 'ZwO8sS3EGfc',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Suite troileana',
+        yt: 'hviL8vlMtVg',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Libertango',
+        yt: 'vaXNdVTGT0k',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Introducción del ángel',
+        yt: 'CbIfQdgeB4g',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Vuelvo al sur',
+        yt: 'z5SLbNid2E4',
+    },
+];
 const body = <article>
     <h2>Introducción</h2>
     <p>
@@ -30,7 +107,7 @@ const body = <article>
         <br/>
         Asunta había aprendido el oficio de peluquera y junto con una amiga habían puesto un negocio al que llamaron “Mary Susan”.
         <br/>
-        Una de sus clientas,  profesora de música, llegó a hacer un trato con Asunta: a cambio de hacerle periódicamente la manicura, ella le diera lecciones de música a Astor.
+        Una de sus clientas, profesora de música, llegó a hacer un trato con Asunta: a cambio de hacerle periódicamente la manicura, ella le diera lecciones de música a Astor.
         <br/>
         Lamentablemente este acuerdo fue temporal debido al comportamiento de Astor.
     </p>
@@ -91,27 +168,27 @@ const body = <article>
         <b>El bandoneón no era un instrumento bien recibido por sus pares</b> y Piazzolla recibió muchos prejuicios por su uso. Tal fue el efecto de estos prejuicios que, cuando estaba en Europa, solía esconder su bandoneón para que nadie supiera que lo tocaba. Varias veces se vio en la encrucijada entre ser un tanguero o ser un compositor de música académica.
     </p>
     <p>
-        En el año 1955, estando París, grabó el álbum <i>Two Argentinians In Paris</i>, con temas como <i>Picasso</i>, <i>Luz y sombra</i> y <i>Bandó</i>.
+        En el año 1955, estando París, grabó el álbum <i>Two Argentinians In Paris</i>, con temas como <Link type="song" data={{song: playlist[3], idx: 3}}>Picasso</Link>, <Link type="song" data={{song: playlist[4], idx: 4}}>Luz y sombra</Link> y <Link type="song" data={{song: playlist[5], idx: 5}}>Bandó</Link>.
         <br/>
-        Allí no solo descubrió que el tango era apreciado y bailado en París, sino también que su pieza <i>Prepárense</i> figuraba en los repertorios locales.
+        Allí no solo descubrió que el tango era apreciado y bailado en París, sino también que su pieza <Link type="song" data={{song: playlist[6], idx: 6}}>Prepárense</Link> figuraba en los repertorios locales.
         <br/>
         Desde ese momento se decidió a “hacer Piazzolla”, es decir, a componer sin preocuparse de si rompía o no las reglas del tango tradicional.
     </p>
     <p>
-        En 1959, mientras realizaba una gira por Centroamérica, <b>recibió la noticia de la muerte de su padre y compuso en su honor <i>Adiós Nonino</i></b>, probablemente el tango más célebre de toda su obra.
+        En 1959, mientras realizaba una gira por Centroamérica, <b>recibió la noticia de la muerte de su padre y compuso en su honor <Link type="song" data={{song: playlist[7], idx: 7}}>Adiós Nonino</Link></b>, probablemente el tango más célebre de toda su obra.
     </p>
     <p>
         En 1960, Piazzolla regresó a Buenos Aires y fundó la orquesta en la que mejor pudo expresar su visión del tango y de la música tradicional porteña: el Quinteto Tango Nuevo,
         <br/>
-        Con el Quinteto, Piazzolla dio a conocer muchas de sus grandes obras, como <i>Adiós Nonino</i>, <i>las Estaciones porteñas</i>, <i>Buenos Aires Hora Cero</i>, <i>la Serie del Ángel</i> y <i>la Serie del Diablo</i>, entre otras.
+        Con el Quinteto, Piazzolla dio a conocer muchas de sus grandes obras, como <Link type="song" data={{song: playlist[7], idx: 7}}>Adiós Nonino</Link>, <Link type="song" data={{song: playlist[8], idx: 8}}>las Estaciones porteñas</Link>, <Link type="song" data={{song: playlist[9], idx: 9}}>Buenos Aires Hora Cero</Link>, <Link type="song" data={{song: playlist[12], idx: 12}}>la Serie del Ángel</Link> y <i>la Serie del Diablo</i>, entre otras.
     </p>
 
     <h2>Últimos años</h2>
     <p>
-        En 1973, Piazzolla sufrió un infarto. Se vio obligado a asentarse en Italia y bajar el ritmo de trabajo, donde formó un nuevo octeto, llamado el <b>Conjunto Eléctrico</b>, junto con reconocidos músicos italianos de la época. Allí <b>se enteró de la muerte de su amigo Aníbal Troilo</b> en 1975 y compuso en su honor <i>la Suite troileana</i>, una obra en cuatro movimientos que grabó con el Conjunto Eléctrico.
+        En 1973, Piazzolla sufrió un infarto. Se vio obligado a asentarse en Italia y bajar el ritmo de trabajo, donde formó un nuevo octeto, llamado el <b>Conjunto Eléctrico</b>, junto con reconocidos músicos italianos de la época. Allí <b>se enteró de la muerte de su amigo Aníbal Troilo</b> en 1975 y compuso en su honor <Link type="song" data={{song: playlist[10], idx: 10}}>la Suite troileana</Link>, una obra en cuatro movimientos que grabó con el Conjunto Eléctrico.
     </p>
     <p>
-        Al año siguiente, inició una relación amorosa con Laura Escalada, con quien pasaría el resto de sus días. En esos años, además, compuso algunas de sus piezas más famosas, como <i>Libertango</i> y <i>Le Grand Tango</i>, esta última con el Quinteto Tango Nuevo.
+        Al año siguiente, inició una relación amorosa con Laura Escalada, con quien pasaría el resto de sus días. En esos años, además, compuso algunas de sus piezas más famosas, como <Link type="song" data={{song: playlist[11], idx: 11}}>Libertango</Link> y <i>Le Grand Tango</i>, esta última con el Quinteto Tango Nuevo.
     </p>
     <p>
         A finales de la década de 1980, la salud de Piazzolla había empezado a dar señales claras de desmejoría. En 1988 tuvo que ser operado del corazón y recibió un cuádruple bypass, poco antes de formar su última agrupación, el Sexteto Nuevo Tango.
@@ -125,16 +202,15 @@ const body = <article>
         Nací en Mar del Plata, me crié en Nueva York, encontré mi camino en París, pero cada vez que subo a un escenario la gente sabe que voy a tocar música de Buenos Aires 
     </blockquote>
     <p>
-        Piazzolla rompió un paradigma musical. Renovó el tango a través de la incorporación de elementos de la música académica y jazz tales como el contrapunto, fugas e improvisaciones jazzisticas, dándole vida a lo que hoy conocemos como nuevo estilo denominado <b>tango de vanguardia o nuevo tango</b>.
+        Piazzolla rompió un paradigma musical. Renovó el tango a través de la incorporación de elementos de la música académica y jazz tales como el contrapunto, fugas e improvisaciones jazzísticas, dándole vida a lo que hoy conocemos como nuevo estilo denominado <b>tango de vanguardia o nuevo tango</b>.
         <br/>
         Cualquier persona que rompe un paradigma, encuentra resistencia, y eso ocurrió con su música. Con el paso del tiempo, su nombre fue reconocido por más gente hasta hacerse leyenda y su música llegó a expanderse de forma internacional.
     </p>
     <p>
-        Su música se expresa en múltiples niveles y posee una enorme profundidad. A la vez, deja traslucir una historia llena de experimentación, juego, ingenio y diligencia, así como deja ver su historia personal ,llena de interminables luchas contra la adversidad.
+        Su música se expresa en múltiples niveles y posee una enorme profundidad. A la vez, deja traslucir una historia llena de experimentación, juego, ingenio y diligencia, así como deja ver su historia personal, llena de interminables luchas contra la adversidad.
         <br/>
         Es una verdadera unión entre el tango y de lo contemporáneo. La música y la obra de Piazzolla continuarán inspirando a muchas clases de músicos y son una influencia importante en la música del siglo XXI.
     </p>
-
 
     <h3>Referencias</h3>
     <ol>
@@ -159,83 +235,8 @@ const body = <article>
 const data = {
     title: 'Astor Piazzolla',
     body,
-    playlist: [
-        /*{
-            artist: 'Astor Piazzolla',
-            song: 'La Catinga',
-            yt: '',
-        },*/
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Buenos Aires: I. Moderato',
-            yt: 'lCv4ChCaYdI',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Buenos Aires: II. Lento',
-            yt: '1OK4heqSKTg',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Buenos Aires: III. Presto marcato',
-            yt: 'ITOEzkBFwTQ',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Picasso',
-            yt: '3JWva0UgMtM',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Luz y sombra',
-            yt: 'fB5SNu-xPbA',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Bandó',
-            yt: '2cHkNntGWxw',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Prepárense',
-            yt: 'SW2QCv5sfOU',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Adiós Nonino',
-            yt: 'VTPec8z5vdY',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Las Estaciones porteñas',
-            yt: '8BdtEAUnBrs',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Buenos Aires Hora Cero',
-            yt: 'ZwO8sS3EGfc',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Suite troileana',
-            yt: 'hviL8vlMtVg',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Libertango',
-            yt: 'vaXNdVTGT0k',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Introducción del ángel',
-            yt: 'CbIfQdgeB4g',
-        },
-        {
-            artist: 'Astor Piazzolla',
-            song: 'Vuelvo al sur',
-            yt: 'z5SLbNid2E4',
-        },
-    ]
+    playlist,
+    genre: 'nuevo',
 };
 
 export default data;
