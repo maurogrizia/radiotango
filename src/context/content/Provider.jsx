@@ -23,6 +23,7 @@ const ContextProvider = ({ children }) => {
     const [isAutoplay, setIsAutoplay] = useState(0);
     const [isClosedLeft, setIsClosedLeft] = useState(true);
     const [isClosedRight, setIsClosedRight] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [showCanvas, setShowCanvas] = useState(false);
     
     const removeNoAnimateClass = () => {
@@ -69,6 +70,7 @@ const ContextProvider = ({ children }) => {
         isAutoplay,
         isClosedLeft,
         isClosedRight,
+        isPlaying,
         showCanvas,
         changePlayer: song => {
             if (isAutoplay === 0) {
@@ -119,6 +121,9 @@ const ContextProvider = ({ children }) => {
         },
         changeIsClosedLeft,
         changeIsClosedRight,
+        changeIsPlaying: ip => {
+            setIsPlaying(ip);
+        },
         changeShowCanvas: showCanvas => {
             setShowCanvas(showCanvas);
         }

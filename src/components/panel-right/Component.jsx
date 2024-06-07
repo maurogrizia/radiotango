@@ -16,7 +16,7 @@ import {  Tooltip }         from 'react-tooltip';
 import './styles.css';
 
 const PanelRight = (props) => {
-  const { isClosedRight, contentRight, player, changeIsClosedRight, changePlayer, changeIdxPlayer, isAutoplay } = useContext(ContentContext);
+  const { isClosedRight, contentRight, player, changeIsClosedRight, changeIsPlaying, changePlayer, changeIdxPlayer, isAutoplay } = useContext(ContentContext);
   const [isClosedUp, setIsClosedUp] = useState(true);
 
   const togglePanel = () => {
@@ -185,6 +185,8 @@ const PanelRight = (props) => {
               className="text-center"
               videoId={player.yt}
               title={`${player.artist} - ${player.song}`}
+              onPlay={() => {changeIsPlaying(true)}}
+              onPause={() => {changeIsPlaying(false)}}
               onEnd={() => {chooseSong({go: 'next'})}}
               //onEnd={() => {changeIdxPlayer((idxPlayer + 1) % contentRight.playlist.length)}}
               opts={{width: "100%", height: "auto", playerVars: {autoplay: isAutoplay}}}

@@ -4,16 +4,30 @@
 
 /* this is what I use to place the menu thing wherever I want*/
 .container-socials {
-	position: relative;
-	top: 4em;
+	position: absolute;
+	/*top: 4em;*/
+    bottom: 0em;
 	right: 0.5em;
 
     --circle-size: 2.5em;
     --top: 2em;
+    --bottom: 2em;
     --void: 0.25em;
     --icon-size: 1.25em;
     --top-toggle: -3em;
-    --right-toggle: 0em;
+    --bottom-toggle: 0.5em;
+    --right-toggle: 0.5em;
+}
+
+.container-socials.open {
+    --right-toggle: var(--width-panel-right);
+}
+
+.vh100 {
+    height: calc(var(--vh) * 100);
+    height: -moz-available;          /* WebKit-based browsers will ignore this. */
+    height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    height: fill-available;
 }
 
 /* this toggles the whole damn thing */
@@ -26,7 +40,8 @@
 	
 	position: absolute;
 	z-index: 50;
-	top: var(--top-toggle);
+	/*top: var(--top-toggle);*/
+    bottom: var(--bottom-toggle);
 	right: var(--right-toggle);
 	display: flex;
     justify-content: center;
@@ -51,6 +66,7 @@
 	height: var(--circle-size);
 	border-radius: 50%;
 	position: absolute;
+    display: block;
 	
 	background-color: var(--color-secondary);
 	color:#fff;
@@ -71,7 +87,7 @@
 	box-shadow: 4px 4px 2px 1px #00000033;
 }
 
-/* The most-popular apps in a circular thingo */
+/* The most-popular apps in a circular thing */
 .menu-round {
 	position: absolute;
 	top: 0;
@@ -80,7 +96,8 @@
 }
 
 .menu-round .btn-app {
-    top: calc(var(--top-toggle) * 0.75);
+    /*top: calc(var(--top-toggle) * 0.75);*/
+    bottom: var(--bottom-toggle * 0.75);
     right: var(--right-toggle);
     transition: 0.4s;
     display: flex;
@@ -90,26 +107,27 @@
     font-size: var(--icon-size);
 }
 
-.menu-round.open .btn-app:nth-of-type(1) {
-    right: 0.5em;
-    top: 1em;
+.menu-round.open a:nth-of-type(1) .btn-app {
+    right: calc(var(--right-toggle) + 0.5em);
+    bottom: calc(var(--bottom-toggle) + 3.5em);
     transition-delay: 0.2s;
-}
+} 
 
-.menu-round.open .btn-app:nth-of-type(2){
-    right: 3.5em;
-    top: 0em;
+.menu-round.open a:nth-of-type(2) .btn-app {
+    right: calc(var(--right-toggle) + 3.5em);
+    bottom: calc(var(--bottom-toggle) - 0.5em);
     transition-delay: 0.1s;
 }
-.menu-round.open .btn-app:nth-of-type(3){
-    right: 3.75em;
-    top: -3em;
+.menu-round.open a:nth-of-type(3) .btn-app {
+    right: calc(var(--right-toggle) + 3.5em);
+    bottom: calc(var(--bottom-toggle) + 2.5em);
 }
 
 /* stacked template icons */
 .menu-line {
 	position: absolute;
-    top: var(--top-toggle);
+    /*top: var(--top-toggle);*/
+    bottom: var(--bottom-toggle);
 	z-index: 20;
 }
 
@@ -126,7 +144,8 @@
 
 .menu-line.open {
     left: 0.5em;
-    top: calc(0.75em + var(--top-toggle));
+    /*top: calc(0.75em + var(--top-toggle));*/
+    bottom: calc(0.75em + var(--bottom-toggle));
     z-index: 120;
 }
 
@@ -177,15 +196,19 @@
     }
 }
 
-.menu-line.open .btn-app:nth-of-type(1) {
-    top: calc(var(--top) + 1 * (var(--circle-size) + var(--void)));
+.menu-line.open a:nth-of-type(1) .btn-app {
+    /*top: calc(var(--top) + 1 * (var(--circle-size) + var(--void)));*/
+    bottom: calc(var(--bottom) + 1 * (var(--circle-size) + var(--void)));
 }
-.menu-line.open .btn-app:nth-of-type(2) {
-    top: calc(var(--top) + 2 * (var(--circle-size) + var(--void)));
+.menu-line.open a:nth-of-type(2) .btn-app {
+    /*top: calc(var(--top) + 2 * (var(--circle-size) + var(--void)));*/
+    bottom: calc(var(--bottom) + 2 * (var(--circle-size) + var(--void)));
 }
-.menu-line.open .btn-app:nth-of-type(3) {
-    top: calc(var(--top) + 3 * (var(--circle-size) + var(--void)));
+.menu-line.open a:nth-of-type(3) .btn-app {
+    /*top: calc(var(--top) + 3 * (var(--circle-size) + var(--void)));*/
+    bottom: calc(var(--bottom) + 3 * (var(--circle-size) + var(--void)));
 }
-.menu-line.open .btn-app:nth-of-type(4) {
-    top: calc(var(--top) + 4 * (var(--circle-size) + var(--void)));
+.menu-line.open a:nth-of-type(4) .btn-app {
+    /*top: calc(var(--top) + 4 * (var(--circle-size) + var(--void)));*/
+    bottom: calc(var(--bottom) + 4 * (var(--circle-size) + var(--void)));
 }
