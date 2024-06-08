@@ -22,23 +22,28 @@ const Social = () => {
         setShowSocials(showSocials => {return !showSocials;})
     };
     const getSocialMediaMsg = () => {
-        //let msg = 'Free, online tango radio and blog - Radio Tango';
-        let msg = 'Radio y blog de tango online gratis - Radio Tango';
-        let link = 'https://radiotango.net.ar/';
+        const link = 'https://radiotango.net.ar/';
+        //const picture = 'https://radiotango.net.ar/background-original.webp';
+
+        let text = 'Radio y blog de tango online gratis - Radio Tango';
 
         if (!isClosedRight) {
             if (isPlaying) {
-                msg = `Escuchando ${player.song}, por ${player.artist} en Radio Tango!`;
+                text = `Escuchando ${player.song}, por ${player.artist} en Radio Tango!`;
             } else {
-                msg = `Leyendo ${contentRight.title} en Radio Tango!`;
+                text = `Leyendo ${contentRight.title} en Radio Tango!`;
             }
         }
+        const encodedMsg = encodeURIComponent(`${text}\n\n${link}`);
 
-        return `${msg}\n\n${link}`;
+        return {
+            fb: `https://www.facebook.com/sharer/sharer.php?u=${link}`,
+            th: `https://threads.net/intent/post?text=${encodedMsg}`,
+            tw: `https://twitter.com/intent/tweet?text=${encodedMsg}`,
+        };
     }
 
-    const msg = getSocialMediaMsg();
-    const encodedMsg = encodeURIComponent(msg);
+    const urls = getSocialMediaMsg();
     
     return (
         <>
@@ -48,17 +53,17 @@ const Social = () => {
             </div>
             
             <div className={`menu-round ${showSocials? 'open' : ''}`}>
-                <a href={`https://twitter.com/intent/tweet?text=${encodedMsg}`} target='_blank'>
+                <a href={urls.tw} target='_blank'>
                     <div className="btn-app">
                         <FaXTwitter/>
                     </div>
                 </a>
-                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedMsg}`} target='_blank'>
+                <a href={urls.fb} target='_blank'>
                     <div className="btn-app">
                         <FaFacebook/>
                     </div>
                 </a>
-                <a href={`https://threads.net/intent/post?text=${encodedMsg}`} target='_blank'>
+                <a href={urls.th} target='_blank'>
                     <div className="btn-app">
                         <FaThreads/>
                     </div>
