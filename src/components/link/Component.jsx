@@ -23,11 +23,22 @@ const Link = (props) => {
             followLinkFuncs[props.type](data);
         }
     };
+    const handleClick = (e) => {
+        followLink(e);
+
+        const iconAbs = document.getElementById('icon-abs');
+
+        iconAbs.classList.add('show');
+        setTimeout(() => {
+            iconAbs.classList.remove('show');
+        }, 2500);
+        
+    }
 
     return (
         <mark 
             className="special-link"
-            onClick={followLink}
+            onClick={handleClick}
             data-data={JSON.stringify(props.data)}
             data-href={props.href}
             data-type={props.type}

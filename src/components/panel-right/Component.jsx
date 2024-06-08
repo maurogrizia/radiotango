@@ -6,7 +6,8 @@ import {  Button,
           ListGroup}        from 'react-bootstrap';
 import {  FaRegWindowClose,
           FaCaretUp,
-          FaCaretDown}      from 'react-icons/fa';
+          FaCaretDown,
+          FaVolumeUp}       from 'react-icons/fa';
 import    YouTube           from 'react-youtube';
 
 import    ContentContext    from 'context/content/Context';
@@ -156,6 +157,7 @@ const PanelRight = (props) => {
           className='m-0'
           onClick={toggleCard}
         >
+          <FaVolumeUp id="icon-abs"/>
           {isClosedUp
             ? <FaCaretUp/>
             : <FaCaretDown/>}
