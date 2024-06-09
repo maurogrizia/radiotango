@@ -99,7 +99,6 @@ const PanelRight = (props) => {
       const newIdx = chooseNewIdx[instruction.go](player.idx || 0);
       
       newSong = {song: playlist[newIdx], idx: newIdx};
-      console.log(newSong)
     } else {
       newSong.idx = instruction.idx;
     }
@@ -173,7 +172,7 @@ const PanelRight = (props) => {
                 return (
                   <ListGroup.Item
                     action
-                    className={idx === player.idx? "act" : ""}
+                    className={song.artist === player.song.artist && song.song === player.song.song? "act" : ""}
                     variant="secondary"
                     key={label}
                     onClick={(e) => {toggleLI(e); chooseSong({song, idx})}}>

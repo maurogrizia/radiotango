@@ -1,4 +1,4 @@
-import { ListGroup } from "react-bootstrap";
+import Link from "components/link/Component";
 
 import './styles.css';
 
@@ -24,7 +24,7 @@ const Component = () => {
             Te ofrecemos una experiencia musical única, donde podrás disfrutar de una selección cuidadosamente curada de tangos clásicos y modernos.
         </p>
         <p>
-            Vas a encontrarte con artistas referentes del género como Villoldo y Piazzolla, así como vas a descubrir artistas emergentes que le dan una vuelta de rosca y aportan nuevos sonidos.
+            Vas a encontrarte con artistas referentes del género como Villoldo y <Link type="article" data={{href: "Piazzolla"}}>Piazzolla</Link>, así como vas a descubrir artistas emergentes que le dan una vuelta de rosca y aportan nuevos sonidos.
         </p>
         
         <h5>

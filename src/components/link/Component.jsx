@@ -28,10 +28,12 @@ const Link = (props) => {
 
         const iconAbs = document.getElementById('icon-abs');
 
-        iconAbs.classList.add('show');
-        setTimeout(() => {
-            iconAbs.classList.remove('show');
-        }, 2500);
+        if (props.type === 'song') {
+            iconAbs.classList.add('show');
+            setTimeout(() => {
+                iconAbs.classList.remove('show');
+            }, 2500);
+        }
         
     }
 
