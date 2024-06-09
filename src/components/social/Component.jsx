@@ -29,7 +29,7 @@ const Social = () => {
 
         if (!isClosedRight) {
             if (isPlaying) {
-                text = `Escuchando ${player.song}, por ${player.artist} en Radio Tango!`;
+                text = `Escuchando ${player.song.song}, por ${player.song.artist} en Radio Tango!`;
             } else {
                 text = `Leyendo ${contentRight.title} en Radio Tango!`;
             }

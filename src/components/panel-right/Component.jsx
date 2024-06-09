@@ -114,7 +114,7 @@ const PanelRight = (props) => {
           bg="primary"
           className="m-0 close"
           data-tooltip-id="tt-slide-panel"
-          data-tooltip-content="Open"
+          data-tooltip-content="Abrir"
           data-tooltip-place="left"
           onClick={() => {changeIsClosedRight(false); togglePanel(); toggleButton();}}
         >
@@ -125,7 +125,7 @@ const PanelRight = (props) => {
           bg="primary"
           className="m-0 open"
           data-tooltip-id="tt-slide-panel"
-          data-tooltip-content="Close"
+          data-tooltip-content="Cerrar"
           data-tooltip-place="left"
           onClick={() => {changeIsClosedRight(true); togglePanel(); toggleButton();}}
         >

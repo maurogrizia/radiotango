@@ -32,14 +32,54 @@ const body = <article>
 </article>;
 
 const data = {
-    title: 'Electrotango Chill',
+    title: 'Tango moderno cantado',
     body,
     playlist: [
         {
+            artist: 'Supertangox',
+            song: 'Free As a Bird',
+            yt: 'dxGgbv4nldw',
+        },
+        {
+            artist: 'Tango Jointz',
+            song: 'Vuelvo al Sur',
+            yt: 'rCwZQQL-3FU',
+        },
+        {
+            artist: 'Supertangox',
+            song: 'Eleanor Rigby',
+            yt: 'zCaD42aKXQ8',
+        },
+        {
+            artist: '',
+            song: '',
+            yt: '',
+        },
+        {
+            artist: '',
+            song: '',
+            yt: '',
+        },
+        {
+            artist: '',
+            song: '',
+            yt: '',
+        },
+        {
+            artist: '',
+            song: '',
+            yt: '',
+        },
+        {
+            artist: '',
+            song: '',
+            yt: '',
+        },
+        /*{
             artist: 'Diego Rodrigues & DJ-Zen',
             song: 'ElectroTANGO',
             yt: 'M7IZw7mEntE',
-        },
+        },*/
         // Unavailable on other websites
         /*{
             artist: 'DJ-Zen',

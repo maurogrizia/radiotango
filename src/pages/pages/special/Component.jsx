@@ -10,8 +10,28 @@ const Component = () => {
     const entries = [
         {
             date: '2024/06/06',
-            name: 'Electrotango Chill',
-            href: 'Chill1',
+            name: 'Electrotango Chill Instrumental',
+            href: 'ChillIns1',
+        },
+        {
+            date: '2024/06/09',
+            name: 'Lofi Tango',
+            href: 'Lofi1',
+        },
+        {
+            date: '2024/06/09',
+            name: 'Tango de orquesta',
+            href: 'Orquesta1',
+        },
+        {
+            date: '2024/06/09',
+            name: 'Mujeres en el tango',
+            href: 'Women1',
+        },
+        {
+            date: '2024/06/09',
+            name: 'Tango Nuevo',
+            href: 'Nuevo1',
         },
     ];
     const filtered = search === ''? entries : entries.filter((x) => {return x.name.toLowerCase().includes(search)});

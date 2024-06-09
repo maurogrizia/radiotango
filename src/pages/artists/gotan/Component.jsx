@@ -57,7 +57,7 @@ const body = <article>
         <b>Gotan Project</b> es una banda de neotango asentada en París, integrada por artistas internacionales de varios trasfondos: el suizo <b>Christoph H. Müller</b>, el francés <b>Philippe Cohen Solal</b> y el argentino <b>Eduardo Makaroff</b>.
     </p>
     <p>
-        El nombre es un clásico juego de palabras argentino, conocido como vesre, que consiste en invertir el orden de las sílabas en una palabra. Así, la palabra "tango" se convierte en "gotán".
+        El nombre es un clásico juego de palabras argentino, conocido como <i>vesre</i>, que consiste en invertir el orden de las sílabas en una palabra. Así, la palabra "tango" se convierte en "gotán".
     </p>
 
     <h2>Estilo</h2>
