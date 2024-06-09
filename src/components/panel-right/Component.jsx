@@ -93,20 +93,20 @@ const PanelRight = (props) => {
         return Math.floor(Math.random() * playlist.length);
       }
     };
-
-    let newSong = instruction.song;
+    let newSong = instruction.song? {song: instruction.song} : null;
 
     if (!newSong) {
       const newIdx = chooseNewIdx[instruction.go](player.idx || 0);
       
-      newSong = {...playlist[newIdx], idx: newIdx};
+      newSong = {song: playlist[newIdx], idx: newIdx};
+      console.log(newSong)
     } else {
       newSong.idx = instruction.idx;
     }
 
     changePlayer(newSong);
   };
-  
+
   return (
     <>
     {isClosedRight
@@ -173,7 +173,7 @@ const PanelRight = (props) => {
                 return (
                   <ListGroup.Item
                     action
-                    className={song.artist === player.artist && song.song === player.song? "act" : ""}
+                    className={idx === player.idx? "act" : ""}
                     variant="secondary"
                     key={label}
                     onClick={(e) => {toggleLI(e); chooseSong({song, idx})}}>
@@ -185,8 +185,8 @@ const PanelRight = (props) => {
             
             <YouTube
               className="text-center"
-              videoId={player.yt}
-              title={`${player.artist} - ${player.song}`}
+              videoId={player.song.yt}
+              title={`${player.song.artist} - ${player.song.song}`}
               onPlay={() => {changeIsPlaying(true)}}
               onPause={() => {changeIsPlaying(false)}}
               onEnd={() => {chooseSong({go: 'next'})}}

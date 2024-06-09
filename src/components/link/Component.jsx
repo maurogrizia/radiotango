@@ -9,7 +9,7 @@ const Link = (props) => {
     const followLink = (e) => {
         const followLinkFuncs = {
             song: (data) => {
-                changePlayer(data.song);
+                changePlayer(data);
             },
             article: (data) => {
                 changeContentRight(data.href);

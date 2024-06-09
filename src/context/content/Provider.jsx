@@ -15,7 +15,7 @@ const ContextProvider = ({ children }) => {
 
     const strDefaultPlayer = window.localStorage.getItem('player');
     const defaultPlayer = strDefaultPlayer? JSON.parse(strDefaultPlayer) : defaultSong;
-    const [player, setPlayer] = useState({...defaultPlayer, idx: 0});
+    const [player, setPlayer] = useState({song: defaultPlayer, idx: 0});
     
     const [isAnimated, setIsAnimated] = useState(false);
     const [contentLeft, setContentLeft] = useState('Home');

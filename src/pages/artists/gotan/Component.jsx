@@ -54,6 +54,9 @@ const playlist = [
 const body = <article>
     <h2>Introducción</h2>
     <p>
+    <Link type= "article" data={{href: "piazzolla"}}>Piazzolla</Link>
+    </p>
+    <p>
         <b>Gotan Project</b> es una banda de neotango asentada en París, integrada por artistas internacionales de varios trasfondos: el suizo <b>Christoph H. Müller</b>, el francés <b>Philippe Cohen Solal</b> y el argentino <b>Eduardo Makaroff</b>.
     </p>
     <p>
