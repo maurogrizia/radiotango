@@ -1,5 +1,5 @@
 :root {
-    --height-button: 2em;
+    --height-button: 3em;
     --width-button: 5.25em;
 }
 
@@ -44,19 +44,19 @@
 
 @media (max-height: 700px) {
     .stack-container {
-        --height-button: 2em;
+        --height-button: 3em;
         --width-button: 5em;
     }
 }
 @media (max-height: 500px) {
     .stack-container {
-        --height-button: 2em;
+        --height-button: 3em;
         --width-button: 5em;
     }
 }
 @media (max-height: 300px) {
     .stack-container {
-        --height-button: 2em;
+        --height-button: 3em;
         --width-button: 5em;
     }
 }
