@@ -195,6 +195,30 @@
     .menu-line.open {
         left: -0.75em;
     }
+    .menu-toggle {
+        --bottom-toggle: 4.25em;
+        --right-toggle: calc(var(--width-panel-right) + 1em)
+    }
+    .menu-round {
+        --bottom-toggle: 4.25em;
+        --right-toggle: calc(var(--width-panel-right) + 1em)
+    }
+    
+    .menu-round.open a:nth-of-type(1) .btn-app {
+        right: calc(var(--right-toggle) + 0.5em);
+        bottom: calc(var(--bottom-toggle) + 2.75em);
+        transition-delay: 0.2s;
+    } 
+    
+    .menu-round.open a:nth-of-type(2) .btn-app {
+        right: calc(var(--right-toggle) - 2.75em);
+        bottom: calc(var(--bottom-toggle) - 0.5em);
+        transition-delay: 0.1s;
+    }
+    .menu-round.open a:nth-of-type(3) .btn-app {
+        right: calc(var(--right-toggle) - 2em);
+        bottom: calc(var(--bottom-toggle) + 2.25em);
+    }
 }
 
 .menu-line.open a:nth-of-type(1) .btn-app {
