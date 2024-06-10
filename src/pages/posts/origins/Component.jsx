@@ -15,6 +15,7 @@ const playlist = [
         artist: 'Francisco Cnaro (En honor al negro Casimiro)',
         song: 'Cara Sucia',
         yt: 'HySRj0dKTt8',
+        ytStart: 9,
     },
     {
         artist: 'Ángel Villoldo',
@@ -25,6 +26,7 @@ const playlist = [
         artist: 'Georges Bizet, compositor. Angela Gheorghiu, cantante.',
         song: 'Habanera',
         yt: 'tSsNFPk2vNA',
+        skipAutoPlay: true,
     },
     {
         artist: 'Mario Marzan',

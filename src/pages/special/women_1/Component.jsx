@@ -36,27 +36,34 @@ const data = {
             artist: 'Mycrotípica Tanguera y Flor Cozzani',
             song: 'Alguien',
             yt: 'T7Y0kIwg1i8',
+            ytStart: 12,
+            ytEnd: 3 * 60 + 12,
             note: 'Cantado por Flor Cozzani'
         },
         {
             artist: 'Xime Gimenez y sus Infernales',
             song: 'Ahora No Me Conocés',
             yt: '0LzxyvYax0o',
+            ytEnd: 2 * 60 + 20,
         },
         {
             artist: 'La Empoderada Orquesta Atipica ft. Julieta Laso - LIVE',
             song: 'Sur',
-            yt: 'JZLYqc4e3tI&t=15s',
+            yt: 'JZLYqc4e3tI',
+            ytStart: 15,
+            ytEnd: 4 * 60 + 5,
         },
         {
             artist: 'Julieta Laso y Noelia Sinkunas - LIVE',
             song: 'El Ciruja',
             yt: 'bxhnNjp_x-M',
+            ytEnd: 2 * 60 + 35,
         },
         {
             artist: 'Vale 4 Tango trío',
             song: 'Los cosos de al lao\'',
             yt: 'ErQ_ZrjMUDI',
+            ytEnd: 2 * 60 + 4,
         },
         {
             artist: 'Sciammarella Tango',

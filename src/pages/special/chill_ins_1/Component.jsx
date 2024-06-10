@@ -74,6 +74,7 @@ const data = {
             artist: 'Electrocutango',
             song: 'Impactango',
             yt: 'By6l8Tip4Co',
+            ytEnd: 3 * 60 + 42
         },
         {
             artist: 'Tango Tripping Project',

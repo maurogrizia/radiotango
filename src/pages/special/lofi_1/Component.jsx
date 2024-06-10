@@ -29,6 +29,7 @@ const data = {
             artist: 'Dasnohvit',
             song: 'Puzzled LoFi Tango',
             yt: 'r3_CaD1m_Mg',
+            ytEnd: 3 * 60,
         },
         {
             artist: 'Drop Music Branding',
@@ -49,8 +50,8 @@ const data = {
             artist: 'Bea Marchelli',
             song: 'Mi Buenos Aires Querido',
             yt: 'sJ1tMnYBp90',
+            ytEnd: 3 * 60,
         },
-
         {
             artist: 'Nimaubeats',
             song: '?',
@@ -60,6 +61,7 @@ const data = {
             artist: 'Mati Napp',
             song: 'Salida Doble',
             yt: 'cA0NtxZYKB4',
+            ytEnd: 2 * 60 + 41,
         },
         {
             artist: 'Ninís',

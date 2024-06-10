@@ -54,12 +54,27 @@ const playlist = [
     {
         artist: 'Astor Piazzolla',
         song: 'Buenos Aires Hora Cero',
-        yt: 'ZwO8sS3EGfc',
+        yt: 'F5gA6rmImb4',
     },
     {
         artist: 'Astor Piazzolla',
-        song: 'Suite troileana',
-        yt: 'hviL8vlMtVg',
+        song: 'Suite troileana: I. Bandoneón',
+        yt: '7RTLpxsGWME',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Suite troileana: II. Zita',
+        yt: 'sIF6nR0juEI',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Suite troileana: III. Whisky',
+        yt: '0FNaD_sqZ0Q',
+    },
+    {
+        artist: 'Astor Piazzolla',
+        song: 'Suite troileana: IV. Escolaso',
+        yt: '5sG6ZlRqkgs',
     },
     {
         artist: 'Astor Piazzolla',

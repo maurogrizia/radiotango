@@ -23,7 +23,6 @@ const data = {
             song: 'Tango Nuevo',
             yt: 'SCLO449Ibwo',
         },
-
         {
             artist: 'Gary Schnitzer',
             song: 'Tango! Hernando\'s Hideaway',
@@ -38,6 +37,7 @@ const data = {
             artist: 'Astor Piazzolla',
             song: 'Tanguedia',
             yt: 'Tmc_UaXuzOo',
+            ytStart: 22,
         },
         {
             artist: 'Rodrigo Favela',

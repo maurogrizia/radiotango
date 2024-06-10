@@ -25,6 +25,7 @@ const data = {
             artist: 'Oscar Kreimer Sexteto',
             song: 'Reminiscencia',
             yt: '780q7Dbdd-I',
+            ytEnd: 7 * 60 + 6,
         },
         {
             artist: 'Bandonegro Tango Orquesta',

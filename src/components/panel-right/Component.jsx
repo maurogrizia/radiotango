@@ -190,7 +190,7 @@ const PanelRight = (props) => {
               onPause={() => {changeIsPlaying(false)}}
               onEnd={() => {chooseSong({go: 'next'})}}
               //onEnd={() => {changeIdxPlayer((idxPlayer + 1) % contentRight.playlist.length)}}
-              opts={{width: "100%", height: "auto", playerVars: {autoplay: isAutoplay}}}
+              opts={{width: "100%", height: "auto", playerVars: {autoplay: isAutoplay, start: player.song.ytStart || 0, end: player.song.ytEnd || 0}}}
             />
           </Card.Body>
         </Card>

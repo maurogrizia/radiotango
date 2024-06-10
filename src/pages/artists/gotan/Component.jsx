@@ -14,6 +14,7 @@ const playlist = [
         artist: 'Gotan Project',
         song: 'Peligro',
         yt: 'EsYVPlFj6_s',
+        ytEnd: 4 * 60,
     },
     {
         artist: 'Gotan Project',
@@ -24,6 +25,7 @@ const playlist = [
         artist: 'Gotan Project',
         song: 'Rayuela',
         yt: 'xHBeF1HlBsM',
+        ytStart: 9,
     },
     {
         artist: 'Gotan Project',
@@ -34,6 +36,7 @@ const playlist = [
         artist: 'Gotan Project',
         song: 'De Hombre a Hombre',
         yt: 'vCcKWOVC620',
+        ytEnd: 3 * 60 + 32,
     },
     {
         artist: 'Gotan Project',
@@ -44,11 +47,14 @@ const playlist = [
         artist: 'Gotan Project',
         song: 'Santa Maria (Del Buen Ayre)',
         yt: 'bp55S6Wta4M',
+        ytStart: 30,
+        ytEnd: 4 * 60 + 3,
     },
     {
         artist: 'Gotan Project',
         song: 'El Capitalismo Foráneo',
         yt: 'OXx3U0udjPo',
+        ytEnd: 6 * 60 + 6,
     },   
 ];
 const body = <article>
