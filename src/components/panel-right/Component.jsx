@@ -85,10 +85,22 @@ const PanelRight = (props) => {
     const playlist = [...contentRight.playlist];
     const chooseNewIdx = {
       next: (idx) => {
-        return (idx + 1) % playlist.length;
+        let newIdx = idx + 1 % playlist.length;
+
+        while (playlist[newIdx].skipAutoPlay) {
+          newIdx = newIdx + 1 % playlist.length;
+        }
+        
+        return newIdx;
       },
       prev: (idx) => {
-        return (idx - 1 + playlist.length) % playlist.length;
+        let newIdx = (idx - 1 + playlist.length) % playlist.length;
+
+        while (!playlist[newIdx].skipAutoPlay) {
+          newIdx = (newIdx - 1 + playlist.length) % playlist.length;
+        }
+
+        return newIdx;
       },
       random: () => {
         return Math.floor(Math.random() * playlist.length);
