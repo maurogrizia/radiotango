@@ -196,11 +196,11 @@
         left: -0.75em;
     }
     .menu-toggle {
-        --bottom-toggle: 4.25em;
+        --bottom-toggle: calc(var(--height-button) * 2);
         --right-toggle: calc(var(--width-panel-right) + 1em)
     }
     .menu-round {
-        --bottom-toggle: 4.25em;
+        --bottom-toggle: calc(var(--height-button) * 2);
         --right-toggle: calc(var(--width-panel-right) + 1em)
     }
     

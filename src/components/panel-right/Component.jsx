@@ -1,4 +1,5 @@
 import {  useContext,
+          useEffect,
           useState }        from 'react';
 
 import {  Button, 
@@ -105,6 +106,17 @@ const PanelRight = (props) => {
 
     changePlayer(newSong);
   };
+
+  useEffect(() => {
+    // PATCH to improve mobile visuals
+    let vh = window.innerHeight * 0.01;
+
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    window.onresize = () => {
+      vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+  }, []);
 
   return (
     <>
