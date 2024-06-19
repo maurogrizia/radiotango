@@ -16,19 +16,19 @@ const Component = () => {
         <h2>Creado por</h2>
         <h6>Mauro Grizia</h6>
         <div className="container-socials-inline">
-            <a href="https://twitter.com/GriziaMauro" target='_blank'>
+            <a target="_blank" href="https://twitter.com/GriziaMauro">
                 <FaXTwitter/>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61553601988444" target='_blank'>
+            <a target="_blank" href="https://www.facebook.com/profile.php?id=61553601988444">
                 <FaFacebook/>
             </a>
-            <a href="https://www.instagram.com/maurogrizia" target='_blank'>
+            <a target="_blank" href="https://www.instagram.com/maurogrizia">
                 <FaInstagram/>
             </a>
-            <a href="https://www.threads.net/@maurogrizia" target='_blank'>
+            <a target="_blank" href="https://www.threads.net/@maurogrizia">
                 <FaThreads/>
             </a>
-            <a href="https://medium.com/@griziamauro" target='_blank'>
+            <a target="_blank" href="https://medium.com/@griziamauro">
                 <FaMedium />
             </a>
         </div>
@@ -38,10 +38,10 @@ const Component = () => {
             Por cualquier crítica, elogio o sugerencias, no duden en mandar mensaje a:
         </p>
         <div className="container-socials-inline">
-            <a href="tg://resolve?domain=supermaramau" target='_blank'>
+            <a href="tg://resolve?domain=supermaramau">
                 <FaTelegram />
             </a>
-            <a href="mailto:griziamauro@gmail.com" target='_blank'>
+            <a href="mailto:griziamauro@gmail.com">
                 <FaMessage/>
             </a>
         </div>

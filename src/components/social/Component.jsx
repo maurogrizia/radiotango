@@ -53,17 +53,17 @@ const Social = () => {
             </div>
             
             <div className={`menu-round ${showSocials? 'open' : ''}`}>
-                <a href={urls.tw} target='_blank'>
+                <a target="_blank" href={urls.tw}>
                     <div className="btn-app">
                         <FaXTwitter/>
                     </div>
                 </a>
-                <a href={urls.fb} target='_blank'>
+                <a target="_blank" href={urls.fb}>
                     <div className="btn-app">
                         <FaFacebook/>
                     </div>
                 </a>
-                <a href={urls.th} target='_blank'>
+                <a target="_blank" href={urls.th}>
                     <div className="btn-app">
                         <FaThreads/>
                     </div>
@@ -76,7 +76,7 @@ const Social = () => {
 
     // Vertical line with more social media
     /*<div className={`menu-line ${showSocials? 'open' : ''}`}>
-                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedMsg}`} target='_blank'>
+                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedMsg}`}>
                     <div className="btn-app">
                         <FaYoutube/>
                     </div>
@@ -91,7 +91,7 @@ const Social = () => {
                         <FaSpotify/>
                     </div>
                 </a>
-                <a href="https://www.instagram.com/maurogrizia" target='_blank'>
+                <a href="https://www.instagram.com/maurogrizia">
                     <div className="btn-app">
                         <FaInstagram/>
                     </div>

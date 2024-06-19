@@ -8,7 +8,7 @@ import * as Pages           from "pages/pages/index";
 import * as Special         from "pages/special/index";
 
 const ContextProvider = ({ children }) => {
-    const weeksArtist = 'Gotan';
+    const weeksArtist = 'Bajofondo';
     const defaultArtist = Artists[weeksArtist].default;
     const defaultPlaylist = defaultArtist.playlist;
     const defaultSong = defaultPlaylist[0];

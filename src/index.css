@@ -23,3 +23,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* References on articles*/
+ol li a {
+  color: var(--color-text);
+  font-weight: 600;
+}
+ol li a:hover {
+  color: var(--color-primary-soft)
+}
+ol li a:visited {
+  color: var(--color-primary)
+}
