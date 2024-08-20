@@ -1,16 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-tooltip/dist/react-tooltip.css'
+import 'react-tooltip/dist/react-tooltip.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+/* 
+dev
+<React.StrictMode>
+</React.StrictMode>
+*/
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+    <>
+    <meta charSet="UTF-8" />
     <App />
-  </React.StrictMode>
+    </>
 );
 
 // If you want to start measuring performance in your app, pass a function

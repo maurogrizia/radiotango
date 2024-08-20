@@ -1,0 +1,19 @@
+{
+    "tt-home": "Home",
+    "tt-artist": "Artists",
+    "tt-blog": "Blog",
+    "tt-playlist": "Special playlists",
+    "tt-star": "Week's artist",
+    "tt-about": "About",
+    "tt-conf": "Configuration",
+    "tt-donations": "Donations",
+
+    "al-home": "Go to Home",
+    "al-artist": "Go to Artists",
+    "al-blog": "Go to Blog",
+    "al-playlist": "Go to Special playlists",
+    "al-star": "Go to Week's artist",
+    "al-about": "Go to About",
+    "al-conf": "Go to Configuration",
+    "al-donations": "Go to Donations"
+}

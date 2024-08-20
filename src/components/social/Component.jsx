@@ -1,21 +1,26 @@
-import { useState, useContext }         from 'react';
+import {    useState, 
+            useContext }        from 'react';
 
-import ContentContext     from 'context/content/Context';
+import      ContentContext      from 'context/content/Context';
+import      LanguageContext     from 'context/language/Context';
 
 import {    FaShareNodes,
             FaFacebook,
-            FaYoutube,
-            FaInstagram,
-            FaSpotify,
-            FaSoundcloud,
+            //FaYoutube,
+            //FaInstagram,
+            //FaSpotify,
+            //FaSoundcloud,
             FaXTwitter,
-            FaThreads
-}                           from 'react-icons/fa6';
+            FaThreads }         from 'react-icons/fa6';
 
 import "./styles.css";
 
 const Social = () => {
-    const { contentRight, isClosedRight, isPlaying, player } = useContext(ContentContext);
+    const { contentRight, 
+            isClosedRight, 
+            isPlaying, 
+            player } = useContext(ContentContext);
+    const { language } = useContext(LanguageContext);
     const [showSocials, setShowSocials] = useState(false);
 
     const togglemenus = () => {
@@ -26,12 +31,16 @@ const Social = () => {
         //const picture = 'https://radiotango.net.ar/background-original.webp';
 
         let text = 'Radio y blog de tango online gratis - Radio Tango';
-
+        
         if (!isClosedRight) {
             if (isPlaying) {
-                text = `Escuchando ${player.song.song}, por ${player.song.artist} en Radio Tango!`;
+                text = language === "ES"
+                        ? `Escuchando ${player.song}, por ${player.artist} en Radio Tango!`
+                        : `Listening to ${player.song}, by ${player.artist} on Radio Tango!`;
             } else {
-                text = `Leyendo ${contentRight.title} en Radio Tango!`;
+                text = language === "ES"
+                        ? `Leyendo ${contentRight.meta.title} en Radio Tango!`
+                        : `Reading ${contentRight.meta.title} on Radio Tango!`;
             }
         }
         const encodedMsg = encodeURIComponent(`${text}\n\n${link}`);
@@ -53,17 +62,17 @@ const Social = () => {
             </div>
             
             <div className={`menu-round ${showSocials? 'open' : ''}`}>
-                <a target="_blank" href={urls.tw}>
+                <a target="_blank" rel="noreferrer" href={urls.tw}>
                     <div className="btn-app">
                         <FaXTwitter/>
                     </div>
                 </a>
-                <a target="_blank" href={urls.fb}>
+                <a target="_blank" rel="noreferrer" href={urls.fb}>
                     <div className="btn-app">
                         <FaFacebook/>
                     </div>
                 </a>
-                <a target="_blank" href={urls.th}>
+                <a target="_blank" rel="noreferrer" href={urls.th}>
                     <div className="btn-app">
                         <FaThreads/>
                     </div>

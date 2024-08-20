@@ -1,3 +1,8 @@
-.special-link:hover {
+rt-link {
+    background-color: var(--bs-highlight-bg);
+    color: var(--bs-highlight-color);
+    padding: 0.1875em;
+}
+rt-link:hover {
     cursor: pointer;
 }

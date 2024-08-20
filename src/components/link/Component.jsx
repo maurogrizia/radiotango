@@ -1,26 +1,32 @@
-import { useContext } from "react";
-import ContentContext from "context/content/Context";
+import { useContext }   from "react";
+import { useNavigate }  from "react-router-dom";
+
+import ContentContext   from "context/content/Context";
+import LanguageContext  from "context/language/Context";
 
 import './styles.css';
 
-const Link = (props) => {
-    const {changeContentRight, changePlayer} = useContext(ContentContext);
-
+const RTLink = (props) => {
+    const navigate = useNavigate();
+    const { language } = useContext(LanguageContext);
+    const { changePlayer} = useContext(ContentContext);
+    
     const followLink = (e) => {
         const followLinkFuncs = {
-            song: (data) => {
-                changePlayer(data);
+            song: ({idx}) => {
+                const song = contentRight.playlist[idx];
+  
+                changePlayer(song);
             },
-            article: (data) => {
-                changeContentRight(data.href);
+            article: ({cl, href}) => {
+                navigate(`${language}/${cl}/${href}`);
             }
         };
         const target = e.currentTarget;
         const dataset = target.dataset;
-        const data = JSON.parse(dataset.data);
-
-        if (followLinkFuncs[props.type]) {
-            followLinkFuncs[props.type](data);
+    
+        if (followLinkFuncs[dataset.type]) {
+            followLinkFuncs[dataset.type]({...dataset});
         }
     };
     const handleClick = (e) => {
@@ -34,20 +40,19 @@ const Link = (props) => {
                 iconAbs.classList.remove('show');
             }, 2500);
         }
-        
     }
 
     return (
-        <mark 
-            className="special-link"
+        <rt-link
             onClick={handleClick}
-            data-data={JSON.stringify(props.data)}
-            data-href={props.href}
+            data-idx={props.data.idx}
+            data-href={props.data.href}
+            data-cl={props.cl}
             data-type={props.type}
         >
             {props.children}
-        </mark>
+        </rt-link>
     );
 }
 
-export default Link;
+export default RTLink;

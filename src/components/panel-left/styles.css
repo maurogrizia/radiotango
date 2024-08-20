@@ -1,9 +1,9 @@
 #panel-left {
     position: absolute;
     height: calc(var(--vh) * 100);
-    height: -moz-available;          /* WebKit-based browsers will ignore this. */
+    /*height: -moz-available;*/          /* WebKit-based browsers will ignore this. */
     height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    height: fill-available;
+    /*height: stretch;*/
     width: 42vw;
     background-color: var(--color-background-soft);
     left: calc(var(--width-button));
@@ -56,18 +56,19 @@
 #panel-left .card-first {
     box-sizing: border-box;
     height: calc(var(--vh) * 100);
-    height: -moz-available;          /* WebKit-based browsers will ignore this. */
+    /*height: -moz-available;*/          /* WebKit-based browsers will ignore this. */
     height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    height: fill-available;
+    /*height: stretch;*/
 }
 #panel-left .card-body h1, #panel-left .card-body h2{
     color: var(--color-primary);
 }
-#panel-left .card-body h4, #panel-left .card-body h5, #panel-left .card-body h6{
+#panel-left .card-body h3, #panel-left .card-body h4, #panel-left .card-body h5, #panel-left .card-body h6{
     color: var(--color-primary-soft);
 }
 .card-first .card-header {
     height: calc(var(--vh) * 15);
+    width: 95%;
 }
 .card-first .card-body {
     height: calc(var(--vh) * 85);

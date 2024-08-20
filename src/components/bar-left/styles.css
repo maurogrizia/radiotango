@@ -1,6 +1,8 @@
 :root {
     --height-button: 3em;
     --width-button: 5.25em;
+    --color-donations: #48b3e7;
+    --color-donations-soft: #59c4f8;
 }
 
 .stack-container {
@@ -8,10 +10,14 @@
     display: flex;
     justify-content: space-between;
     height: 100vh;
-    height: -moz-available;          /* WebKit-based browsers will ignore this. */
+    /*height: -moz-available;*/          /* WebKit-based browsers will ignore this. */
     height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    height: fill-available;
     width: 7vw;
+    /*z-index: 100;*/
+}
+
+.stack-container .btn {
+    box-sizing: border-box;
 }
 
 .stack-left {
@@ -31,9 +37,38 @@
     color: var(--color-background-soft);
 }
 
+.container-donations button{
+    background-color: var(--color-donations);
+}
+.container-donations button:hover{
+    background-color: var(--color-donations-soft);
+}
+.container-donations button:focus{
+    background-color: var(--color-donations);
+}
+.container-donations .dropdown-menu.show{
+    background-color: var(--color-donations);
+}
+.container-donations .dropdown-item:hover{
+    background-color: var(--color-donations-soft);
+}
+
+.a-donation {
+    text-align: center;
+}
+
+.img-donation {
+    border: 0px;
+    height: 44px;
+}
+
 @media (max-width: 767px) {
     .stack-container {
         width: 13vw;
+    }
+    .stack-container.right {
+        right: 1.25em;
+        width: 14.5vw;
     }
 }
 @media (max-width: 478px) {
@@ -54,9 +89,21 @@
         --width-button: 5em;
     }
 }
+@media (max-height: 400px) {
+    .stack-container {
+        --height-button: 2.75em;
+        --width-button: 5em;
+    }
+}
+@media (max-height: 350px) {
+    .stack-container {
+        --height-button: 2.35em;
+        --width-button: 5em;
+    }
+}
 @media (max-height: 300px) {
     .stack-container {
-        --height-button: 3em;
+        --height-button: 2.25em;
         --width-button: 5em;
     }
 }

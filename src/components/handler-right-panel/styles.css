@@ -1,0 +1,29 @@
+#panel-right-cover {
+    position: absolute;
+    right: 0;
+    z-index: 351;
+    opacity: 0.9;
+    background-color: var(--color-background);
+    overflow-x: clip;
+    width: var(--width-panel-right);
+    height: calc(var(--vh) * 100);
+}
+#panel-right-cover.open {
+    width: var(--width-panel-right);
+    opacity: 0.9;
+}
+#panel-right-cover.open.animate {
+    animation: slideLeft 750ms ease forwards;
+}
+#panel-right-cover.close {
+    width: 0;
+    opacity: 0;
+}
+#panel-right-cover.close.animate {
+    animation: slideRight 750ms ease forwards;
+}
+
+
+#panel-right-cover .loading {
+    margin: auto;
+}

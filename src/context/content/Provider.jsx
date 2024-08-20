@@ -1,31 +1,87 @@
-import React, { useState }  from "react";
-
-import ContentContext       from "./Context";
-import * as Posts           from "pages/posts/index";
-import * as Genres          from "pages/genres/index";
-import * as Artists         from "pages/artists/index";
-import * as Pages           from "pages/pages/index";
-import * as Special         from "pages/special/index";
+import {    //useEffect, 
+            useState }           from "react";
+import      axios                from 'axios';
+import      ContentContext       from "./Context";
+import      * as Pages           from "pages/index";
 
 const ContextProvider = ({ children }) => {
-    const weeksArtist = 'Bajofondo';
-    const defaultArtist = Artists[weeksArtist].default;
-    const defaultPlaylist = defaultArtist.playlist;
-    const defaultSong = defaultPlaylist[0];
+    //const defaultArtist = {title: 'Artista de la semana', playlist: [], body: <></>};
+    const defaultGlosary = {
+        artists: {},
+        posts: {},
+        genres: {},
+        pages: {},
+        playlists: {}
+    };
+    const defaultCL = {
+        href: '???',
+        title: '???',
+        body: null
+    };
+    const defaultCR = {
+        urls: {
+            meta: '',
+            html: {
+                es: null,
+                en: null
+            }
+        },
+        meta: {
+            href: '',
+            title: '',
+            playlist: [],
+            icons: []
+        },
+        html: {
+            es: null,
+            en: null
+        }
+    };
 
     const strDefaultPlayer = window.localStorage.getItem('player');
-    const defaultPlayer = strDefaultPlayer? JSON.parse(strDefaultPlayer) : defaultSong;
-    const [player, setPlayer] = useState({song: defaultPlayer, idx: 0});
+    const defaultPlayer = strDefaultPlayer? JSON.parse(strDefaultPlayer) : {artist: 'Destiny Quartet', song: 'El Choclo', yt: 'zcZeaUZve88'};
+    const [player, setPlayer] = useState(defaultPlayer);
     
+    const [glosary, setGlosary] = useState(defaultGlosary);
+    
+    const [isError, setIsError] = useState(false);
     const [isAnimated, setIsAnimated] = useState(false);
-    const [contentLeft, setContentLeft] = useState('Home');
-    const [contentRight, setContentRight] = useState({...defaultArtist, title: 'Artista de la semana'});
+    const [contentLeft, setContentLeft] = useState(defaultCL);
+    const [contentRight, setContentRight] = useState(defaultCR);
     const [isAutoplay, setIsAutoplay] = useState(0);
     const [isClosedLeft, setIsClosedLeft] = useState(true);
     const [isClosedRight, setIsClosedRight] = useState(true);
     const [isPlaying, setIsPlaying] = useState(false);
     const [showCanvas, setShowCanvas] = useState(false);
+    const [weeksArtist, setWeeksArtist] = useState();
     
+    const defaults = {
+        lang: 'es',
+        cl: 'artists',
+        cr: weeksArtist
+    };
+
+    const fetchURLs = async (cl, cr) => {
+        cr = cr.toLowerCase();
+        try {
+            const response = await axios.get(`/api/${cl}/${cr}`);
+            //const urls = response.data;
+            //const newState = {...glosary};
+
+            //newState[cl][cr] = {urls};
+            //setGlosary(newState);
+
+            return response;
+        } catch (e) {
+            console.log(e.message);
+        }
+    };
+
+    /*useEffect(() => {
+        // Fetch as default week's artist
+        fetchURLs('artists', weeksArtist);
+    }, []);*/
+
     const removeNoAnimateClass = () => {
         const classPreload = 'preload-prevent-animation';
         const preloads = document.querySelectorAll(`.${classPreload}`);
@@ -70,8 +126,10 @@ const ContextProvider = ({ children }) => {
         isAutoplay,
         isClosedLeft,
         isClosedRight,
+        isError,
         isPlaying,
         showCanvas,
+        weeksArtist,
         changePlayer: song => {
             if (isAutoplay === 0) {
                 setIsAutoplay(1);
@@ -80,53 +138,106 @@ const ContextProvider = ({ children }) => {
             //window.localStorage.setItem('player', JSON.stringify(newPlayer));
         },
         changeContentLeft: cl => {
-            const content = Pages[cl];
-
+            const idx = cl[0].toUpperCase() + cl.slice(1, cl.length).toLowerCase();
+            const content = Pages[idx];
+            
             if (content) {
-                const newContent = {...Pages[cl].default};
+                const newContent = {...Pages[idx].default};
                 
-                if (contentLeft.title !== newContent.title) {
+                if (contentLeft.href !== newContent.href) {
                     setContentLeft(newContent);
                 }
-                if (isClosedLeft || contentLeft.title === newContent.title) {
+                if (isClosedLeft || contentLeft.href === newContent.href) {
                     changeIsClosedLeft(!isClosedLeft);
                 }
                 if (!isAnimated) {
                     removeNoAnimateClass();
                     setIsAnimated(true);
                 }
+            } else {
+                // else: show error toast with not-found
+                const newContent = {...Pages["Error"].default};
+                setIsError(true);
+                setContentLeft(newContent);
+                setIsClosedLeft(false);
             }
         },
-        changeContentRight: cr => {
-            const content = Special[cr] || Posts[cr] || Genres[cr] || Artists[cr] || (cr === 'Star' && Artists[weeksArtist]);
+        changeContentRight: async (lang, cl, cr) => {
+            lang = lang? lang.toLowerCase() : defaults.lang;
+            cl = cl? cl.toLowerCase() : defaults.cl;
+            cr = cr? cr.toLowerCase() : defaults.cr;
 
-            if (content) {
-                const newContent = {...content.default};
-                const isNewContent = contentRight.title !== newContent.title;
-                
-                if (isNewContent) {
-                    if (cr === 'Star') {
-                        newContent.title = 'Artista de la semana'
-                    }
-                    setContentRight(newContent);
+            const newContent = {...glosary[cl][cr]};
+            const isNewContent = true //contentRight.meta.href !== cr;
+
+            let isUpdated = false;
+            cr = cr === 'star'? weeksArtist : cr;
+            
+            // Update glosary
+            if (isNewContent && (!newContent || !newContent['html'] || !newContent['html'][lang])) {
+                const promises = [];
+
+                // Fetch file urls
+                if (!newContent['urls']) {
+                    const response = await fetchURLs(cl, cr);
+                    
+                    newContent['urls'] = {...response.data};
+                    isUpdated = true;
                 }
-                if (isClosedRight || contentRight.title === newContent.title) {
-                    changeIsClosedRight(!isClosedRight);
+
+                // Fetch files from storage 
+                // urls already set on local newContent (I may need to set them on state)
+                if (!newContent['meta']) {
+                    promises.push(axios.get(newContent['urls']['meta']));
+                    isUpdated = true;
                 }
-                if (!isAnimated) {
-                    removeNoAnimateClass();
-                    setIsAnimated(true);
+
+                if (!newContent['html'] || !newContent['html'][lang]) {
+                    promises.push(axios.get(newContent['urls']['html'][lang]));
+                    isUpdated = true;
                 }
+
+                const responses = await Promise.all(promises);
+
+                if (isUpdated && responses.length === promises.length) {
+                    const newState = {...glosary};
+
+                    newContent['meta'] = !newContent['meta']? responses[0].data : newContent['meta'];
+                    newContent['html'] = newContent['html']? newContent['html'] : {es: '', en: ''};
+                    newContent['html'][lang] = responses[1]? responses[1].data : responses[0].data;
+                    newState[cl][cr] = newContent;
+                    setGlosary(newState);
+                } else {
+                    // show error toast with not-found or general error
+                    console.log('Error catching data: not found');
+                    return;
+                }
+            }
+            
+            // Update state
+            if (cl === 'star') {
+                newContent.title = 'Artista de la semana';
+            }
+            setContentRight(newContent);
+            if (!isAnimated) {
+                removeNoAnimateClass();
+                setIsAnimated(true);
             }
         },
         changeIsClosedLeft,
         changeIsClosedRight,
+        changeIsError: err => {
+            setIsError(err);
+        },
         changeIsPlaying: ip => {
             setIsPlaying(ip);
         },
         changeShowCanvas: showCanvas => {
             setShowCanvas(showCanvas);
-        }
+        },
+        changeWeeksArtist: artist => {
+            setWeeksArtist(artist);
+        },
     };
 
     return (

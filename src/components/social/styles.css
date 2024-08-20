@@ -26,9 +26,9 @@
 
 .vh100 {
     height: calc(var(--vh) * 100);
-    height: -moz-available;          /* WebKit-based browsers will ignore this. */
+    /*height: -moz-available;*/          /* WebKit-based browsers will ignore this. */
     height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    height: fill-available;
+    /*height: stretch;*/
 }
 
 /* this toggles the whole damn thing */
@@ -40,7 +40,7 @@
 	box-shadow: 4px 4px 2px 1px #00000033;
 	
 	position: absolute;
-	z-index: 50;
+	/*z-index: 50;*/
 	/*top: var(--top-toggle);*/
     bottom: var(--bottom-toggle);
 	right: var(--right-toggle);
@@ -93,7 +93,7 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	z-index: 30;
+	z-index: -1;
 }
 
 .menu-round .btn-app {
@@ -129,7 +129,7 @@
 	position: absolute;
     /*top: var(--top-toggle);*/
     bottom: var(--bottom-toggle);
-	z-index: 20;
+	/*z-index: 20;*/
 }
 
 .menu-line .btn-app {
@@ -147,7 +147,7 @@
     left: 0.5em;
     /*top: calc(0.75em + var(--top-toggle));*/
     bottom: calc(0.75em + var(--bottom-toggle));
-    z-index: 120;
+    /*z-index: 120;*/
 }
 
 .menu-line.open .btn-app {
@@ -195,29 +195,11 @@
     .menu-line.open {
         left: -0.75em;
     }
-    .menu-toggle {
-        --bottom-toggle: calc(var(--height-button) * 2);
-        --right-toggle: calc(var(--width-panel-right) + 1em)
-    }
     .menu-round {
-        --bottom-toggle: calc(var(--height-button) * 2);
-        --right-toggle: calc(var(--width-panel-right) + 1em)
+        top: -4em;
     }
-    
-    .menu-round.open a:nth-of-type(1) .btn-app {
-        right: calc(var(--right-toggle) + 0.5em);
-        bottom: calc(var(--bottom-toggle) + 2.75em);
-        transition-delay: 0.2s;
-    } 
-    
-    .menu-round.open a:nth-of-type(2) .btn-app {
-        right: calc(var(--right-toggle) - 2.75em);
-        bottom: calc(var(--bottom-toggle) - 0.5em);
-        transition-delay: 0.1s;
-    }
-    .menu-round.open a:nth-of-type(3) .btn-app {
-        right: calc(var(--right-toggle) - 2em);
-        bottom: calc(var(--bottom-toggle) + 2.25em);
+    .menu-round.open {
+        top: 0;
     }
 }
 

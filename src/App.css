@@ -1,7 +1,7 @@
 html,body {
   --dark-cyan: #2D9894ff;
   --tangelo: #FD4B09ff;
-  --tangelo-soft: #EC3A05FF;
+  --tangelo-soft: #EC3A05DD;
   --jonquil: #F9CF20ff;
   --jonquil-soft: #E8BE10FF;
   --antiflash-white: #F0F4F8ff;
@@ -25,6 +25,7 @@ html,body {
   background-image: url('assets/img/radio-tango.webp');
   background-repeat: no-repeat;
   background-size: contain;
+  background-attachment: fixed;
   background-position: center;
 
   /*Word breaking*/

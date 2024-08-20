@@ -1,145 +1,185 @@
-import {  useContext,
-          useRef }    from 'react';
-
-import {  FaHome, 
-          FaStar,
+import {  	useContext,
+          	useRef }      		from 'react';
+import {  	FaHome, 
+          	FaStar,
 //          FaMusic, 
-          FaMicrophone,
+          	FaMicrophone,
 //          FaShoppingCart,
-          FaBlog,
+          	FaBlog,
 //          FaAtlas, 
-          FaExchangeAlt,
-          FaPlayCircle, 
-          FaInfo }    from "react-icons/fa";
+          	FaExchangeAlt,
+          	FaPlayCircle, 
+			FaHandHoldingHeart,
+          	FaInfo }      		from "react-icons/fa";
+import { 	Link } 				from 'react-router-dom';
+import { 	Button,
+			Dropdown,
+        	Stack }       		from 'react-bootstrap';
+import {	Tooltip }      		from 'react-tooltip';
 
-import ContentContext from 'context/content/Context';
-
-import {  Button,
-          Stack }     from 'react-bootstrap';
-
-import { Tooltip }    from 'react-tooltip';
+import 		LanguageContext		from 'context/language/Context';
+import      * as dictionary     from './lang/index.js';
 
 import './styles.css';
 
+
+let lang = 'ES';
+let text = dictionary[lang];
+
 const BarLeft = () => {
-  const { changeContentLeft, changeContentRight } = useContext(ContentContext);
+	const { language } = useContext(LanguageContext);
+	const ref = useRef(null);
 
-  const ref = useRef(null);
+	lang = language;
+    text = dictionary[lang];
 
-  // Generos
-  /*
-
-                <Button 
-                  variant="secondary"
-                  data-tooltip-id="tt-genres"
-                  data-tooltip-content="Géneros"
-                  data-tooltip-place="right"
-                  onClick={() => {changeContentLeft('Genres');}}
-                >
-                  <FaMusic/>
-                </Button>
-                <Tooltip id="tt-genres" />
-  */
-
-  // Atlas
-  // IDEA: Cuando se hace hover en algún post a estos términos que salten cartelitos con la descripción
-  // Por ahí el atlas es innecesario
-  /*<Button 
-    variant="secondary"
-    data-tooltip-id="tt-atlas"
-    data-tooltip-content="Atlas"
-    data-tooltip-place="right"
-    onClick={() => {changeContentLeft('Atlas');}}
-  >
-    <FaAtlas/>
-  </Button>
-  <Tooltip id="tt-atlas" />*/
-
-  return (
+	return (
     <nav className="stack-container">
-        <Stack gap={2} className="col-md-5 mx-auto stack-left" style={{justifyContent: "space-between"}}>
-            <div className="stack-section text-center">
-                <Button 
-                  variant="secondary"
-                  data-tooltip-id="tt-home"
-                  data-tooltip-content="Inicio"
-                  data-tooltip-place="right"
-                  onClick={() => {changeContentLeft('Home');}}
-                >
-                  <FaHome/>
-                </Button>
+		<Stack gap={2} className="col-md-5 mx-auto stack-left" style={{justifyContent: "space-between"}}>
+			<div className="stack-section text-center">
+				<Link 
+					className="nav-link"
+					to={`/${language}/home`}
+					aria-label={text['al-home']}
+				>
+					<Button 
+						variant="secondary"
+						aria-label={text['tt-home']}
+						data-tooltip-id="tt-home"
+						data-tooltip-content={text['tt-home']}
+						data-tooltip-place="right"
+					>
+                    	<FaHome/>
+                  	</Button>
+                </Link>
                 <Tooltip id="tt-home" />
 
-                <Button 
-                  variant="secondary"
-                  data-tooltip-id="tt-artist"
-                  data-tooltip-content="Artistas"
-                  data-tooltip-place="right"
-                  onClick={() => {changeContentLeft('Artists');}}
-                >
-                  <FaMicrophone/>
-                </Button>
+                <Link 
+					className="nav-link"
+					to={`/${language}/artists`}
+					aria-label={text['al-artist']}
+				>
+					<Button
+						variant="secondary"
+						aria-label={text['tt-artist']}
+						data-tooltip-id="tt-artist"
+						data-tooltip-content={text['tt-artist']}
+						data-tooltip-place="right"
+					>
+                    	<FaMicrophone/>
+                  	</Button>
+                </Link>
                 <Tooltip id="tt-artist" />
 
-                <Button 
-                  variant="secondary"
-                  data-tooltip-id="tt-blog"
-                  data-tooltip-content="Blog"
-                  data-tooltip-place="right"
-                  onClick={() => {changeContentLeft('Blog');}}
-                >
-                  <FaBlog/>
-                </Button>
+                <Link 
+					className="nav-link"
+					to={`/${language}/posts`}
+					aria-label={text['al-blog']}
+				>
+					<Button 
+						variant="secondary"
+						aria-label={text['tt-blog']}
+						data-tooltip-id="tt-blog"
+						data-tooltip-content={text['tt-blog']}
+						data-tooltip-place="right"
+					>
+                    	<FaBlog/>
+                  	</Button>
+                </Link>
                 <Tooltip id="tt-blog" />
 
-                <Button 
-                  variant="secondary"
-                  data-tooltip-id="tt-special"
-                  data-tooltip-content="Special playlists"
-                  data-tooltip-place="right"
-                  onClick={() => {changeContentLeft('Special');}}
-                >
-                  <FaPlayCircle/>
-                </Button>
+                <Link
+					className="nav-link"
+					to={`/${language}/playlists`}
+					aria-label={text['al-playlist']}
+				>
+					<Button 
+						variant="secondary"
+						aria-label={text['tt-playlist']}
+						data-tooltip-id="tt-special"
+						data-tooltip-content={text['tt-playlist']}
+						data-tooltip-place="right"
+					>
+						<FaPlayCircle/>
+					</Button>
+                </Link>
                 <Tooltip id="tt-special" />
             </div>
             <div className="stack-section text-center" ref={ref}>
-              <Button 
-                className="btn-star"
-                variant="primary"
-                data-tooltip-id="tt-star"
-                data-tooltip-content="Artista de la semana"
-                data-tooltip-place="right"
-                onClick={() => {changeContentRight('Star');}}
-              >
-                <FaStar/>
-              </Button>
-              <Tooltip id="tt-star" />
+              	<Link 
+					className="nav-link"
+					to={`/${language}/artists/star`}
+					aria-label={text['al-star']}
+				>
+					<Button 
+						className="btn-star"
+						variant="primary"
+						aria-label={text['tt-star']}
+						data-tooltip-id="tt-star"
+						data-tooltip-content={text['tt-star']}
+						data-tooltip-place="right"
+					>
+                  		<FaStar/>
+                	</Button>
+              	</Link>
+              
+              	<Tooltip id="tt-star" />
             </div>
             <div className="stack-section text-center">
-                
-                <Button
-                  variant="secondary"
-                  data-tooltip-id="tt-info"
-                  data-tooltip-content="Sobre"
-                  data-tooltip-place="right"
-                  onClick={() => {changeContentLeft('Info');}}
-                >
-                  <FaInfo/>
-                </Button>
-                <Tooltip id="tt-info" />
+				<Link 
+					className="nav-link"
+					to={`/${language}/about`}
+					aria-label={text['al-about']}
+				>
+					<Button
+						variant="secondary"
+						aria-label={text['tt-about']}
+						data-tooltip-id="tt-info"
+						data-tooltip-content={text['tt-about']}
+						data-tooltip-place="right"
+					>
+						<FaInfo/>
+					</Button>
+				</Link>
+              	<Tooltip id="tt-info" />
 
-                <Button 
-                  variant="secondary"
-                  data-tooltip-id="tt-mode"
-                  data-tooltip-content="Configuración"
-                  data-tooltip-place="right"
-                  onClick={() => {changeContentLeft('Mode');}}>
-                  <FaExchangeAlt/>
-                </Button>
-                <Tooltip id="tt-mode" />
+				<Link 
+					className="nav-link"
+					to={`/${language}/mode`}
+					aria-label={text['al-mode']}
+				>
+					<Button 
+						variant="secondary"
+						aria-label={text['tt-conf']}
+						data-tooltip-id="tt-mode"
+						data-tooltip-content={text['tt-conf']}
+						data-tooltip-place="right"
+					>
+						<FaExchangeAlt/>
+					</Button>
+					<Tooltip id="tt-mode" />
+				</Link>
+
+				<Dropdown className="container-donations" drop="end">
+					<Dropdown.Toggle 
+						variant="success"
+						data-tooltip-id="tt-donations"
+						data-tooltip-content={text['tt-donations']}
+						data-tooltip-place="right"
+					>
+						<FaHandHoldingHeart/>
+					</Dropdown.Toggle>
+					<Dropdown.Menu className="dropdown-r0">
+						<Dropdown.Item className="a-donation" href='https://cafecito.app/maurogrizia' rel='noopener' target='_blank'>
+							<img className="img-donation" srcSet='https://cdn.cafecito.app/imgs/buttons/button_6.png 1x, https://cdn.cafecito.app/imgs/buttons/button_6_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_6_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_6.png' alt={text['alt-cafecito']} />
+						</Dropdown.Item>
+						<Dropdown.Item className="a-donation" href='https://ko-fi.com/N4N3O2G9M' rel="noopener noreferrer" target='_blank'>
+							<img className="img-donation" src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt={text['alt-kofi']} />
+						</Dropdown.Item>
+					</Dropdown.Menu>
+				</Dropdown>
+				<Tooltip id="tt-donations" />
             </div>
-            
         </Stack>
     </nav>
   );

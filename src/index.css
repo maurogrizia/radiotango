@@ -1,9 +1,9 @@
 body {
   /* Fix mobile issue hiding the footer */
   min-height: 100vh;
-  min-height: -moz-available;          /* WebKit-based browsers will ignore this. */
+  /*min-height: -moz-available;*/          /* WebKit-based browsers will ignore this. */
   min-height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-  min-height: fill-available;
+  /*min-height: stretch;*/
 
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,9 +14,9 @@ body {
 
 html {
   height: 100vh;
-  height: -moz-available;          /* WebKit-based browsers will ignore this. */
+  /*height: -moz-available;*/          /* WebKit-based browsers will ignore this. */
   height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-  height: fill-available;
+  /*height: stretch;*/
 }
 
 code {

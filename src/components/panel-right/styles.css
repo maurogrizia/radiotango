@@ -2,7 +2,7 @@
     --height-panel-right-total: 100vh; /* Fallback for browsers that do not support Custom Properties */
     --height-panel-right-total: -moz-available;          /* WebKit-based browsers will ignore this. */
     --height-panel-right-total: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    --height-panel-right-total: fill-available;
+    --height-panel-right-total: stretch;
     --width-panel-right: calc(43vw + 8vw);
     --vh: 1vh;
 }
@@ -101,6 +101,7 @@
 }
 .card-first .card-header {
     height: var(--height-header);
+    width: 95%;
 }
 .card-first .card-body {
     height: var(--height-body);
