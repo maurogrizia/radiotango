@@ -163,6 +163,7 @@ const BarLeft = () => {
 				<Dropdown className="container-donations" drop="end">
 					<Dropdown.Toggle 
 						variant="success"
+						aria-label={text['al-donations']}
 						data-tooltip-id="tt-donations"
 						data-tooltip-content={text['tt-donations']}
 						data-tooltip-place="right"

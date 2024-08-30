@@ -13,7 +13,12 @@ import {    FaShareNodes,
             FaXTwitter,
             FaThreads }         from 'react-icons/fa6';
 
+import      * as dictionary   	from './lang/index.js';
+
 import "./styles.css";
+
+let lang = 'ES';
+let text = dictionary[lang];
 
 const Social = () => {
     const { contentRight, 
@@ -23,6 +28,9 @@ const Social = () => {
     const { language } = useContext(LanguageContext);
     const [showSocials, setShowSocials] = useState(false);
 
+    lang = language;
+    text = dictionary[lang];
+    
     const togglemenus = () => {
         setShowSocials(showSocials => {return !showSocials;})
     };
@@ -48,7 +56,7 @@ const Social = () => {
         return {
             fb: `https://www.facebook.com/sharer/sharer.php?u=${link}`,
             th: `https://threads.net/intent/post?text=${encodedMsg}`,
-            tw: `https://twitter.com/intent/tweet?text=${encodedMsg}`,
+            tw: `https://x.com/intent/tweet?text=${encodedMsg}`,
         };
     }
 
@@ -62,17 +70,17 @@ const Social = () => {
             </div>
             
             <div className={`menu-round ${showSocials? 'open' : ''}`}>
-                <a target="_blank" rel="noreferrer" href={urls.tw}>
+                <a target="_blank" rel="noreferrer" href={urls.tw} aria-label={text['al-tt']}>
                     <div className="btn-app">
                         <FaXTwitter/>
                     </div>
                 </a>
-                <a target="_blank" rel="noreferrer" href={urls.fb}>
+                <a target="_blank" rel="noreferrer" href={urls.fb} aria-label={text['al-fb']}>
                     <div className="btn-app">
                         <FaFacebook/>
                     </div>
                 </a>
-                <a target="_blank" rel="noreferrer" href={urls.th}>
+                <a target="_blank" rel="noreferrer" href={urls.th} aria-label={text['al-th']}>
                     <div className="btn-app">
                         <FaThreads/>
                     </div>

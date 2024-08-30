@@ -38,7 +38,9 @@ const Component = () => {
             const collection = await getArtists();
             
             setArtists(collection);
-            changeWeeksArtist(getWeeksArtist());
+            const wa = getWeeksArtist();
+            
+            changeWeeksArtist(wa);
         };
 
         fetchData();

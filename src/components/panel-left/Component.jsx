@@ -25,25 +25,6 @@ const PanelLeft = (props) => {
 			panel.classList.add('open');
 		}
 	};
-  
-	const toggleCard = () => {
-			const cardFirst = document.querySelector('#panel-left .card-first .card-body');
-			const cardSecond = document.querySelector('#panel-left .card-second');
-
-			if (cardFirst.classList.contains('open')) {
-				cardFirst.classList.remove('open');
-				cardFirst.classList.add('close');
-
-				cardSecond.classList.remove('close');
-				cardSecond.classList.add('open');
-			} else {
-				cardFirst.classList.remove('close');
-				cardFirst.classList.add('open');
-
-				cardSecond.classList.remove('open');
-				cardSecond.classList.add('close');
-			}
-	};
 	
 	return (
 		<section id="panel-left" className={isClosedLeft? "close" : "open"}>

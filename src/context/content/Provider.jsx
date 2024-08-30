@@ -39,7 +39,7 @@ const ContextProvider = ({ children }) => {
     };
 
     const strDefaultPlayer = window.localStorage.getItem('player');
-    const defaultPlayer = strDefaultPlayer? JSON.parse(strDefaultPlayer) : {artist: 'Destiny Quartet', song: 'El Choclo', yt: 'zcZeaUZve88'};
+    const defaultPlayer = strDefaultPlayer? JSON.parse(strDefaultPlayer) : {artist: 'Destiny Quartet', song: 'El Choclo', yt: 'zcZeaUZve88', idx: 0};
     const [player, setPlayer] = useState(defaultPlayer);
     
     const [glosary, setGlosary] = useState(defaultGlosary);

@@ -1,6 +1,7 @@
 import {  	useContext,
           	useEffect,
-          	useState }        	from 'react';
+          	useState,
+			lazy }        		from 'react';
 
 import {  	Button, 
           	Card, 
@@ -19,7 +20,11 @@ import {  	FaRegWindowClose,
 			FaTwitter }        	from 'react-icons/fa';
 import {  	Tooltip }         	from 'react-tooltip';
 
-import    	YouTube           	from 'react-youtube';
+// Use only for user-generated content
+//import 		DOMPurify 			from 'dompurify';
+const 		YouTube = lazy(() => import('react-youtube'));
+//import    	YouTube           	from 'react-youtube';
+
 import    	ContentContext    	from 'context/content/Context';
 import    	LanguageContext   	from 'context/language/Context';
 import      * as dictionary   	from './lang/index.js';
@@ -28,7 +33,6 @@ import './styles.css';
 
 let lang = 'ES';
 let text = dictionary[lang];
-let contentWithAds = '';
 
 const PanelRight = (props) => {
 	const { 	isClosedRight, 
@@ -43,6 +47,7 @@ const PanelRight = (props) => {
   	const { 	language } = useContext(LanguageContext);
 
 	const [isClosedUp, setIsClosedUp] = useState(true);
+	//const [contentWithAds, setContentWithAds] = useState('');
 
 	lang = language;
     text = dictionary[lang];
@@ -149,7 +154,7 @@ const PanelRight = (props) => {
 		if (!newSong) {
 			const newIdx = chooseNewIdx[instruction.go](player.idx || 0);
 			
-			newSong = playlist[newIdx];
+			newSong = {...playlist[newIdx], idx: newIdx};
 		} else {
 			newSong.idx = parseInt(instruction.idx);
 		}
@@ -208,19 +213,18 @@ const PanelRight = (props) => {
 			rtLink.addEventListener('click', handleClick);
 		});
 
-		const ads = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6994593250482261"crossorigin="anonymous"></script><ins class="adsbygoogle"style="display:block; text-align:center;"data-ad-layout="in-article"data-ad-format="fluid"data-ad-client="ca-pub-6994593250482261"data-ad-slot="9972403646"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>`;
-		const endString = '</p>';
+		//const ads = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6994593250482261"crossorigin="anonymous"></script><ins class="adsbygoogle"style="display:block; text-align:center;"data-ad-layout="in-article"data-ad-format="fluid"data-ad-client="ca-pub-6994593250482261"data-ad-slot="9972403646"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>`;
+		//const endString = '</p>';
 	
-		contentWithAds = contentRight.html[language.toLowerCase()];
-
-		/*if (contentWithAds) {
-			const idxFirstEnd = contentWithAds.indexOf(endString) + endString.length;
-			const idxSecondEnd = idxFirstEnd > endString.length? contentWithAds.indexOf(endString, idxFirstEnd) + endString.length : -1;
-			contentWithAds = idxSecondEnd !== -1? `${contentWithAds.substring(0, idxSecondEnd)}${ads}${contentWithAds.substring(idxSecondEnd, contentWithAds.length)}` : contentWithAds;
+		//const withAds = contentRight.html[language.toLowerCase()];
+		/*if (withAds) {
+			const idxFirstEnd = withAds.indexOf(endString) + endString.length;
+			const idxSecondEnd = idxFirstEnd > endString.length? withAds.indexOf(endString, idxFirstEnd) + endString.length : -1;
+			withAds = idxSecondEnd !== -1? `${withAds.substring(0, idxSecondEnd)}${ads}${withAds.substring(idxSecondEnd, withAds.length)}` : withAds;
+			setContentWithAds(withAds);
 		}*/
 	}, [contentRight, contentRight.html]);
-
-	console.log(contentWithAds)
+	
 	return (
 		<>
 		{isClosedRight
@@ -264,7 +268,7 @@ const PanelRight = (props) => {
 					</h1>
 				</Card.Header>
 				<Card.Body className='open'>
-					<div dangerouslySetInnerHTML={{__html: contentWithAds}}></div>
+					<div dangerouslySetInnerHTML={{__html: contentRight.html[language.toLowerCase()]}}></div>
 					<div className="social-container">
 						{contentRight.meta.icons && Object.entries(contentRight.meta.icons).map(([k, v]) => {
 							const iconFuncs = {
@@ -320,7 +324,9 @@ const PanelRight = (props) => {
 					})}
 				</ListGroup>
 				
-				<YouTube
+				{isClosedRight
+				? null
+				: <YouTube
 					className="text-center"
 					videoId={player.yt}
 					title={`${player.artist} - ${player.song}`}
@@ -328,7 +334,7 @@ const PanelRight = (props) => {
 					onPause={() => {changeIsPlaying(false)}}
 					onEnd={() => {chooseSong({go: 'next'})}}
 					opts={{width: "100%", height: "auto", playerVars: {autoplay: isAutoplay, start: player.ytStart || 0, end: player.ytEnd || 0}}}
-				/>
+				/>}
 				</Card.Body>
 			</Card>
 		</section>

@@ -2,9 +2,9 @@ import {    useContext,
             useEffect,
             useState }          from "react";
 import {    useParams }         from 'react-router-dom';
-import {    getArtists,
+import {    //getArtists,
             getWeeksArtist }    from "utils/artists";
-import {    getPlaylists }      from 'utils/playlists';
+//import {    getPlaylists }      from 'utils/playlists';
 import {    FaRegWindowClose }  from "react-icons/fa";
 
 import      ContentContext      from "context/content/Context";
@@ -22,8 +22,16 @@ const Component = () => {
             changeWeeksArtist } = useContext(ContentContext);
     const text = dictionary[language];
     const params = useParams();
-    const [artist, setArtist] = useState(null);
-    const [playlist, setPlaylist] = useState(null);
+    //const [artist, setArtist] = useState(null);
+    //const [playlist, setPlaylist] = useState(null);
+    const artist = {
+        href: 'goyeneche',
+        name: 'Roberto Goyeneche'
+    };
+    const playlist = {
+        href: 'lofi',
+        name: 'Lofi Tango'
+    };
 
     const getIsFirstVisit = () => {
         const localIFV = window.localStorage.getItem('isFirstVisit') === null;
@@ -62,7 +70,7 @@ const Component = () => {
                 let k = keys[Math.floor(Math.random() * keys.length)];
                 let elem = results[0][k];
                 
-                setArtist(elem);
+                //setArtist(elem);
                 changeWeeksArtist(getWeeksArtist());
             
                 // Playlist
@@ -70,7 +78,7 @@ const Component = () => {
                 k = keys[Math.floor(Math.random() * keys.length)];
                 elem = results[1][k];
 
-                setPlaylist(elem);
+                //setPlaylist(elem);
             }
         };
         const getDefaultLanguage = () => {
@@ -91,7 +99,11 @@ const Component = () => {
     }, []);
 
     return (
-        <section id="land" className={`text-center ${isFirstVisit? 'open' : 'close'}`}>
+        <section 
+            id="land" 
+            className={`text-center ${isFirstVisit? 'open' : 'close'}`}
+            tabIndex="0"
+        >
             <div className="land-container">
                 <div className="but-close" onClick={() => {changeIsClosedRight(true); togglePanel();}}>
                     <FaRegWindowClose/>
