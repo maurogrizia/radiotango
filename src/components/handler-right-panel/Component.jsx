@@ -4,9 +4,10 @@ import {    useContext,
 import {    useParams,
             useLocation,
             useNavigate }       from 'react-router-dom';
+import {    getWeeksArtist }    from 'utils/artists';
 import      ContentContext      from 'context/content/Context';
 import      LanguageContext     from 'context/language/Context';
-import ReactLoading from 'react-loading';
+import      ReactLoading        from 'react-loading';
 
 import "./styles.css";
 
@@ -16,7 +17,8 @@ const Component = () => {
             weeksArtist,
             changeContentRight,
             changeIsClosedRight,
-            changeIsError } = useContext(ContentContext);
+            changeIsError,
+            changeWeeksArtist } = useContext(ContentContext);
     const { language,
             changeLanguage } = useContext(LanguageContext);
     const params = useParams();
@@ -28,13 +30,25 @@ const Component = () => {
     const [isLoading, setIsLoading] = useState(false);
     
     useEffect(() => {
-        if (isError) {
-            navigate(`/${lang}/error`);
-            changeIsError(false);
+        const fetchData = async () => {
+            if (isError) {
+                navigate(`/${lang}/error`);
+                changeIsError(false);
+            }
+            if (cr === 'star') {
+                changeWeeksArtist('aureliano');
+                if (!weeksArtist) {
+                    const wa = await getWeeksArtist();
+                    
+                    changeWeeksArtist(wa);
+                    navigate(`/${lang}/artists/${wa}`);
+                } else {
+                    navigate(`/${lang}/artists/${weeksArtist}`);
+                }
+            }
         }
-        if (cr === 'star') {
-            navigate(`/${lang}/artists/${weeksArtist}`);
-        }
+        
+        fetchData();
     }, []);
 
     useEffect(() => {

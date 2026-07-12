@@ -218,6 +218,7 @@ const ContextProvider = ({ children }) => {
             if (cl === 'star') {
                 newContent.title = 'Artista de la semana';
             }
+            
             setContentRight(newContent);
             if (!isAnimated) {
                 removeNoAnimateClass();

@@ -2,14 +2,14 @@ import axios                    from "axios";
 
 import { getIsUpdateNeeded }    from './time';
 
-let posts =   window.localStorage.getItem('posts')
+let posts =   /* window.localStorage.getItem('posts')
                 ? JSON.parse(window.localStorage.getItem('posts'))
-                : [];
+                : */ [];
 
 const getPosts = async () => {
-    const itemLastUpdate = window.localStorage.getItem('lastUpdate')
+    const itemLastUpdate = /* window.localStorage.getItem('lastUpdate')
         ? JSON.parse(window.localStorage.getItem('lastUpdate'))
-        : {};
+        : */ {};
     const isUpdateNeeded = !itemLastUpdate.posts 
                         || getIsUpdateNeeded(itemLastUpdate);
 
@@ -19,8 +19,8 @@ const getPosts = async () => {
             
             posts = response.data;
             itemLastUpdate.posts = Date.now();
-            window.localStorage.setItem('posts', JSON.stringify(response.data));
-            window.localStorage.setItem('lastUpdate', JSON.stringify(itemLastUpdate));
+            //window.localStorage.setItem('posts', JSON.stringify(response.data));
+            //window.localStorage.setItem('lastUpdate', JSON.stringify(itemLastUpdate));
             //console.log('posts update!')
         }
         

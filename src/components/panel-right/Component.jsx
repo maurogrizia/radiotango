@@ -309,7 +309,7 @@ const PanelRight = (props) => {
 				<ListGroup as="ol" numbered className="mb-2" variant="secondary">
 					{contentRight.meta.playlist && contentRight.meta.playlist.map((song, idx) => {
 						const label = `${song.artist} - ${song.song}`;
-
+                        
 						return (
 							<ListGroup.Item
 								action

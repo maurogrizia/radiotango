@@ -2,14 +2,14 @@ import axios                    from "axios";
 
 import { getIsUpdateNeeded }    from './time';
 
-let playlists =   window.localStorage.getItem('playlists')
+let playlists =   /* window.localStorage.getItem('playlists')
                 ? JSON.parse(window.localStorage.getItem('playlists'))
-                : [];
+                : */ [];
 
 const getPlaylists = async () => {
-    const itemLastUpdate = window.localStorage.getItem('lastUpdate')
+    const itemLastUpdate =/*  window.localStorage.getItem('lastUpdate')
         ? JSON.parse(window.localStorage.getItem('lastUpdate'))
-        : {};
+        : */ {};
     const isUpdateNeeded = !itemLastUpdate.playlists 
                         || getIsUpdateNeeded(itemLastUpdate);
 
@@ -19,8 +19,8 @@ const getPlaylists = async () => {
             
             playlists = response.data;
             itemLastUpdate.playlists = Date.now();
-            window.localStorage.setItem('playlists', JSON.stringify(response.data));
-            window.localStorage.setItem('lastUpdate', JSON.stringify(itemLastUpdate));
+            //window.localStorage.setItem('playlists', JSON.stringify(response.data));
+            //window.localStorage.setItem('lastUpdate', JSON.stringify(itemLastUpdate));
             //console.log('playlists update!')
         }
         

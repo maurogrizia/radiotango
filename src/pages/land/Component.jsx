@@ -2,9 +2,9 @@ import {    useContext,
             useEffect,
             useState }          from "react";
 import {    useParams }         from 'react-router-dom';
-import {    //getArtists,
+import {    getArtists,
             getWeeksArtist }    from "utils/artists";
-//import {    getPlaylists }      from 'utils/playlists';
+import {    getPlaylists }      from 'utils/playlists';
 import {    FaRegWindowClose }  from "react-icons/fa";
 
 import      ContentContext      from "context/content/Context";
@@ -71,7 +71,8 @@ const Component = () => {
                 let elem = results[0][k];
                 
                 //setArtist(elem);
-                changeWeeksArtist(getWeeksArtist());
+                const wa = await getWeeksArtist();
+                changeWeeksArtist(wa);
             
                 // Playlist
                 keys = Object.keys(results[1]);
@@ -114,7 +115,7 @@ const Component = () => {
                 <p>
                     {text['p-1']}&nbsp;
                     {artist && 
-                        <RTLink type="article" cl='artists' data={{href: artist.href}}>
+                        <RTLink type="article" cl="artists" data={{href: artist.href}}>
                             {artist.name}
                         </RTLink>
                     }
