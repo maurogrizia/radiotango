@@ -173,6 +173,7 @@ const PanelRight = (props) => {
 	}, []);
 	useEffect(() => {
 		const followLink = (e) => {
+			const target = e.currentTarget;
 			const followLinkFuncs = {
 				song: ({idx}) => {
 					const song = contentRight.meta.playlist[idx];
@@ -180,12 +181,13 @@ const PanelRight = (props) => {
 					chooseSong({song, idx})
 				},
 				article: ({href}) => {
-					changeContentRight(language.toLowerCase(), contentLeft.meta.href, href);
+					const cl = target.getAttribute('cl');
+
+					changeContentRight(language.toLowerCase(), cl, href);
 				}
 			};
-			const target = e.currentTarget;
 			const dataset = target.dataset;
-		
+
 			if (followLinkFuncs[dataset.type]) {
 				followLinkFuncs[dataset.type]({...dataset});
 			}
