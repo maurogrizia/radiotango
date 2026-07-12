@@ -6,6 +6,7 @@ const ContentContext = createContext({
     contentRight: null,
     isClosedLeft: true,
     isClosedRight: true,
+    isLoadingContentRight: false,
     isError: false,
     showCanvas: false,
     weeksArtist: null,

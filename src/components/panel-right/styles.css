@@ -147,6 +147,28 @@
     color: var(--color-background);
 }
 
+.panel-right-link-loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 110;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: var(--color-background);
+    overflow: hidden;
+    pointer-events: auto;
+}
+.panel-right-link-loading.animate-in {
+    animation: slideLeft 750ms ease forwards;
+    width: var(--width-panel-right);
+}
+.panel-right-link-loading.instant {
+    width: var(--width-panel-right);
+    opacity: 1;
+}
+
 #icon-abs {
     position: absolute;
     font-size: 1em;

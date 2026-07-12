@@ -1,19 +1,14 @@
-import {    useContext, 
-            useEffect, 
-            useState}           from 'react';
+import {    useContext,
+            useEffect }         from 'react';
 import {    useParams,
             useLocation,
             useNavigate }       from 'react-router-dom';
 import {    getWeeksArtist }    from 'utils/artists';
 import      ContentContext      from 'context/content/Context';
 import      LanguageContext     from 'context/language/Context';
-import      ReactLoading        from 'react-loading';
-
-import "./styles.css";
 
 const Component = () => {
     const { isError,
-            isClosedRight,
             weeksArtist,
             changeContentRight,
             changeIsClosedRight,
@@ -27,8 +22,7 @@ const Component = () => {
     const lang = params.lang.toUpperCase();
     const cl = params.cl.toLowerCase();
     const cr = params.cr.toLowerCase();
-    const [isLoading, setIsLoading] = useState(false);
-    
+
     useEffect(() => {
         const fetchData = async () => {
             if (isError) {
@@ -64,33 +58,16 @@ const Component = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                setIsLoading(true);
                 await changeContentRight(lang, cl, cr);
             } catch (error) {
                 console.error('Error fetching data:', error);
-            } finally {
-                setIsLoading(false);
             }
         }
-        
+
         fetchData();
     }, [lang, cr]);
 
-    return <>
-        {<div 
-            id="panel-right-cover"
-            className={isClosedRight? '' : 'animate'}
-            style={{display: isLoading? 'block' : 'none'}}
-        >
-            <ReactLoading 
-                className="loading"
-                type={'bubbles'} 
-                color={'#DDDDDD'} 
-                height={"auto"} 
-                width={"50%"} 
-            />
-        </div>}
-    </>
+    return null;
 }
 
 export default Component;

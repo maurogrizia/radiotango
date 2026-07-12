@@ -51,6 +51,7 @@ const ContextProvider = ({ children }) => {
     const [isAutoplay, setIsAutoplay] = useState(0);
     const [isClosedLeft, setIsClosedLeft] = useState(true);
     const [isClosedRight, setIsClosedRight] = useState(true);
+    const [isLoadingContentRight, setIsLoadingContentRight] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
     const [showCanvas, setShowCanvas] = useState(false);
     const [weeksArtist, setWeeksArtist] = useState();
@@ -126,6 +127,7 @@ const ContextProvider = ({ children }) => {
         isAutoplay,
         isClosedLeft,
         isClosedRight,
+        isLoadingContentRight,
         isError,
         isPlaying,
         showCanvas,
@@ -163,66 +165,71 @@ const ContextProvider = ({ children }) => {
             }
         },
         changeContentRight: async (lang, cl, cr) => {
-            lang = lang? lang.toLowerCase() : defaults.lang;
-            cl = cl? cl.toLowerCase() : defaults.cl;
-            cr = cr? cr.toLowerCase() : defaults.cr;
+            setIsLoadingContentRight(true);
+            try {
+                lang = lang? lang.toLowerCase() : defaults.lang;
+                cl = cl? cl.toLowerCase() : defaults.cl;
+                cr = cr? cr.toLowerCase() : defaults.cr;
 
-            const newContent = {...glosary[cl][cr]};
-            const isNewContent = true //contentRight.meta.href !== cr;
+                const newContent = {...glosary[cl][cr]};
+                const isNewContent = true //contentRight.meta.href !== cr;
 
-            let isUpdated = false;
-            cr = cr === 'star'? weeksArtist : cr;
-            
-            // Update glosary
-            if (isNewContent && (!newContent || !newContent['html'] || !newContent['html'][lang])) {
-                const promises = [];
+                let isUpdated = false;
+                cr = cr === 'star'? weeksArtist : cr;
 
-                // Fetch file urls
-                if (!newContent['urls']) {
-                    const response = await fetchURLs(cl, cr);
-                    
-                    newContent['urls'] = {...response.data};
-                    isUpdated = true;
+                // Update glosary
+                if (isNewContent && (!newContent || !newContent['html'] || !newContent['html'][lang])) {
+                    const promises = [];
+
+                    // Fetch file urls
+                    if (!newContent['urls']) {
+                        const response = await fetchURLs(cl, cr);
+
+                        newContent['urls'] = {...response.data};
+                        isUpdated = true;
+                    }
+
+                    // Fetch files from storage
+                    // urls already set on local newContent (I may need to set them on state)
+                    if (!newContent['meta']) {
+                        promises.push(axios.get(newContent['urls']['meta']));
+                        isUpdated = true;
+                    }
+
+                    if (!newContent['html'] || !newContent['html'][lang]) {
+                        promises.push(axios.get(newContent['urls']['html'][lang]));
+                        isUpdated = true;
+                    }
+
+                    const responses = await Promise.all(promises);
+
+                    if (isUpdated && responses.length === promises.length) {
+                        const newState = {...glosary};
+
+                        newContent['meta'] = !newContent['meta']? responses[0].data : newContent['meta'];
+                        newContent['html'] = newContent['html']? newContent['html'] : {es: '', en: ''};
+                        newContent['html'][lang] = responses[1]? responses[1].data : responses[0].data;
+                        newState[cl][cr] = newContent;
+                        setGlosary(newState);
+                    } else {
+                        // show error toast with not-found or general error
+                        console.log('Error catching data: not found');
+                        return;
+                    }
                 }
 
-                // Fetch files from storage 
-                // urls already set on local newContent (I may need to set them on state)
-                if (!newContent['meta']) {
-                    promises.push(axios.get(newContent['urls']['meta']));
-                    isUpdated = true;
+                // Update state
+                if (cl === 'star') {
+                    newContent.title = 'Artista de la semana';
                 }
 
-                if (!newContent['html'] || !newContent['html'][lang]) {
-                    promises.push(axios.get(newContent['urls']['html'][lang]));
-                    isUpdated = true;
+                setContentRight(newContent);
+                if (!isAnimated) {
+                    removeNoAnimateClass();
+                    setIsAnimated(true);
                 }
-
-                const responses = await Promise.all(promises);
-
-                if (isUpdated && responses.length === promises.length) {
-                    const newState = {...glosary};
-
-                    newContent['meta'] = !newContent['meta']? responses[0].data : newContent['meta'];
-                    newContent['html'] = newContent['html']? newContent['html'] : {es: '', en: ''};
-                    newContent['html'][lang] = responses[1]? responses[1].data : responses[0].data;
-                    newState[cl][cr] = newContent;
-                    setGlosary(newState);
-                } else {
-                    // show error toast with not-found or general error
-                    console.log('Error catching data: not found');
-                    return;
-                }
-            }
-            
-            // Update state
-            if (cl === 'star') {
-                newContent.title = 'Artista de la semana';
-            }
-            
-            setContentRight(newContent);
-            if (!isAnimated) {
-                removeNoAnimateClass();
-                setIsAnimated(true);
+            } finally {
+                setIsLoadingContentRight(false);
             }
         },
         changeIsClosedLeft,

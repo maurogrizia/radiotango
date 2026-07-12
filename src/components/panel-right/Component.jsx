@@ -19,6 +19,7 @@ import {  	FaRegWindowClose,
 			FaFacebook,
 			FaTwitter }        	from 'react-icons/fa';
 import {  	Tooltip }         	from 'react-tooltip';
+import 		ReactLoading 		from 'react-loading';
 
 // Use only for user-generated content
 //import 		DOMPurify 			from 'dompurify';
@@ -35,14 +36,15 @@ let lang = 'ES';
 let text = dictionary[lang];
 
 const PanelRight = (props) => {
-	const { 	isClosedRight, 
-				contentLeft, 
-				contentRight, 
-				player, 
-				changeContentRight, 
+	const { 	isClosedRight,
+				contentLeft,
+				contentRight,
+				player,
+				isLoadingContentRight,
+				changeContentRight,
 				changeIsClosedRight,
-				changeIsPlaying, 
-				changePlayer, 
+				changeIsPlaying,
+				changePlayer,
 				isAutoplay } = useContext(ContentContext);
   	const { 	language } = useContext(LanguageContext);
 
@@ -54,24 +56,13 @@ const PanelRight = (props) => {
 
 	const togglePanel = () => {
 		const panel = document.querySelector('#panel-right');
-		const panelCover = document.querySelector('#panel-right-cover');
-		
+
 		if (panel.classList.contains('open')) {
 			panel.classList.remove('open');
 			panel.classList.add('close');
-
-			if (panelCover) {
-				panelCover.classList.remove('open');
-				panelCover.classList.add('close');
-			}
 		} else {
 			panel.classList.remove('close');
 			panel.classList.add('open');
-
-			if (panelCover) {
-				panelCover.classList.remove('close');
-				panelCover.classList.add('open');
-			}
 		}
   	};
 
@@ -262,6 +253,16 @@ const PanelRight = (props) => {
 				<FaRegWindowClose/>
 			</div>
 			{props.content}
+
+			{isLoadingContentRight &&
+			<div className={`panel-right-link-loading ${isClosedRight? 'animate-in' : 'instant'}`}>
+				<ReactLoading
+					type={'bubbles'}
+					color={'#DDDDDD'}
+					height={80}
+					width={80}
+				/>
+			</div>}
 			
 			<Card className="mb-0 card-first">
 				<Card.Header>
