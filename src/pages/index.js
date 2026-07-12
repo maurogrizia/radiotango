@@ -7,7 +7,7 @@ import * as Genres      from 'pages/genres/Component';
 import * as Home        from 'pages/home/Component';
 import * as Mode        from 'pages/mode/Component';
 import * as Shop        from 'pages/shop/Component';
-import * as Playlists   from 'pages/special/Component';
+import * as Playlists   from 'pages/playlists/Component';
 import * as Privacy     from 'pages/privacy/Component';
 
 export {About, Artists, Atlas, Posts, Error, Genres, Home, Mode, Shop, Playlists, Privacy};

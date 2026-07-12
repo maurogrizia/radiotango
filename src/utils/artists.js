@@ -1,29 +1,15 @@
 import axios                    from "axios";
 
-import { getIsUpdateNeeded }    from './time';
-
-let artists =   /* window.localStorage.getItem('artists')
-                ? JSON.parse(window.localStorage.getItem('artists'))
-                : */ {};
+let artists = {};
 
 const getArtists = async () => {
-    const itemLastUpdate = /* window.localStorage.getItem('lastUpdate')
-        ? JSON.parse(window.localStorage.getItem('lastUpdate'))
-        : */ {};
-    const isUpdateNeeded = !itemLastUpdate.artists 
-                        || getIsUpdateNeeded(itemLastUpdate);
-    
     try {
-        if (Object.keys(artists).length === 0 || isUpdateNeeded) {
+        if (Object.keys(artists).length === 0) {
             const response = await axios.get('/api/artists');
-            
+
             artists = response.data;
-            itemLastUpdate.artists = Date.now();
-            //window.localStorage.setItem('artists', JSON.stringify(response.data));
-            //window.localStorage.setItem('lastUpdate', JSON.stringify(itemLastUpdate));
-            //console.log('artists update!')
         }
-        
+
         return artists;
     } catch (e) {
         console.log(e.message);

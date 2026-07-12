@@ -14,10 +14,6 @@ import    	PanelLeft			from 'components/panel-left/Component';
 import    	PanelRight			from 'components/panel-right/Component';
 import    	Player				from 'components/player/Component';
 import    	Land				from 'pages/land/Component';
-//import Canvas         from 'components/canvas/Component';
-//import {drawFunc}     from 'components/canvas/utils';
-//import {drawFunc}     from 'components/canvas/draw2';
-//<Canvas drawFunc={drawFunc}/>
 
 import		HandlerLeftPanel	from 'components/handler-left-panel/Component';
 import		HandlerRightPanel	from 'components/handler-right-panel/Component';
