@@ -2,28 +2,35 @@ import {    useContext,
             useState, 
             useRef,
             useEffect }     from 'react';
-import {    Link }          from 'react-router-dom';
+import {    Link,
+            useLocation } from 'react-router-dom';
+import {    FaSearch,
+            FaTimes }       from 'react-icons/fa';
 
 import {    getPlaylists }  from 'utils/playlists';
 
-import {    Form, 
+import {    Form,
             ListGroup }     from "react-bootstrap";
 
 import      LanguageContext from 'context/language/Context';
 import      * as dictionary from './lang/index.js';
+
+import './styles.css';
 
 let lang = 'ES';
 let text = dictionary[lang];
 
 const Component = () => {
     const ref = useRef(null);
+    const location = useLocation();
     const { language } = useContext(LanguageContext);
 
     const [search, setSearch] = useState('');
     const [playlists, setPlaylists] = useState([]);
     const values = Object.values(playlists);
     const filtered = search === ''? values : values.filter((x) => {return x.name.toLowerCase().includes(search)});
-    const ordered = filtered.sort((a,b) => {return a.date > b.date;});
+    const ordered = filtered.sort((a,b) => a.name.localeCompare(b.name));
+    const activeHref = location.pathname.split('/').filter(Boolean).pop();
 
     lang = language;
     text = dictionary[lang];
@@ -39,17 +46,35 @@ const Component = () => {
     }, []);
 
     return (
-        <>
+        <div className="search-page">
         <p>
             {text['p-1']}
         </p>
-        <Form.Control
-            id="fc-playlists"
-            autoFocus
-            className="my-2"
-            onChange={(e) => {setSearch(e.currentTarget.value.toLowerCase())}}
-            ref={ref}
-        />
+        <div className="search-box">
+            <FaSearch/>
+            <Form.Control
+                id="fc-playlists"
+                autoFocus
+                className="my-2"
+                placeholder={text['search']}
+                onChange={(e) => {setSearch(e.currentTarget.value.toLowerCase())}}
+                ref={ref}
+            />
+            {search !== '' &&
+                <button
+                    type="button"
+                    className="but-clear-search"
+                    aria-label="clear search"
+                    onClick={() => {
+                        setSearch('');
+                        ref.current.value = '';
+                        ref.current.focus();
+                    }}
+                >
+                    <FaTimes/>
+                </button>
+            }
+        </div>
         <ListGroup as="ul" variant="secondary">
             {ordered.map((elem) => {
                 const label = elem.name;
@@ -58,7 +83,7 @@ const Component = () => {
                 return (
                     <Link
                         key={`link-${label}`}
-                        className="nav-link" 
+                        className="nav-link"
                         to={`/${language}/playlists/${href}`}
                     >
                         <ListGroup.Item
@@ -67,6 +92,7 @@ const Component = () => {
                             key={label}
                             as="li"
                             data-href={href}
+                            active={href === activeHref}
                         >
                             {label}
                         </ListGroup.Item>
@@ -74,7 +100,7 @@ const Component = () => {
                 );
             })}
         </ListGroup>
-        </>
+        </div>
     );
 };
 

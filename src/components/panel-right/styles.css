@@ -93,7 +93,19 @@
 }
 
 .card-body {
-    overflow-y: scroll;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) transparent;
+}
+.card-body::-webkit-scrollbar {
+    width: 8px;
+}
+.card-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+.card-body::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 999px;
 }
 
 .card-first {

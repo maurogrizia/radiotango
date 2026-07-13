@@ -20,6 +20,7 @@ import {  	FaRegWindowClose,
 			FaTwitter }        	from 'react-icons/fa';
 import {  	Tooltip }         	from 'react-tooltip';
 import 		ReactLoading 		from 'react-loading';
+import { 	useNavigate }		from 'react-router-dom';
 
 // Use only for user-generated content
 //import 		DOMPurify 			from 'dompurify';
@@ -41,12 +42,12 @@ const PanelRight = (props) => {
 				contentRight,
 				player,
 				isLoadingContentRight,
-				changeContentRight,
 				changeIsClosedRight,
 				changeIsPlaying,
 				changePlayer,
 				isAutoplay } = useContext(ContentContext);
   	const { 	language } = useContext(LanguageContext);
+	const 		navigate 			= useNavigate();
 
 	const [isClosedUp, setIsClosedUp] = useState(true);
 	//const [contentWithAds, setContentWithAds] = useState('');
@@ -171,10 +172,8 @@ const PanelRight = (props) => {
 
 					chooseSong({song, idx})
 				},
-				article: ({href}) => {
-					const cl = target.getAttribute('cl');
-
-					changeContentRight(language.toLowerCase(), cl, href);
+				article: ({href, cl}) => {
+					navigate(`/${language}/${cl}/${href}`);
 				}
 			};
 			const dataset = target.dataset;

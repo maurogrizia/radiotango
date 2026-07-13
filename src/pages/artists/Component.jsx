@@ -1,12 +1,16 @@
 import {    useContext,
-            useState, 
-            useRef, 
-            useEffect }         from 'react';
-import {    Link }              from 'react-router-dom';
+            useState,
+            useRef,
+            useEffect,
+            Fragment }          from 'react';
+import {    Link,
+            useLocation }       from 'react-router-dom';
+import {    FaSearch,
+            FaTimes }           from 'react-icons/fa';
 
 import {    getArtists,
             getWeeksArtist }    from 'utils/artists';
-import {    Form, 
+import {    Form,
             ListGroup }         from "react-bootstrap";
 
 import      LanguageContext     from 'context/language/Context';
@@ -21,15 +25,27 @@ let text = dictionary[lang];
 
 const Component = () => {
     const ref = useRef(null);
+    const location = useLocation();
     const { language } = useContext(LanguageContext);
     const { changeWeeksArtist } = useContext(ContentContext);
-    
+
     const [search, setSearch] = useState('');
     const [artists, setArtists] = useState([]);
     const values = Object.values(artists);
     const filtered = search === ''? values : values.filter((x) => {return x.name.toLowerCase().includes(search)});
-    const ordered = filtered.sort((a,b) => {return a.name > b.name;});
-    
+    const ordered = filtered.sort((a,b) => a.name.localeCompare(b.name));
+    const activeHref = location.pathname.split('/').filter(Boolean).pop();
+    const groups = ordered.reduce((acc, artist) => {
+        const letter = artist.name.charAt(0).toUpperCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
+
+        if (!acc[letter]) {
+            acc[letter] = [];
+        }
+        acc[letter].push(artist);
+
+        return acc;
+    }, {});
+
     lang = language;
     text = dictionary[lang];
 
@@ -47,47 +63,71 @@ const Component = () => {
     }, []);
 
     return (
-        <>
+        <div className="search-page">
         <p>
             {text['p-1']}
         </p>
-        <Form.Control
-            id="fc-artists"
-            autoFocus
-            className="my-2"
-            onChange={(e) => {
-                setSearch(e.currentTarget.value.toLowerCase())
-            }}
-            ref={ref}
-        />
-        <ListGroup 
-            as="ul" 
+        <div className="search-box">
+            <FaSearch/>
+            <Form.Control
+                id="fc-artists"
+                autoFocus
+                className="my-2"
+                placeholder={text['search']}
+                onChange={(e) => {
+                    setSearch(e.currentTarget.value.toLowerCase())
+                }}
+                ref={ref}
+            />
+            {search !== '' &&
+                <button
+                    type="button"
+                    className="but-clear-search"
+                    aria-label="clear search"
+                    onClick={() => {
+                        setSearch('');
+                        ref.current.value = '';
+                        ref.current.focus();
+                    }}
+                >
+                    <FaTimes/>
+                </button>
+            }
+        </div>
+        <ListGroup
+            as="ul"
             variant="secondary"
         >
-            {ordered.map((artist) => {
-                const label = artist.name;
-                const href = artist.href;
-                
-                return (
-                    <Link
-                        key={`link-${label}`}
-                        className="nav-link" 
-                        to={`/${language}/artists/${href}`}
-                    >
-                        <ListGroup.Item 
-                            action 
-                            as="li"
-                            variant="secondary" 
-                            key={label} 
-                            data-href={href}
-                        >
-                            {label}
-                        </ListGroup.Item>
-                    </Link>
-                );
-            })}
+            {Object.entries(groups).map(([letter, group]) => (
+                <Fragment key={`group-${letter}`}>
+                    <li className="list-group-heading">{letter}</li>
+                    {group.map((artist) => {
+                        const label = artist.name;
+                        const href = artist.href;
+
+                        return (
+                            <Link
+                                key={`link-${label}`}
+                                className="nav-link"
+                                to={`/${language}/artists/${href}`}
+                            >
+                                <ListGroup.Item
+                                    action
+                                    as="li"
+                                    variant="secondary"
+                                    key={label}
+                                    data-href={href}
+                                    active={href === activeHref}
+                                >
+                                    {label}
+                                </ListGroup.Item>
+                            </Link>
+                        );
+                    })}
+                </Fragment>
+            ))}
         </ListGroup>
-        </>
+        </div>
     );
 };
 
