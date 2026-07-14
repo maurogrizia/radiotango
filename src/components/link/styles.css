@@ -1,6 +1,6 @@
 rt-link {
-    background-color: var(--color-primary-soft);
-    color: var(--color-background);
+    background-color: var(--color-highlight-bg);
+    color: var(--color-highlight-text);
     padding: 0.1875em;
 }
 rt-link:hover {
