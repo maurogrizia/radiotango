@@ -41,6 +41,10 @@
   color: var(--color-background-soft);
 }
 
+.stack-container .stack-link.btn-star.active {
+  background-color: var(--color-primary);
+}
+
 .stack-container .stack-link.active {
   background-color: var(--color-secondary-soft);
   color: var(--color-text);
@@ -67,7 +71,26 @@
 }
 
 .a-donation {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 245px;
   text-align: center;
+}
+
+.a-donation .icon-external {
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  box-sizing: content-box;
+  padding: 0.3em;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  pointer-events: none;
 }
 
 .img-donation {

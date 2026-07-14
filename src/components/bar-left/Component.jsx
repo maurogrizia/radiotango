@@ -8,6 +8,7 @@ import {  	FaHome,
           	FaBlog,
 //          FaAtlas,
           	FaExchangeAlt,
+          	FaExternalLinkAlt,
           	FaPlayCircle,
 			FaHandHoldingHeart,
           	FaInfo }      		from "react-icons/fa";
@@ -133,11 +134,13 @@ const BarLeft = () => {
 						<FaHandHoldingHeart/>
 					</Dropdown.Toggle>
 					<Dropdown.Menu className="dropdown-r0">
-						<Dropdown.Item className="a-donation" href='https://cafecito.app/maurogrizia' rel='noopener' target='_blank'>
+						<Dropdown.Item className="a-donation" href='https://cafecito.app/maurogrizia' rel='noopener' target='_blank' aria-label={text['al-cafecito']}>
 							<img className="img-donation" srcSet='https://cdn.cafecito.app/imgs/buttons/button_6.png 1x, https://cdn.cafecito.app/imgs/buttons/button_6_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_6_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_6.png' alt={text['alt-cafecito']} />
+							<FaExternalLinkAlt className="icon-external" aria-hidden="true"/>
 						</Dropdown.Item>
-						<Dropdown.Item className="a-donation" href='https://ko-fi.com/N4N3O2G9M' rel="noopener noreferrer" target='_blank'>
+						<Dropdown.Item className="a-donation" href='https://ko-fi.com/N4N3O2G9M' rel="noopener noreferrer" target='_blank' aria-label={text['al-kofi']}>
 							<img className="img-donation" src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt={text['alt-kofi']} />
+							<FaExternalLinkAlt className="icon-external" aria-hidden="true"/>
 						</Dropdown.Item>
 					</Dropdown.Menu>
 				</Dropdown>
