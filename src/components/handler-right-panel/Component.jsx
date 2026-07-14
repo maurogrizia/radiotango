@@ -21,7 +21,7 @@ const Component = () => {
     const location = useLocation();
     const lang = params.lang.toUpperCase();
     const cl = params.cl.toLowerCase();
-    const cr = params.cr.toLowerCase();
+    const cr = params.cr;
 
     useEffect(() => {
         const fetchData = async () => {

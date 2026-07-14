@@ -63,7 +63,6 @@ const ContextProvider = ({ children }) => {
     };
 
     const fetchURLs = async (cl, cr) => {
-        cr = cr.toLowerCase();
         try {
             const response = await axios.get(`/api/${cl}/${cr}`);
             //const urls = response.data;
@@ -169,7 +168,7 @@ const ContextProvider = ({ children }) => {
             try {
                 lang = lang? lang.toLowerCase() : defaults.lang;
                 cl = cl? cl.toLowerCase() : defaults.cl;
-                cr = cr? cr.toLowerCase() : defaults.cr;
+                cr = cr? cr : defaults.cr;
 
                 const newContent = {...glosary[cl][cr]};
                 const isNewContent = true //contentRight.meta.href !== cr;

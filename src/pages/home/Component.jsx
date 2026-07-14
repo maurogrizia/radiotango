@@ -15,7 +15,7 @@ const Component = () => {
     text = dictionary[lang];
 
     return (
-        <>
+        <div className="home-page">
         <h2>{text['h2-welcome']}</h2>
         <br/>
         <h3>
@@ -70,7 +70,7 @@ const Component = () => {
         <h3>
             {text['h3-5']}
         </h3>
-        </>
+        </div>
     );
 };
 
