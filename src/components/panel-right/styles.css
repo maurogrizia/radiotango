@@ -44,6 +44,16 @@
   animation: slideRightBut 750ms ease forwards;
 }
 
+#panel-right .card-header h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 #panel-right .card-body h1,
 #panel-right .card-body h2,
 #panel-right .card-body h3 {

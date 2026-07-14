@@ -146,7 +146,7 @@ const BarLeft = () => {
 				<NavLink
 					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
 					to={`/${language}/mode`}
-					aria-label={text['al-mode']}
+					aria-label={text['al-conf']}
 				>
 					<Button
 						variant="secondary"
