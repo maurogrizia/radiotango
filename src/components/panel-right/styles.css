@@ -17,8 +17,8 @@
   width: var(--width-panel-right);
   height: calc(var(--vh) * 100);
 
-  --height-header: calc(var(--vh) * 15);
-  --height-body: calc(var(--vh) * 75);
+  --height-header: calc(var(--vh) * 10);
+  --height-body: calc(var(--vh) * 80);
   --height-but-playlist: calc(var(--vh) * 10);
   --fs-but-playlist: 1.5em;
 }
@@ -373,67 +373,28 @@
 }
 
 @media (max-height: 700px) {
-  :root {
-    --height-but-playlist: 12%;
-    --fs-but-playlist: 1.2em;
-  }
-
   #panel-right {
-    --height-header: calc(var(--vh) * 15);
-    --height-body: calc(var(--vh) * 75);
+    --height-header: calc(var(--vh) * 10);
+    --height-body: calc(var(--vh) * 80);
     --height-but-playlist: calc(var(--vh) * 10);
     --fs-but-playlist: 1.5em;
-  }
-
-  .card-first .card-header {
-    height: var(--height-header);
-  }
-
-  .card-first .card-body {
-    height: calc(var(--vh) * 85);
   }
 }
 
 @media (max-height: 500px) {
-  :root {
-    --height-but-playlist: 15%;
-    --fs-but-playlist: 1.5em;
-  }
-
   #panel-right {
     --height-header: calc(var(--vh) * 15);
     --height-body: calc(var(--vh) * 70);
     --height-but-playlist: calc(var(--vh) * 15);
     --fs-but-playlist: 1.4em;
   }
-
-  .card-first .card-header {
-    height: calc(var(--vh) * 17);
-  }
-
-  .card-first .card-body {
-    height: calc(var(--vh) * 83);
-  }
 }
 
 @media (max-height: 300px) {
-  :root {
-    --height-but-playlist: 18%;
-    --fs-but-playlist: 1.6em;
-  }
-
   #panel-right {
-    --height-header: calc(var(--vh) * 15);
-    --height-body: calc(var(--vh) * 65);
+    --height-header: calc(var(--vh) * 10);
+    --height-body: calc(var(--vh) * 70);
     --height-but-playlist: calc(var(--vh) * 20);
     --fs-but-playlist: 1.3em;
-  }
-
-  .card-first .card-header {
-    height: calc(var(--vh) * 20);
-  }
-
-  .card-first .card-body {
-    height: calc(var(--vh) * 80);
   }
 }

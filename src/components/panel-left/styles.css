@@ -18,7 +18,8 @@
 #panel-left {
   width: var(--width-panel-left);
 
-  --height-header: calc(var(--vh) * 15);
+  --height-header: calc(var(--vh) * 10);
+  --height-body: calc(var(--vh) * 90);
 }
 
 #panel-left * {
@@ -100,12 +101,12 @@
 }
 
 .card-first .card-header {
-  height: calc(var(--vh) * 15);
+  height: var(--height-header);
   width: 95%;
 }
 
 .card-first .card-body {
-  height: calc(var(--vh) * 85);
+  height: var(--height-body);
 }
 
 .card-first .card-body.close {

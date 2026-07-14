@@ -1,5 +1,6 @@
 import {  	useContext,
           	useEffect,
+          	useRef,
           	useState,
 			lazy }        		from 'react';
 
@@ -38,7 +39,6 @@ let text = dictionary[lang];
 
 const PanelRight = (props) => {
 	const { 	isClosedRight,
-				contentLeft,
 				contentRight,
 				player,
 				isLoadingContentRight,
@@ -51,6 +51,9 @@ const PanelRight = (props) => {
 
 	const [isClosedUp, setIsClosedUp] = useState(true);
 	//const [contentWithAds, setContentWithAds] = useState('');
+
+	const titleRef = useRef(null);
+	const [isTitleOverflowing, setIsTitleOverflowing] = useState(false);
 
 	lang = language;
     text = dictionary[lang];
@@ -216,7 +219,24 @@ const PanelRight = (props) => {
 			setContentWithAds(withAds);
 		}*/
 	}, [contentRight, contentRight.html]);
-	
+
+	useEffect(() => {
+		const el = titleRef.current;
+
+		if (!el) return;
+
+		const checkOverflow = () => {
+			setIsTitleOverflowing(el.scrollWidth > el.clientWidth);
+		};
+
+		checkOverflow();
+
+		const observer = new ResizeObserver(checkOverflow);
+		observer.observe(el);
+
+		return () => observer.disconnect();
+	}, [contentRight.meta, language]);
+
 	return (
 		<>
 		{isClosedRight
@@ -270,7 +290,12 @@ const PanelRight = (props) => {
 			
 			<Card className="mb-0 card-first">
 				<Card.Header>
-					<h1 title={contentRight.meta.title}>
+					<h1
+						ref={titleRef}
+						data-tooltip-id={isTitleOverflowing? "tt-panel-right-title" : undefined}
+						data-tooltip-content={isTitleOverflowing? contentRight.meta.title : undefined}
+						data-tooltip-place="top"
+					>
 						{contentRight.meta.title}
 					</h1>
 				</Card.Header>
@@ -297,8 +322,9 @@ const PanelRight = (props) => {
 					</div>
 				</Card.Body>
 			</Card>
+			<Tooltip id="tt-panel-right-title" positionStrategy="fixed" style={{zIndex: 999}} />
 
-			<Button 
+			<Button
 				id="but-playlist"
 				className='m-0'
 				onClick={toggleCard}
