@@ -52,6 +52,7 @@
   text-overflow: ellipsis;
   text-transform: uppercase;
   white-space: nowrap;
+  margin-bottom: 0;
 }
 
 #panel-right .card-body h1,
@@ -83,11 +84,15 @@
 #panel-right.open .but-close {
   font-size: var(--font-size-2xl);
   color: var(--color-text);
+  top: calc(var(--height-header) / 2);
+  transform: translateY(-50%);
   right: 0.9em;
-  width: var(--space-lg);
-  text-align: center;
   cursor: pointer;
   z-index: 100;
+}
+
+#panel-right.open .but-close:hover {
+  color: var(--color-primary-soft);
 }
 
 #panel-right.open figure {
@@ -111,10 +116,22 @@
 
 .but-close {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
   background-color: var(--color-background-soft);
   border: none;
   padding: 0;
   font: inherit;
+  cursor: pointer;
+}
+
+.but-close:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: -2px;
 }
 
 .card-body {
@@ -143,6 +160,8 @@
 .card-first .card-header {
   height: var(--height-header);
   width: 95%;
+  display: flex;
+  align-items: center;
 }
 
 .card-first .card-body {

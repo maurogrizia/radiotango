@@ -26,10 +26,13 @@
   max-width: 100px;
 }
 
-.stack-left button {
+.stack-left .stack-link {
   width: var(--width-button);
   height: var(--height-button);
-  display: block;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-star {
@@ -38,21 +41,21 @@
   color: var(--color-background-soft);
 }
 
-.stack-container .nav-link.active .btn {
+.stack-container .stack-link.active {
   background-color: var(--color-secondary-soft);
   color: var(--color-text);
 }
 
+.container-donations {
+  width: fit-content;
+}
+
 .container-donations button {
+  height: var(--height-button);
+  width: var(--width-button);
   background-color: var(--color-donation);
-}
-
-.container-donations button:hover {
-  background-color: var(--color-donation-soft);
-}
-
-.container-donations button:focus {
-  background-color: var(--color-donation);
+  --bs-btn-hover-bg: var(--color-donation-soft);
+  --bs-btn-active-bg: var(--color-donation-strong);
 }
 
 .container-donations .dropdown-menu.show {

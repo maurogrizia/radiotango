@@ -267,7 +267,7 @@ const PanelRight = (props) => {
 		<Tooltip id="tt-slide-panel" />
 
 		{contentRight.meta && contentRight.html
-		? <section id="panel-right" className={isClosedRight? "close" : "open"}>
+		? <section id="panel-right" className={isClosedRight? "close" : "open"} inert={isClosedRight? "" : undefined}>
 			<button
 				type="button"
 				className="but-close"

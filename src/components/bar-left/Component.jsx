@@ -1,19 +1,18 @@
 import {  	useContext,
           	useRef }      		from 'react';
-import {  	FaHome, 
+import {  	FaHome,
           	FaStar,
-//          FaMusic, 
+//          FaMusic,
           	FaMicrophone,
 //          FaShoppingCart,
           	FaBlog,
-//          FaAtlas, 
+//          FaAtlas,
           	FaExchangeAlt,
-          	FaPlayCircle, 
+          	FaPlayCircle,
 			FaHandHoldingHeart,
           	FaInfo }      		from "react-icons/fa";
 import { 	NavLink } 			from 'react-router-dom';
-import { 	Button,
-			Dropdown,
+import { 	Dropdown,
         	Stack }       		from 'react-bootstrap';
 import {	Tooltip }      		from 'react-tooltip';
 
@@ -38,130 +37,93 @@ const BarLeft = () => {
 		<Stack gap={2} className="col-md-5 mx-auto stack-left" style={{justifyContent: "space-between"}}>
 			<div className="stack-section text-center">
 				<NavLink
-					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+					className={({ isActive }) => "stack-link btn btn-secondary" + (isActive ? " active" : "")}
 					to={`/${language}/home`}
 					aria-label={text['al-home']}
+					data-tooltip-id="tt-home"
+					data-tooltip-content={text['tt-home']}
+					data-tooltip-place="right"
 				>
-					<Button 
-						variant="secondary"
-						aria-label={text['tt-home']}
-						data-tooltip-id="tt-home"
-						data-tooltip-content={text['tt-home']}
-						data-tooltip-place="right"
-					>
-                    	<FaHome/>
-                  	</Button>
+					<FaHome/>
                 </NavLink>
                 <Tooltip id="tt-home" />
 
                 <NavLink
-					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+					className={({ isActive }) => "stack-link btn btn-secondary" + (isActive ? " active" : "")}
 					to={`/${language}/artists`}
 					aria-label={text['al-artist']}
+					data-tooltip-id="tt-artist"
+					data-tooltip-content={text['tt-artist']}
+					data-tooltip-place="right"
 				>
-					<Button
-						variant="secondary"
-						aria-label={text['tt-artist']}
-						data-tooltip-id="tt-artist"
-						data-tooltip-content={text['tt-artist']}
-						data-tooltip-place="right"
-					>
-                    	<FaMicrophone/>
-                  	</Button>
+					<FaMicrophone/>
                 </NavLink>
                 <Tooltip id="tt-artist" />
 
                 <NavLink
-					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+					className={({ isActive }) => "stack-link btn btn-secondary" + (isActive ? " active" : "")}
 					to={`/${language}/posts`}
 					aria-label={text['al-blog']}
+					data-tooltip-id="tt-blog"
+					data-tooltip-content={text['tt-blog']}
+					data-tooltip-place="right"
 				>
-					<Button
-						variant="secondary"
-						aria-label={text['tt-blog']}
-						data-tooltip-id="tt-blog"
-						data-tooltip-content={text['tt-blog']}
-						data-tooltip-place="right"
-					>
-                    	<FaBlog/>
-                  	</Button>
+					<FaBlog/>
                 </NavLink>
                 <Tooltip id="tt-blog" />
 
                 <NavLink
-					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+					className={({ isActive }) => "stack-link btn btn-secondary" + (isActive ? " active" : "")}
 					to={`/${language}/playlists`}
 					aria-label={text['al-playlist']}
+					data-tooltip-id="tt-special"
+					data-tooltip-content={text['tt-playlist']}
+					data-tooltip-place="right"
 				>
-					<Button
-						variant="secondary"
-						aria-label={text['tt-playlist']}
-						data-tooltip-id="tt-special"
-						data-tooltip-content={text['tt-playlist']}
-						data-tooltip-place="right"
-					>
-						<FaPlayCircle/>
-					</Button>
+					<FaPlayCircle/>
                 </NavLink>
                 <Tooltip id="tt-special" />
             </div>
             <div className="stack-section text-center" ref={ref}>
               	<NavLink
-					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+					className={({ isActive }) => "stack-link btn btn-primary btn-star" + (isActive ? " active" : "")}
 					to={`/${language}/artists/star`}
 					aria-label={text['al-star']}
+					data-tooltip-id="tt-star"
+					data-tooltip-content={text['tt-star']}
+					data-tooltip-place="right"
 				>
-					<Button
-						className="btn-star"
-						variant="primary"
-						aria-label={text['tt-star']}
-						data-tooltip-id="tt-star"
-						data-tooltip-content={text['tt-star']}
-						data-tooltip-place="right"
-					>
-                  		<FaStar/>
-                	</Button>
+					<FaStar/>
               	</NavLink>
-              
               	<Tooltip id="tt-star" />
             </div>
             <div className="stack-section text-center">
 				<NavLink
-					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+					className={({ isActive }) => "stack-link btn btn-secondary" + (isActive ? " active" : "")}
 					to={`/${language}/about`}
 					aria-label={text['al-about']}
+					data-tooltip-id="tt-info"
+					data-tooltip-content={text['tt-about']}
+					data-tooltip-place="right"
 				>
-					<Button
-						variant="secondary"
-						aria-label={text['tt-about']}
-						data-tooltip-id="tt-info"
-						data-tooltip-content={text['tt-about']}
-						data-tooltip-place="right"
-					>
-						<FaInfo/>
-					</Button>
+					<FaInfo/>
 				</NavLink>
               	<Tooltip id="tt-info" />
 
 				<NavLink
-					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+					className={({ isActive }) => "stack-link btn btn-secondary" + (isActive ? " active" : "")}
 					to={`/${language}/mode`}
 					aria-label={text['al-conf']}
+					data-tooltip-id="tt-mode"
+					data-tooltip-content={text['tt-conf']}
+					data-tooltip-place="right"
 				>
-					<Button
-						variant="secondary"
-						aria-label={text['tt-conf']}
-						data-tooltip-id="tt-mode"
-						data-tooltip-content={text['tt-conf']}
-						data-tooltip-place="right"
-					>
-						<FaExchangeAlt/>
-					</Button>
-					<Tooltip id="tt-mode" />
+					<FaExchangeAlt/>
 				</NavLink>
+				<Tooltip id="tt-mode" />
 
 				<Dropdown className="container-donations" drop="end">
-					<Dropdown.Toggle 
+					<Dropdown.Toggle
 						variant="success"
 						aria-label={text['al-donations']}
 						data-tooltip-id="tt-donations"

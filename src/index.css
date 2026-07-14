@@ -1,14 +1,17 @@
 :root {
   --tangelo: #FD4B09ff;
   --tangelo-soft: #EC3A05DD;
+  --tangelo-strong: #CA3C07ff;
   --jonquil: #F9CF20ff;
   --jonquil-soft: #E8BE10FF;
+  --jonquil-strong: #C7A61Aff;
   --antiflash-white: #F0F4F8ff;
   --antiflash-white-soft: #F0F4F8FF;
   --night: #13130Fff;
   --night-soft: #23231FFF;
   --sky: #48b3e7ff;
   --sky-soft: #59c4f8ff;
+  --sky-strong: #3A8FB9ff;
   --champagne: #FFF3CDff;
 
   /* Color — tokens semánticos, usar estos desde cualquier styles.css */
@@ -18,10 +21,13 @@
   --color-text-soft: var(--antiflash-white-soft);
   --color-primary: var(--jonquil);
   --color-primary-soft: var(--jonquil-soft);
+  --color-primary-strong: var(--jonquil-strong);
   --color-secondary: var(--tangelo);
   --color-secondary-soft: var(--tangelo-soft);
+  --color-secondary-strong: var(--tangelo-strong);
   --color-donation: var(--sky);
   --color-donation-soft: var(--sky-soft);
+  --color-donation-strong: var(--sky-strong);
   --color-highlight-bg: var(--champagne);
   --color-highlight-text: var(--color-background);
   --color-shadow-glow: rgba(250, 250, 250, 0.6);

@@ -1,221 +1,261 @@
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* this is what I use to place the menu thing wherever I want*/
 .container-socials {
-	position: absolute;
-	/*top: 4em;*/
-    bottom: 0em;
-	right: 0.5em;
-    z-index: 200;
+  position: fixed;
+  /*top: 4em;*/
+  bottom: 0em;
+  right: 1em;
+  z-index: 200;
 
-    --circle-size: 2.5em;
-    --top: 2em;
-    --bottom: 2em;
-    --void: 0.25em;
-    --icon-size: var(--font-size-lg);
-    --top-toggle: -3em;
-    --bottom-toggle: 0.5em;
-    --right-toggle: 0.5em;
+  --circle-size: 2.5em;
+  --top: 2em;
+  --bottom: 2em;
+  --void: 0.25em;
+  --icon-size: var(--font-size-lg);
+  --top-toggle: -3em;
+  --bottom-toggle: 0.5em;
+  --right-toggle: 0em;
 }
 
 .container-socials.open {
-    --right-toggle: var(--width-panel-right);
+  --right-toggle: var(--width-panel-right);
 }
 
 .vh100 {
-    height: calc(var(--vh) * 100);
-    /*height: -moz-available;*/          /* WebKit-based browsers will ignore this. */
-    height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    /*height: stretch;*/
+  height: calc(var(--vh) * 100);
+  /*height: -moz-available;*/
+  /* WebKit-based browsers will ignore this. */
+  height: -webkit-fill-available;
+  /* Mozilla-based browsers will ignore this. */
+  /*height: stretch;*/
 }
 
 /* this toggles the whole damn thing */
-.menu-toggle {
-	width: 60px;
-	height: 60px;
-	border-radius: var(--radius-circle);
-	background-color: var(--color-secondary);
-	box-shadow: 4px 4px 2px 1px var(--color-shadow-dim);
+.stack-right button.menu-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-circle);
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  background-color: var(--color-secondary);
+  box-shadow: 4px 4px 2px 1px var(--color-shadow-dim);
 
-	position: absolute;
-	/*z-index: 50;*/
-	/*top: var(--top-toggle);*/
-    bottom: var(--bottom-toggle);
-	right: var(--right-toggle);
-	display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  /*z-index: 50;*/
+  /*top: var(--top-toggle);*/
+  bottom: var(--bottom-toggle);
+  right: var(--right-toggle);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-toggle:hover {
-    cursor: pointer;
-    background-color: var(--color-secondary-soft);
+  background-color: var(--color-secondary-soft);
+}
+
+.menu-toggle:active {
+  background-color: var(--color-secondary-strong);
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: -2px;
 }
 
 
-.menu-toggle svg{
-    color: var(--color-text);
-    font-size: var(--font-size-2xl);
-    transition: 0.4s;
+.menu-toggle svg {
+  color: var(--color-text);
+  font-size: var(--font-size-2xl);
+  transition: 0.4s;
 }
 
 /* Single Template buttons */
 .btn-app {
-    width: var(--circle-size);
-	height: var(--circle-size);
-	border-radius: var(--radius-circle);
-	position: absolute;
-    display: block;
-	
-	background-color: var(--color-secondary);
-	color: var(--color-text);
-	text-align: center;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: var(--radius-circle);
+  position: absolute;
+  display: block;
+
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  text-align: center;
 }
+
 .btn-app:hover {
-    background-color: var(--color-secondary-soft);
+  background-color: var(--color-secondary-soft);
 }
+
+.menu-round a:focus-visible {
+  outline: none;
+}
+
+.menu-round a:focus-visible .btn-app {
+  outline: 2px solid var(--color-text);
+  outline-offset: -2px;
+}
+
 .btn-app svg {
-    line-height: 2.5em;
+  line-height: 2.5em;
 }
+
 .btn-app a {
-    color: var(--color-text);
+  color: var(--color-text);
 }
 
 /* add shadow only when templates are activated */
 .open .btn-app {
-	box-shadow: 4px 4px 2px 1px var(--color-shadow-dim);
+  box-shadow: 4px 4px 2px 1px var(--color-shadow-dim);
 }
 
 /* The most-popular apps in a circular thing */
 .menu-round {
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
 }
 
 .menu-round .btn-app {
-    /*top: calc(var(--top-toggle) * 0.75);*/
-    bottom: var(--bottom-toggle * 0.75);
-    right: var(--right-toggle);
-    transition: 0.4s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /*top: calc(var(--top-toggle) * 0.75);*/
+  bottom: var(--bottom-toggle * 0.75);
+  right: var(--right-toggle);
+  transition: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    font-size: var(--icon-size);
+  font-size: var(--icon-size);
 }
 
 .menu-round.open a:nth-of-type(1) .btn-app {
-    right: calc(var(--right-toggle) + 0.5em);
-    bottom: calc(var(--bottom-toggle) + 3.5em);
-    transition-delay: 0.2s;
-} 
+  right: calc(var(--right-toggle) + 0.5em);
+  bottom: calc(var(--bottom-toggle) + 3.5em);
+  transition-delay: 0.2s;
+}
 
 .menu-round.open a:nth-of-type(2) .btn-app {
-    right: calc(var(--right-toggle) + 3.5em);
-    bottom: calc(var(--bottom-toggle) - 0.5em);
-    transition-delay: 0.1s;
+  right: calc(var(--right-toggle) + 3.5em);
+  bottom: calc(var(--bottom-toggle) - 0.5em);
+  transition-delay: 0.1s;
 }
+
 .menu-round.open a:nth-of-type(3) .btn-app {
-    right: calc(var(--right-toggle) + 3.5em);
-    bottom: calc(var(--bottom-toggle) + 2.5em);
+  right: calc(var(--right-toggle) + 3.5em);
+  bottom: calc(var(--bottom-toggle) + 2.5em);
 }
 
 /* stacked template icons */
 .menu-line {
-	position: absolute;
-    /*top: var(--top-toggle);*/
-    bottom: var(--bottom-toggle);
-	/*z-index: 20;*/
+  position: absolute;
+  /*top: var(--top-toggle);*/
+  bottom: var(--bottom-toggle);
+  /*z-index: 20;*/
 }
 
 .menu-line .btn-app {
-    top: 0.5em;
-    right: -4.75em;
-    transition: 0.35s;
-    transition-delay: 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: var(--icon-size);
+  top: 0.5em;
+  right: -4.75em;
+  transition: 0.35s;
+  transition-delay: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--icon-size);
 }
 
 .menu-line.open {
-    left: 0.5em;
-    /*top: calc(0.75em + var(--top-toggle));*/
-    bottom: calc(0.75em + var(--bottom-toggle));
-    /*z-index: 120;*/
+  left: 0.5em;
+  /*top: calc(0.75em + var(--top-toggle));*/
+  bottom: calc(0.75em + var(--bottom-toggle));
+  /*z-index: 120;*/
 }
 
 .menu-line.open .btn-app {
-    right: calc(-1em + var(--right-toggle));
-    display: block;
+  right: calc(-1em + var(--right-toggle));
+  display: block;
 }
 
 @media (max-width: 1250px) {
-    .menu-line.open {
-        left: 0.5em;
-    }
-    .menu-line .btn-app {
-        right: -3.25em;
-        pointer-events: none;
-        display: none;
-    }
-    .menu-line.open .btn-app {
-        right: calc(1em + var(--right-toggle));
-    }
+  .menu-line.open {
+    left: 0.5em;
+  }
+
+  .menu-line .btn-app {
+    right: -3.25em;
+    pointer-events: none;
+    display: none;
+  }
+
+  .menu-line.open .btn-app {
+    right: calc(1em + var(--right-toggle));
+  }
 }
+
 @media (max-width: 900px) {
-    .menu-line.open {
-        left: 0;
-    }
-    .menu-line .btn-app {
-        right: -3em;
-        pointer-events: none;
-        display: none;
-    }
-    .menu-line.open .btn-app {
-        right: calc(1em + var(--right-toggle));
-    }
+  .menu-line.open {
+    left: 0;
+  }
+
+  .menu-line .btn-app {
+    right: -3em;
+    pointer-events: none;
+    display: none;
+  }
+
+  .menu-line.open .btn-app {
+    right: calc(1em + var(--right-toggle));
+  }
 }
+
 @media (max-width: 767px) {
-    .menu-line .btn-app {
-        right: -2em;
-        pointer-events: none;
-        display: none;
-    }
-    .menu-line.open .btn-app {
-        right: calc(1.25em + var(--right-toggle));
-    }
+  .menu-line .btn-app {
+    right: -2em;
+    pointer-events: none;
+    display: none;
+  }
+
+  .menu-line.open .btn-app {
+    right: calc(1.25em + var(--right-toggle));
+  }
 }
+
 @media (max-width: 600px) {
-    .menu-line.open {
-        left: -0.75em;
-    }
-    .menu-round {
-        top: -4em;
-    }
-    .menu-round.open {
-        top: 0;
-    }
+  .menu-line.open {
+    left: -0.75em;
+  }
+
+  .menu-round {
+    top: -4em;
+  }
+
+  .menu-round.open {
+    top: 0;
+  }
 }
 
 .menu-line.open a:nth-of-type(1) .btn-app {
-    /*top: calc(var(--top) + 1 * (var(--circle-size) + var(--void)));*/
-    bottom: calc(var(--bottom) + 1 * (var(--circle-size) + var(--void)));
+  /*top: calc(var(--top) + 1 * (var(--circle-size) + var(--void)));*/
+  bottom: calc(var(--bottom) + 1 * (var(--circle-size) + var(--void)));
 }
+
 .menu-line.open a:nth-of-type(2) .btn-app {
-    /*top: calc(var(--top) + 2 * (var(--circle-size) + var(--void)));*/
-    bottom: calc(var(--bottom) + 2 * (var(--circle-size) + var(--void)));
+  /*top: calc(var(--top) + 2 * (var(--circle-size) + var(--void)));*/
+  bottom: calc(var(--bottom) + 2 * (var(--circle-size) + var(--void)));
 }
+
 .menu-line.open a:nth-of-type(3) .btn-app {
-    /*top: calc(var(--top) + 3 * (var(--circle-size) + var(--void)));*/
-    bottom: calc(var(--bottom) + 3 * (var(--circle-size) + var(--void)));
+  /*top: calc(var(--top) + 3 * (var(--circle-size) + var(--void)));*/
+  bottom: calc(var(--bottom) + 3 * (var(--circle-size) + var(--void)));
 }
+
 .menu-line.open a:nth-of-type(4) .btn-app {
-    /*top: calc(var(--top) + 4 * (var(--circle-size) + var(--void)));*/
-    bottom: calc(var(--bottom) + 4 * (var(--circle-size) + var(--void)));
+  /*top: calc(var(--top) + 4 * (var(--circle-size) + var(--void)));*/
+  bottom: calc(var(--bottom) + 4 * (var(--circle-size) + var(--void)));
 }

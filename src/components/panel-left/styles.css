@@ -41,12 +41,15 @@
 #panel-left.open .but-close {
   font-size: var(--font-size-2xl);
   color: var(--color-text);
-  /*top: 0.5em;*/
+  top: calc(var(--height-header) / 2);
+  transform: translateY(-50%);
   right: var(--space-lg);
-  width: var(--space-lg);
-  text-align: center;
   cursor: pointer;
   z-index: 200;
+}
+
+#panel-left.open .but-close:hover {
+  color: var(--color-primary-soft);
 }
 
 .card-header h1 {
@@ -103,6 +106,8 @@
 .card-first .card-header {
   height: var(--height-header);
   width: 95%;
+  display: flex;
+  align-items: center;
 }
 
 .card-first .card-body {

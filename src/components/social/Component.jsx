@@ -65,9 +65,15 @@ const Social = () => {
     return (
         <>
         <div className={`container-socials${isClosedRight? '' : ' open'}`}>
-            <div className={`menu-toggle ${showSocials? 'open' : ''}`} onClick={togglemenus}>
+            <button
+                type="button"
+                className={`menu-toggle ${showSocials? 'open' : ''}`}
+                onClick={togglemenus}
+                aria-label={text['al-toggle']}
+                aria-expanded={showSocials}
+            >
                 <FaShareNodes className="toggle"/>
-            </div>
+            </button>
             
             <div className={`menu-round ${showSocials? 'open' : ''}`}>
                 <a target="_blank" rel="noreferrer" href={urls.tw} aria-label={text['al-tt']}>

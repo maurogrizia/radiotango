@@ -51,7 +51,7 @@ const PanelLeft = (props) => {
 	};
 	
 	return (
-		<section id="panel-left" className={isClosedLeft? "close" : "open"}>
+		<section id="panel-left" className={isClosedLeft? "close" : "open"} inert={isClosedLeft? "" : undefined}>
 			<button
 				type="button"
 				className="but-close"

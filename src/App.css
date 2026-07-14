@@ -55,7 +55,8 @@ button.list-group-item-action:hover {
 .card input, .card input:focus{
   color: #222222CC;
 }
-button.btn {
+button.btn,
+a.btn {
   --bs-btn-color: var(--color-text);
   --bs-btn-hover-color: var(--color-text);
   --bs-btn-active-color: var(--color-text);
@@ -63,19 +64,25 @@ button.btn {
   --bs-btn-border-color: var(--color-background);
   --bs-btn-hover-border-color: var(--color-background);
   --bs-btn-active-border-color: var(--color-background);
-  
+
   border: none;
 }
-button.btn-primary {
+.btn:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: -2px;
+}
+button.btn-primary,
+a.btn-primary {
   --bs-btn-bg: var(--color-primary);
   --bs-btn-hover-bg: var(--color-primary-soft);
-  --bs-btn-active-bg: var(--color-primary-soft);
+  --bs-btn-active-bg: var(--color-primary-strong);
   --bs-btn-disabled-bg: var(--color-primary-soft);
 }
-button.btn-secondary {
+button.btn-secondary,
+a.btn-secondary {
   --bs-btn-bg: var(--color-secondary);
   --bs-btn-hover-bg: var(--color-secondary-soft);
-  --bs-btn-active-bg: var(--color-secondary-soft);
+  --bs-btn-active-bg: var(--color-secondary-strong);
   --bs-btn-disabled-bg: var(--color-secondary-soft);
 }
 
