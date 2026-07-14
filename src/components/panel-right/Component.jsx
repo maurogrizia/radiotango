@@ -248,9 +248,14 @@ const PanelRight = (props) => {
 
 		{contentRight.meta && contentRight.html
 		? <section id="panel-right" className={isClosedRight? "close" : "open"}>
-			<div className="but-close" onClick={() => {changeIsClosedRight(true); togglePanel(); toggleButton();}}>
+			<button
+				type="button"
+				className="but-close"
+				aria-label={text['tt-close']}
+				onClick={() => {changeIsClosedRight(true); togglePanel(); toggleButton();}}
+			>
 				<FaRegWindowClose/>
-			</div>
+			</button>
 			{props.content}
 
 			{isLoadingContentRight &&

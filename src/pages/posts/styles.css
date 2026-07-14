@@ -81,10 +81,16 @@
   transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
 }
 
+.search-page .post-title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .search-page .post-date {
   color: var(--color-text-soft);
   font-size: var(--font-size-sm);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .search-page .list-group-item-action:hover,

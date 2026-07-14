@@ -56,6 +56,7 @@ const Component = () => {
                 id="fc-playlists"
                 autoFocus
                 className="my-2"
+                aria-label={text['search']}
                 placeholder={text['search']}
                 onChange={(e) => {setSearch(e.currentTarget.value.toLowerCase())}}
                 ref={ref}

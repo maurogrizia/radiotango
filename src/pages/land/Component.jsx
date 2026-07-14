@@ -106,9 +106,14 @@ const Component = () => {
             tabIndex="0"
         >
             <div className="land-container">
-                <div className="but-close" onClick={() => {changeIsClosedRight(true); togglePanel();}}>
+                <button
+                    type="button"
+                    className="but-close"
+                    aria-label={text['close']}
+                    onClick={() => {changeIsClosedRight(true); togglePanel();}}
+                >
                     <FaRegWindowClose/>
-                </div>
+                </button>
                 <h2>{text['title-1']}</h2>
                 <hr/>
                 <h3>{text['subtitle-1']}</h3>

@@ -28,9 +28,14 @@ const PanelLeft = (props) => {
 	
 	return (
 		<section id="panel-left" className={isClosedLeft? "close" : "open"}>
-			<div className="but-close" onClick={() => {changeIsClosedLeft(true); togglePanel();}}>
+			<button
+				type="button"
+				className="but-close"
+				aria-label={language === 'EN'? 'Close' : 'Cerrar'}
+				onClick={() => {changeIsClosedLeft(true); togglePanel();}}
+			>
 				<FaRegWindowClose/>
-			</div>
+			</button>
 			
 			{props.content}
 			

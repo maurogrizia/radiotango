@@ -1,4 +1,5 @@
-import {    useState }              from "react";
+import {    useState,
+            useEffect }             from "react";
 import {    useNavigate }           from "react-router-dom";
 import {    getDefaultLanguage }    from "utils/language";
 
@@ -9,6 +10,11 @@ const Provider = ({ children }) => {
     const navigate = useNavigate();
     const defaultLanguage = getDefaultLanguage();
     const [language, setLanguage] = useState(defaultLanguage);
+
+    useEffect(() => {
+        document.documentElement.lang = language.toLowerCase();
+    }, [language]);
+
     const provider = {
         language,
         changeLanguage: selected => {
