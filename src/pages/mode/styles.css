@@ -1,5 +1,5 @@
 /* Standard syntax */
 .card-second:fullscreen {
     bottom: 0;
-    background-color: pink;
+    background-color: var(--color-background-soft);
 }

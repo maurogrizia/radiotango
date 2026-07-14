@@ -31,7 +31,7 @@
     width: calc(var(--width-button) * 0.5);
     height: var(--height-button);
     z-index: 200;
-    box-shadow: -2px 1px 3px 3px rgba(250, 250, 250, 0.6);
+    box-shadow: -2px 1px 3px 3px var(--color-shadow-glow);
     border: 1px solid var(--color-text);
     color: var(--color-background-soft);
 }
@@ -62,16 +62,16 @@
     z-index: 5;
 }
 #panel-right.open .but-close{
-    font-size: 2em;
+    font-size: var(--font-size-2xl);
     color: var(--color-text);
     right: 0.9em;
-    width: 1em;
+    width: var(--space-lg);
     text-align: center;
     cursor: pointer;
     z-index: 100;
 }
 #panel-right.open figure {
-    margin-top: 2em;
+    margin-top: var(--space-3xl);
 }
 #panel-right.open img{
     max-height: 80%;
@@ -105,7 +105,7 @@
 }
 .card-body::-webkit-scrollbar-thumb {
     background-color: var(--color-primary);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
 }
 
 .card-first {
@@ -130,12 +130,12 @@
 }
 
 .card-first .card-body.open .social-container {
-    font-size: 2em;
+    font-size: var(--font-size-2xl);
     text-align: center;
 }
 
 .card-first .card-body.open .social-container a{
-    margin-left: 0.5em;
+    margin-left: var(--space-xs);
     color: var(--color-secondary);
 }
 
@@ -183,8 +183,8 @@
 
 #icon-abs {
     position: absolute;
-    font-size: 1em;
-    left: 2em;
+    font-size: var(--font-size-base);
+    left: var(--space-3xl);
     color: var(--color-text-soft);
     filter: drop-shadow(1px 2px 4px var(--color-secondary-soft));
     display: none;

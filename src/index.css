@@ -1,21 +1,87 @@
+:root {
+  --tangelo: #FD4B09ff;
+  --tangelo-soft: #EC3A05DD;
+  --jonquil: #F9CF20ff;
+  --jonquil-soft: #E8BE10FF;
+  --antiflash-white: #F0F4F8ff;
+  --antiflash-white-soft: #F0F4F8FF;
+  --night: #13130Fff;
+  --night-soft: #23231FFF;
+  --sky: #48b3e7ff;
+  --sky-soft: #59c4f8ff;
+
+  /* Color — tokens semánticos, usar estos desde cualquier styles.css */
+  --color-background: var(--night);
+  --color-background-soft: var(--night-soft);
+  --color-text: var(--antiflash-white);
+  --color-text-soft: var(--antiflash-white-soft);
+  --color-primary: var(--jonquil);
+  --color-primary-soft: var(--jonquil-soft);
+  --color-secondary: var(--tangelo);
+  --color-secondary-soft: var(--tangelo-soft);
+  --color-donation: var(--sky);
+  --color-donation-soft: var(--sky-soft);
+  --color-shadow-glow: rgba(250, 250, 250, 0.6);
+  --color-shadow-dim: rgba(0, 0, 0, 0.2);
+
+  /* Tipografía */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-size-xs: 0.7em;
+  --font-size-sm: 0.75em;
+  --font-size-base: 1em;
+  --font-size-md: 1.1em;
+  --font-size-lg: 1.25em;
+  --font-size-xl: 1.5em;
+  --font-size-2xl: 2em;
+  --font-size-3xl: 2.25em;
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
+  --font-weight-bold: 700;
+
+  /* Espaciado */
+  --space-3xs: 0.25em;
+  --space-2xs: 0.35em;
+  --space-xs: 0.5em;
+  --space-sm: 0.6em;
+  --space-md: 0.75em;
+  --space-lg: 1em;
+  --space-xl: 1.1em;
+  --space-2xl: 1.5em;
+  --space-3xl: 2em;
+  --space-4xl: 3em;
+
+  /* Bordes */
+  --radius-sm: 0.6em;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  /* Breakpoints de referencia — CSS no permite variables dentro de @media, */
+  /* así que estos valores son documentación para mantener consistencia manual */
+  /* entre archivos (hoy 767px/478px ya se repiten en varios `styles.css`): */
+  /* desktop: > 1200px · tablet: <= 1200px · mobile: <= 767px · mobile chico: <= 478px */
+}
+
 body {
   /* Fix mobile issue hiding the footer */
   min-height: 100vh;
-  /*min-height: -moz-available;*/          /* WebKit-based browsers will ignore this. */
-  min-height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  /*min-height: -moz-available;*/
+  /* WebKit-based browsers will ignore this. */
+  min-height: -webkit-fill-available;
+  /* Mozilla-based browsers will ignore this. */
   /*min-height: stretch;*/
 
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-family-base);
   -webkit-font-smoothing: antialiased;
 }
 
 html {
   height: 100vh;
-  /*height: -moz-available;*/          /* WebKit-based browsers will ignore this. */
-  height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  /*height: -moz-available;*/
+  /* WebKit-based browsers will ignore this. */
+  height: -webkit-fill-available;
+  /* Mozilla-based browsers will ignore this. */
   /*height: stretch;*/
 }
 
@@ -27,11 +93,13 @@ code {
 /* References on articles*/
 ol li a {
   color: var(--color-text);
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
 }
+
 ol li a:hover {
   color: var(--color-primary-soft)
 }
+
 ol li a:visited {
   color: var(--color-primary)
 }

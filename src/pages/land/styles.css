@@ -10,8 +10,8 @@
     left: 0;
     height: 100vh;
     background-color: black;
-    padding-left: calc(3em + var(--width-button));
-    padding-right: 3em;
+    padding-left: calc(var(--space-4xl) + var(--width-button));
+    padding-right: var(--space-4xl);
     overflow-y: auto;
 }
 
@@ -28,7 +28,7 @@
 
 #land .but-close {
     position: absolute;
-    right: 2em;
+    right: var(--space-3xl);
     top: 0;
     font-size: 2.5em;
     background-color: transparent;

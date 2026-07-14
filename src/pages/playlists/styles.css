@@ -1,83 +1,90 @@
 .search-page {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75em;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
 .search-page .search-box {
-    position: relative;
-    margin: 0.5em 0 1em;
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    background-color: var(--color-background-soft);
-    border: 1px solid var(--color-primary-soft);
-    border-radius: 999px;
-    padding: 0 1.1em;
-    transition: border-color 200ms ease, box-shadow 200ms ease;
+  position: relative;
+  margin: var(--space-xs) 0 var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--color-background-soft);
+  border: 1px solid var(--color-primary-soft);
+  border-radius: var(--radius-pill);
+  padding: 0 var(--space-xl);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
 }
+
 .search-page .search-box:focus-within {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 0.2rem var(--color-primary-soft);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem var(--color-primary-soft);
 }
+
 .search-page .search-box svg {
-    color: var(--color-text-soft);
-    font-size: 1.1em;
-    pointer-events: none;
-    flex-shrink: 0;
+  color: var(--color-text-soft);
+  font-size: var(--font-size-md);
+  pointer-events: none;
+  flex-shrink: 0;
 }
+
 .search-page .search-box .form-control {
-    background-color: transparent;
-    border: none;
-    box-shadow: none !important;
-    color: var(--color-text);
-    padding: 0.6em 0;
-    flex: 1 1 auto;
-    min-width: 0;
+  background-color: transparent;
+  border: none;
+  box-shadow: none !important;
+  color: var(--color-text);
+  padding: var(--space-sm) 0;
+  flex: 1 1 auto;
+  min-width: 0;
 }
+
 .search-page .search-box .but-clear-search {
-    display: flex;
-    align-items: center;
-    background: none;
-    border: none;
-    padding: 0;
-    color: var(--color-text-soft);
-    font-size: 1.1em;
-    cursor: pointer;
-    flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-text-soft);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  flex-shrink: 0;
 }
+
 .search-page .search-box .but-clear-search:hover {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
+
 .search-page .search-box .form-control::placeholder {
-    color: var(--color-text-soft);
+  color: var(--color-text-soft);
 }
+
 .search-page .search-box .form-control:focus {
-    background-color: transparent;
-    color: var(--color-text);
+  background-color: transparent;
+  color: var(--color-text);
 }
 
 .search-page .list-group {
-    gap: 0.35em;
+  gap: var(--space-2xs);
 }
 
 .search-page .list-group-item {
-    background-color: var(--color-background);
-    border: none;
-    border-radius: 0.6em !important;
-    color: var(--color-text);
-    padding: 0.75em 1.1em;
-    transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+  background-color: var(--color-background);
+  border: none;
+  border-radius: var(--radius-sm) !important;
+  color: var(--color-text);
+  padding: var(--space-md) var(--space-xl);
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
 }
 
 .search-page .list-group-item-action:hover,
 .search-page .list-group-item-action:focus,
 .search-page .list-group-item.active {
-    background-color: var(--color-primary);
-    color: var(--color-background);
-    transform: translateX(0.25em);
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  transform: translateX(var(--space-3xs));
 }
 
 .search-page a.nav-link {
-    text-decoration: none;
+  text-decoration: none;
 }

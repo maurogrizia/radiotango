@@ -38,19 +38,19 @@
 }
 
 #panel-left.open .but-close {
-  font-size: 2em;
+  font-size: var(--font-size-2xl);
   color: var(--color-text);
   /*top: 0.5em;*/
-  right: 1em;
-  width: 1em;
+  right: var(--space-lg);
+  width: var(--space-lg);
   text-align: center;
   cursor: pointer;
   z-index: 200;
 }
 
 .card-header h1 {
-  font-size: 2.25em;
-  font-weight: bold;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
   color: var(--color-secondary);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -74,7 +74,7 @@
 
 .card-body::-webkit-scrollbar-thumb {
   background-color: var(--color-primary);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
 #panel-left .card-first {

@@ -1,8 +1,6 @@
 :root {
     --height-button: 3em;
     --width-button: 5.25em;
-    --color-donations: #48b3e7;
-    --color-donations-soft: #59c4f8;
 }
 
 .stack-container {
@@ -32,25 +30,25 @@
 }
 
 .btn-star {
-    box-shadow: 0px 1px 3px 3px rgba(250, 250, 250, 0.6);
+    box-shadow: 0px 1px 3px 3px var(--color-shadow-glow);
     border: 1px solid var(--color-text);
     color: var(--color-background-soft);
 }
 
 .container-donations button{
-    background-color: var(--color-donations);
+    background-color: var(--color-donation);
 }
 .container-donations button:hover{
-    background-color: var(--color-donations-soft);
+    background-color: var(--color-donation-soft);
 }
 .container-donations button:focus{
-    background-color: var(--color-donations);
+    background-color: var(--color-donation);
 }
 .container-donations .dropdown-menu.show{
-    background-color: var(--color-donations);
+    background-color: var(--color-donation);
 }
 .container-donations .dropdown-item:hover{
-    background-color: var(--color-donations-soft);
+    background-color: var(--color-donation-soft);
 }
 
 .a-donation {

@@ -14,7 +14,7 @@
     --top: 2em;
     --bottom: 2em;
     --void: 0.25em;
-    --icon-size: 1.25em;
+    --icon-size: var(--font-size-lg);
     --top-toggle: -3em;
     --bottom-toggle: 0.5em;
     --right-toggle: 0.5em;
@@ -35,10 +35,10 @@
 .menu-toggle {
 	width: 60px;
 	height: 60px;
-	border-radius: 50%;
+	border-radius: var(--radius-circle);
 	background-color: var(--color-secondary);
-	box-shadow: 4px 4px 2px 1px #00000033;
-	
+	box-shadow: 4px 4px 2px 1px var(--color-shadow-dim);
+
 	position: absolute;
 	/*z-index: 50;*/
 	/*top: var(--top-toggle);*/
@@ -56,8 +56,8 @@
 
 
 .menu-toggle svg{
-    color:#fff;
-    font-size: 2em;
+    color: var(--color-text);
+    font-size: var(--font-size-2xl);
     transition: 0.4s;
 }
 
@@ -65,12 +65,12 @@
 .btn-app {
     width: var(--circle-size);
 	height: var(--circle-size);
-	border-radius: 50%;
+	border-radius: var(--radius-circle);
 	position: absolute;
     display: block;
 	
 	background-color: var(--color-secondary);
-	color:#fff;
+	color: var(--color-text);
 	text-align: center;
 }
 .btn-app:hover {
@@ -80,12 +80,12 @@
     line-height: 2.5em;
 }
 .btn-app a {
-    color: #fff;
+    color: var(--color-text);
 }
 
 /* add shadow only when templates are activated */
 .open .btn-app {
-	box-shadow: 4px 4px 2px 1px #00000033;
+	box-shadow: 4px 4px 2px 1px var(--color-shadow-dim);
 }
 
 /* The most-popular apps in a circular thing */
