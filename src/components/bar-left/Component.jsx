@@ -11,7 +11,7 @@ import {  	FaHome,
           	FaPlayCircle, 
 			FaHandHoldingHeart,
           	FaInfo }      		from "react-icons/fa";
-import { 	Link } 				from 'react-router-dom';
+import { 	NavLink } 			from 'react-router-dom';
 import { 	Button,
 			Dropdown,
         	Stack }       		from 'react-bootstrap';
@@ -37,8 +37,8 @@ const BarLeft = () => {
     <nav className="stack-container">
 		<Stack gap={2} className="col-md-5 mx-auto stack-left" style={{justifyContent: "space-between"}}>
 			<div className="stack-section text-center">
-				<Link 
-					className="nav-link"
+				<NavLink
+					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
 					to={`/${language}/home`}
 					aria-label={text['al-home']}
 				>
@@ -51,11 +51,11 @@ const BarLeft = () => {
 					>
                     	<FaHome/>
                   	</Button>
-                </Link>
+                </NavLink>
                 <Tooltip id="tt-home" />
 
-                <Link 
-					className="nav-link"
+                <NavLink
+					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
 					to={`/${language}/artists`}
 					aria-label={text['al-artist']}
 				>
@@ -68,15 +68,15 @@ const BarLeft = () => {
 					>
                     	<FaMicrophone/>
                   	</Button>
-                </Link>
+                </NavLink>
                 <Tooltip id="tt-artist" />
 
-                <Link 
-					className="nav-link"
+                <NavLink
+					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
 					to={`/${language}/posts`}
 					aria-label={text['al-blog']}
 				>
-					<Button 
+					<Button
 						variant="secondary"
 						aria-label={text['tt-blog']}
 						data-tooltip-id="tt-blog"
@@ -85,15 +85,15 @@ const BarLeft = () => {
 					>
                     	<FaBlog/>
                   	</Button>
-                </Link>
+                </NavLink>
                 <Tooltip id="tt-blog" />
 
-                <Link
-					className="nav-link"
+                <NavLink
+					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
 					to={`/${language}/playlists`}
 					aria-label={text['al-playlist']}
 				>
-					<Button 
+					<Button
 						variant="secondary"
 						aria-label={text['tt-playlist']}
 						data-tooltip-id="tt-special"
@@ -102,16 +102,16 @@ const BarLeft = () => {
 					>
 						<FaPlayCircle/>
 					</Button>
-                </Link>
+                </NavLink>
                 <Tooltip id="tt-special" />
             </div>
             <div className="stack-section text-center" ref={ref}>
-              	<Link 
-					className="nav-link"
+              	<NavLink
+					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
 					to={`/${language}/artists/star`}
 					aria-label={text['al-star']}
 				>
-					<Button 
+					<Button
 						className="btn-star"
 						variant="primary"
 						aria-label={text['tt-star']}
@@ -121,13 +121,13 @@ const BarLeft = () => {
 					>
                   		<FaStar/>
                 	</Button>
-              	</Link>
+              	</NavLink>
               
               	<Tooltip id="tt-star" />
             </div>
             <div className="stack-section text-center">
-				<Link 
-					className="nav-link"
+				<NavLink
+					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
 					to={`/${language}/about`}
 					aria-label={text['al-about']}
 				>
@@ -140,15 +140,15 @@ const BarLeft = () => {
 					>
 						<FaInfo/>
 					</Button>
-				</Link>
+				</NavLink>
               	<Tooltip id="tt-info" />
 
-				<Link 
-					className="nav-link"
+				<NavLink
+					className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
 					to={`/${language}/mode`}
 					aria-label={text['al-mode']}
 				>
-					<Button 
+					<Button
 						variant="secondary"
 						aria-label={text['tt-conf']}
 						data-tooltip-id="tt-mode"
@@ -158,7 +158,7 @@ const BarLeft = () => {
 						<FaExchangeAlt/>
 					</Button>
 					<Tooltip id="tt-mode" />
-				</Link>
+				</NavLink>
 
 				<Dropdown className="container-donations" drop="end">
 					<Dropdown.Toggle 

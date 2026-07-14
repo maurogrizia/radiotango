@@ -92,23 +92,22 @@ const Component = () => {
                 const href = artist.href;
 
                 return (
-                    <Link
-                        key={`link-${label}`}
-                        className="nav-link"
-                        to={`/${language}/posts/${href}`}
+                    <ListGroup.Item
+                        action
+                        variant="secondary"
+                        key={label}
+                        as="li"
+                        data-href={href}
+                        active={href === activeHref}
                     >
-                        <ListGroup.Item
-                            action
-                            variant="secondary"
-                            key={label}
-                            as="li"
-                            data-href={href}
-                            active={href === activeHref}
+                        <Link
+                            className="nav-link"
+                            to={`/${language}/posts/${href}`}
                         >
                             <span className="post-title">{label}</span>
                             <span className="post-date">{formatDate(artist.date)}</span>
-                        </ListGroup.Item>
-                    </Link>
+                        </Link>
+                    </ListGroup.Item>
                 );
             })}
         </ListGroup>

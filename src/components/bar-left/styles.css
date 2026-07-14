@@ -1,107 +1,125 @@
 :root {
-    --height-button: 3em;
-    --width-button: 5.25em;
+  --height-button: 3em;
+  --width-button: 5.25em;
 }
 
 .stack-container {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    height: 100vh;
-    /*height: -moz-available;*/          /* WebKit-based browsers will ignore this. */
-    height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    width: 7vw;
-    /*z-index: 100;*/
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  /*height: -moz-available;*/
+  /* WebKit-based browsers will ignore this. */
+  height: -webkit-fill-available;
+  /* Mozilla-based browsers will ignore this. */
+  width: 7vw;
+  /*z-index: 100;*/
 }
 
 .stack-container .btn {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .stack-left {
-    top: 0;
-    left: 0;
-    max-width: 100px;
+  top: 0;
+  left: 0;
+  max-width: 100px;
 }
+
 .stack-left button {
-    width: var(--width-button);
-    height: var(--height-button);
-    display: block;
+  width: var(--width-button);
+  height: var(--height-button);
+  display: block;
 }
 
 .btn-star {
-    box-shadow: 0px 1px 3px 3px var(--color-shadow-glow);
-    border: 1px solid var(--color-text);
-    color: var(--color-background-soft);
+  box-shadow: 0px 1px 3px 3px var(--color-shadow-glow);
+  border: 1px solid var(--color-text);
+  color: var(--color-background-soft);
 }
 
-.container-donations button{
-    background-color: var(--color-donation);
+.stack-container .nav-link.active .btn {
+  background-color: var(--color-secondary-soft);
+  color: var(--color-text);
 }
-.container-donations button:hover{
-    background-color: var(--color-donation-soft);
+
+.container-donations button {
+  background-color: var(--color-donation);
 }
-.container-donations button:focus{
-    background-color: var(--color-donation);
+
+.container-donations button:hover {
+  background-color: var(--color-donation-soft);
 }
-.container-donations .dropdown-menu.show{
-    background-color: var(--color-donation);
+
+.container-donations button:focus {
+  background-color: var(--color-donation);
 }
-.container-donations .dropdown-item:hover{
-    background-color: var(--color-donation-soft);
+
+.container-donations .dropdown-menu.show {
+  background-color: var(--color-donation);
+}
+
+.container-donations .dropdown-item:hover {
+  background-color: var(--color-donation-soft);
 }
 
 .a-donation {
-    text-align: center;
+  text-align: center;
 }
 
 .img-donation {
-    border: 0px;
-    height: 44px;
+  border: 0px;
+  height: 44px;
 }
 
 @media (max-width: 767px) {
-    .stack-container {
-        width: 13vw;
-    }
-    .stack-container.right {
-        right: 1.25em;
-        width: 14.5vw;
-    }
+  .stack-container {
+    width: 13vw;
+  }
+
+  .stack-container.right {
+    right: 1.25em;
+    width: 14.5vw;
+  }
 }
+
 @media (max-width: 478px) {
-    .stack-container {
-        width: 23vw;
-    }
+  .stack-container {
+    width: 23vw;
+  }
 }
 
 @media (max-height: 700px) {
-    .stack-container {
-        --height-button: 3em;
-        --width-button: 5em;
-    }
+  .stack-container {
+    --height-button: 3em;
+    --width-button: 5em;
+  }
 }
+
 @media (max-height: 500px) {
-    .stack-container {
-        --height-button: 3em;
-        --width-button: 5em;
-    }
+  .stack-container {
+    --height-button: 3em;
+    --width-button: 5em;
+  }
 }
+
 @media (max-height: 400px) {
-    .stack-container {
-        --height-button: 2.75em;
-        --width-button: 5em;
-    }
+  .stack-container {
+    --height-button: 2.75em;
+    --width-button: 5em;
+  }
 }
+
 @media (max-height: 350px) {
-    .stack-container {
-        --height-button: 2.35em;
-        --width-button: 5em;
-    }
+  .stack-container {
+    --height-button: 2.35em;
+    --width-button: 5em;
+  }
 }
+
 @media (max-height: 300px) {
-    .stack-container {
-        --height-button: 2.25em;
-        --width-button: 5em;
-    }
+  .stack-container {
+    --height-button: 2.25em;
+    --width-button: 5em;
+  }
 }

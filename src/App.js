@@ -26,20 +26,22 @@ const App = () => {
 	<BrowserRouter>
 		<LanguageProvider>
 			<ContentProvider>
-				<Routes>
-					<Route exact path="/" element={<Land/>}/>
-					<Route exact path="/:lang" element={<Land/>}/>
-					<Route exact path="/:lang/:cl" element={<HandlerLeftPanel/>}/>
-					<Route exact path="/:lang/:cl/:cr" element={<HandlerRightPanel/>}/>
-				</Routes>
-				
-				<BarLeft/>
-				<PanelLeft/>
-				
-				<Player/>
-				
-				<BarRight/>
-				<PanelRight/>
+				<main>
+					<Routes>
+						<Route exact path="/" element={<Land/>}/>
+						<Route exact path="/:lang" element={<Land/>}/>
+						<Route exact path="/:lang/:cl" element={<HandlerLeftPanel/>}/>
+						<Route exact path="/:lang/:cl/:cr" element={<HandlerRightPanel/>}/>
+					</Routes>
+
+					<BarLeft/>
+					<PanelLeft/>
+
+					<Player/>
+
+					<BarRight/>
+					<PanelRight/>
+				</main>
 				<ToastContainer />
 			</ContentProvider>
 		</LanguageProvider>

@@ -82,22 +82,21 @@ const Component = () => {
                 const href = elem.href;
 
                 return (
-                    <Link
-                        key={`link-${label}`}
-                        className="nav-link"
-                        to={`/${language}/playlists/${href}`}
+                    <ListGroup.Item
+                        action
+                        variant="secondary"
+                        key={label}
+                        as="li"
+                        data-href={href}
+                        active={href === activeHref}
                     >
-                        <ListGroup.Item
-                            action
-                            variant="secondary"
-                            key={label}
-                            as="li"
-                            data-href={href}
-                            active={href === activeHref}
+                        <Link
+                            className="nav-link"
+                            to={`/${language}/playlists/${href}`}
                         >
                             {label}
-                        </ListGroup.Item>
-                    </Link>
+                        </Link>
+                    </ListGroup.Item>
                 );
             })}
         </ListGroup>
