@@ -40,6 +40,7 @@ let text = dictionary[lang];
 const PanelRight = (props) => {
 	const { 	isClosedRight,
 				contentRight,
+				isErrorRight,
 				player,
 				isLoadingContentRight,
 				changeIsClosedRight,
@@ -288,88 +289,111 @@ const PanelRight = (props) => {
 				/>
 			</div>}
 			
-			<Card className="mb-0 card-first">
-				<Card.Header>
-					<h1
-						ref={titleRef}
-						data-tooltip-id={isTitleOverflowing? "tt-panel-right-title" : undefined}
-						data-tooltip-content={isTitleOverflowing? contentRight.meta.title : undefined}
-						data-tooltip-place="top"
-					>
-						{contentRight.meta.title}
-					</h1>
-				</Card.Header>
-				<Card.Body className='open'>
-					<div dangerouslySetInnerHTML={{__html: contentRight.html[language.toLowerCase()]}}></div>
-					<div className="social-container">
-						{contentRight.meta.icons && Object.entries(contentRight.meta.icons).map(([k, v]) => {
-							const iconFuncs = {
-								fb: () => {return <FaFacebook/>;},
-								ig: () => {return <FaInstagram/>;},
-								of: () => {return <FaGlobeAmericas/>;},
-								sc: () => {return <FaSoundcloud/>;},
-								sp: () => {return <FaSpotify/>;},
-								tw: () => {return <FaTwitter/>;},
-								yt: () => {return <FaYoutube/>;},
-								wp: () => {return <FaWikipediaW/>;},
-							};
-							
+			{isErrorRight
+			? <>
+				<Card className="mb-0 card-first">
+					<Card.Header>
+						<h1>{text['error-title']}</h1>
+					</Card.Header>
+					<Card.Body className='open'>
+						<p>{text['error-msg']}</p>
+					</Card.Body>
+				</Card>
+
+				<Button
+					id="but-playlist"
+					className='m-0'
+					disabled
+				>
+					<FaVolumeUp id="icon-abs"/>
+					<FaCaretUp/>
+					Playlist
+				</Button>
+			</>
+			: <>
+				<Card className="mb-0 card-first">
+					<Card.Header>
+						<h1
+							ref={titleRef}
+							data-tooltip-id={isTitleOverflowing? "tt-panel-right-title" : undefined}
+							data-tooltip-content={isTitleOverflowing? contentRight.meta.title : undefined}
+							data-tooltip-place="top"
+						>
+							{contentRight.meta.title}
+						</h1>
+					</Card.Header>
+					<Card.Body className='open'>
+						<div dangerouslySetInnerHTML={{__html: contentRight.html[language.toLowerCase()]}}></div>
+						<div className="social-container">
+							{contentRight.meta.icons && Object.entries(contentRight.meta.icons).map(([k, v]) => {
+								const iconFuncs = {
+									fb: () => {return <FaFacebook/>;},
+									ig: () => {return <FaInstagram/>;},
+									of: () => {return <FaGlobeAmericas/>;},
+									sc: () => {return <FaSoundcloud/>;},
+									sp: () => {return <FaSpotify/>;},
+									tw: () => {return <FaTwitter/>;},
+									yt: () => {return <FaYoutube/>;},
+									wp: () => {return <FaWikipediaW/>;},
+								};
+
+								return (
+									<a target="_blank" rel="noreferrer" href={v} key={k}>
+										{iconFuncs[k](v)}
+									</a>);
+							})}
+						</div>
+					</Card.Body>
+				</Card>
+				<Tooltip id="tt-panel-right-title" positionStrategy="fixed" style={{zIndex: 999}} />
+
+				<Button
+					id="but-playlist"
+					className='m-0'
+					onClick={toggleCard}
+					disabled={!contentRight.meta.playlist || contentRight.meta.playlist.length === 0}
+				>
+					<FaVolumeUp id="icon-abs"/>
+					{isClosedUp
+						? <FaCaretUp/>
+						: <FaCaretDown/>}
+					Playlist
+				</Button>
+
+				<Card className="m-0 card-second close">
+					<Card.Body>
+					<ListGroup as="ol" numbered className="mb-2" variant="secondary">
+						{contentRight.meta.playlist && contentRight.meta.playlist.map((song, idx) => {
+							const label = `${song.artist} - ${song.song}`;
+
 							return (
-								<a target="_blank" rel="noreferrer" href={v} key={k}>
-									{iconFuncs[k](v)}
-								</a>);
+								<ListGroup.Item
+									action
+									className={song.artist === player.artist && song.song === player.song? "act" : ""}
+									variant="secondary"
+									key={label}
+									onClick={(e) => {toggleLI(e); chooseSong({song, idx})}}
+								>
+									{label}
+								</ListGroup.Item>
+							);
 						})}
-					</div>
-				</Card.Body>
-			</Card>
-			<Tooltip id="tt-panel-right-title" positionStrategy="fixed" style={{zIndex: 999}} />
+					</ListGroup>
 
-			<Button
-				id="but-playlist"
-				className='m-0'
-				onClick={toggleCard}
-				disabled={!contentRight.meta.playlist || contentRight.meta.playlist.length === 0}
-			>
-				<FaVolumeUp id="icon-abs"/>
-				{isClosedUp
-					? <FaCaretUp/>
-					: <FaCaretDown/>}
-				Playlist
-			</Button>
-
-			<Card className="m-0 card-second close">
-				<Card.Body>
-				<ListGroup as="ol" numbered className="mb-2" variant="secondary">
-					{contentRight.meta.playlist && contentRight.meta.playlist.map((song, idx) => {
-						const label = `${song.artist} - ${song.song}`;
-                        
-						return (
-							<ListGroup.Item
-								action
-								className={song.artist === player.artist && song.song === player.song? "act" : ""}
-								variant="secondary"
-								key={label}
-								onClick={(e) => {toggleLI(e); chooseSong({song, idx})}}
-							>
-								{label}
-							</ListGroup.Item>
-						);
-					})}
-				</ListGroup>
-				
-				{isClosedRight
-				? null
-				: <YouTube
-					className="text-center"
-					videoId={player.yt}
-					title={`${player.artist} - ${player.song}`}
-					onPlay={() => {changeIsPlaying(true)}}
-					onPause={() => {changeIsPlaying(false)}}
-					onEnd={() => {chooseSong({go: 'next'})}}
-					opts={{width: "100%", height: "auto", playerVars: {autoplay: isAutoplay, start: player.ytStart || 0, end: player.ytEnd || 0}}}
-				/>}
-				</Card.Body>
-			</Card>
+					{isClosedRight
+					? null
+					: <YouTube
+						className="text-center"
+						videoId={player.yt}
+						title={`${player.artist} - ${player.song}`}
+						onPlay={() => {changeIsPlaying(true)}}
+						onPause={() => {changeIsPlaying(false)}}
+						onEnd={() => {chooseSong({go: 'next'})}}
+						opts={{width: "100%", height: "auto", playerVars: {autoplay: isAutoplay, start: player.ytStart || 0, end: player.ytEnd || 0}}}
+					/>}
+					</Card.Body>
+				</Card>
+			</>}
 		</section>
 		: null}
 		</>

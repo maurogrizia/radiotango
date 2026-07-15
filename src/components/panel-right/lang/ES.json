@@ -1,4 +1,6 @@
 {
     "tt-open": "Abrir",
-    "tt-close": "Cerrar"
+    "tt-close": "Cerrar",
+    "error-title": "Error 404",
+    "error-msg": "La página que buscás no está acá"
 }

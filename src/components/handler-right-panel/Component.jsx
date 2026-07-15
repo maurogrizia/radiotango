@@ -8,11 +8,9 @@ import      ContentContext      from 'context/content/Context';
 import      LanguageContext     from 'context/language/Context';
 
 const Component = () => {
-    const { isError,
-            weeksArtist,
+    const { weeksArtist,
             changeContentRight,
             changeIsClosedRight,
-            changeIsError,
             changeWeeksArtist } = useContext(ContentContext);
     const { language,
             changeLanguage } = useContext(LanguageContext);
@@ -25,15 +23,11 @@ const Component = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            if (isError) {
-                navigate(`/${lang}/error`);
-                changeIsError(false);
-            }
             if (cr === 'star') {
                 changeWeeksArtist('aureliano');
                 if (!weeksArtist) {
                     const wa = await getWeeksArtist();
-                    
+
                     changeWeeksArtist(wa);
                     navigate(`/${lang}/artists/${wa}`);
                 } else {
@@ -41,7 +35,7 @@ const Component = () => {
                 }
             }
         }
-        
+
         fetchData();
     }, []);
 

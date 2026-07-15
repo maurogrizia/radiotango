@@ -1,4 +1,6 @@
 {
     "tt-open": "Open",
-    "tt-close": "Close"
+    "tt-close": "Close",
+    "error-title": "Error 404",
+    "error-msg": "The page you're looking for isn't here"
 }

@@ -1,4 +1,5 @@
-html,body {
+html,
+body {
   overflow-y: hidden;
   background-color: #0C0E10;
   background-image: url('assets/img/radio-tango.webp');
@@ -15,15 +16,20 @@ html,body {
   /*Support for old browsers*/
   word-wrap: break-word;
 
-  color: var(--color-text);  
+  color: var(--color-text);
 }
 
-html.bg-hide, body.bg-hide {
+html.bg-hide,
+body.bg-hide {
   background-color: #000C;
   background-blend-mode: overlay;
 }
 
-h2,h3,h4,h5,h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: var(--font-weight-medium);
 }
 
@@ -36,25 +42,29 @@ blockquote {
   font-size: 0.9em;
 }
 
-button.act, button.act:focus {
+button.act,
+button.act:focus {
   background-color: var(--color-primary-soft);
   color: var(--color-text)
 }
+
 button.list-group-item-action:hover {
   background-color: var(--color-primary);
 }
 
 /* Avoid animations on panels when loading*/
-.preload-prevent-animation *{
+.preload-prevent-animation * {
   animation-duration: 0s !important;
   -webkit-animation-duration: 0s !important;
   transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
-} 
+}
 
 /* Boostrap style patch */
-.card input, .card input:focus{
+.card input,
+.card input:focus {
   color: #222222CC;
 }
+
 button.btn,
 a.btn {
   --bs-btn-color: var(--color-text);
@@ -67,10 +77,12 @@ a.btn {
 
   border: none;
 }
+
 .btn:focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: -2px;
 }
+
 button.btn-primary,
 a.btn-primary {
   --bs-btn-bg: var(--color-primary);
@@ -78,6 +90,7 @@ a.btn-primary {
   --bs-btn-active-bg: var(--color-primary-strong);
   --bs-btn-disabled-bg: var(--color-primary-soft);
 }
+
 button.btn-secondary,
 a.btn-secondary {
   --bs-btn-bg: var(--color-secondary);
@@ -98,7 +111,16 @@ a.btn-secondary {
   display: flex;
   justify-content: space-around;
 }
-.container-socials-inline a{
+
+.container-socials-inline:hover {
+  color: var(--color-secondary)
+}
+
+.container-socials-inline a {
   color: var(--color-secondary-soft);
   font-size: var(--font-size-xl);
+}
+
+.container-socials-inline a:hover {
+  color: var(--color-secondary)
 }

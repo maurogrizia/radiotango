@@ -1,11 +1,6 @@
 #panel-left {
   position: absolute;
   height: calc(var(--vh) * 100);
-  /*height: -moz-available;*/
-  /* WebKit-based browsers will ignore this. */
-  height: -webkit-fill-available;
-  /* Mozilla-based browsers will ignore this. */
-  /*height: stretch;*/
   width: 42vw;
   background-color: var(--color-background-soft);
   left: calc(var(--width-button));
@@ -155,12 +150,7 @@
 
 @media (max-width: 767px) {
   #panel-left {
-    --width-panel-left: 70vw;
-  }
-}
-
-@media (max-width: 478px) {
-  #panel-left {
-    --width-panel-left: 77vw;
+    left: var(--width-button);
+    --width-panel-left: calc(100vw - var(--width-button));
   }
 }

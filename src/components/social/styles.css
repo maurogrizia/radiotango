@@ -33,7 +33,6 @@
   /*height: stretch;*/
 }
 
-/* this toggles the whole damn thing */
 .stack-right button.menu-toggle {
   width: 60px;
   height: 60px;
@@ -46,8 +45,6 @@
   box-shadow: 4px 4px 2px 1px var(--color-shadow-dim);
 
   position: absolute;
-  /*z-index: 50;*/
-  /*top: var(--top-toggle);*/
   bottom: var(--bottom-toggle);
   right: var(--right-toggle);
   display: flex;
@@ -55,19 +52,18 @@
   align-items: center;
 }
 
-.menu-toggle:hover {
+.stack-right button.menu-toggle:hover {
   background-color: var(--color-secondary-soft);
 }
 
-.menu-toggle:active {
+.stack-right button.menu-toggle:active {
   background-color: var(--color-secondary-strong);
 }
 
-.menu-toggle:focus-visible {
+.stack-right button.menu-toggle:focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: -2px;
 }
-
 
 .menu-toggle svg {
   color: var(--color-text);
@@ -124,7 +120,7 @@
 
 .menu-round .btn-app {
   /*top: calc(var(--top-toggle) * 0.75);*/
-  bottom: var(--bottom-toggle * 0.75);
+  bottom: calc(var(--bottom-toggle) * 0.75);
   right: var(--right-toggle);
   transition: 0.4s;
   display: flex;
@@ -154,9 +150,7 @@
 /* stacked template icons */
 .menu-line {
   position: absolute;
-  /*top: var(--top-toggle);*/
   bottom: var(--bottom-toggle);
-  /*z-index: 20;*/
 }
 
 .menu-line .btn-app {
@@ -172,9 +166,7 @@
 
 .menu-line.open {
   left: 0.5em;
-  /*top: calc(0.75em + var(--top-toggle));*/
   bottom: calc(0.75em + var(--bottom-toggle));
-  /*z-index: 120;*/
 }
 
 .menu-line.open .btn-app {
@@ -223,6 +215,37 @@
 
   .menu-line.open .btn-app {
     right: calc(1.25em + var(--right-toggle));
+  }
+
+  .container-socials {
+    --bottom-toggle: calc(4 * var(--height-button));
+  }
+
+  .menu-round .btn-app {
+    bottom: calc(var(--bottom-toggle) - 5.25em);
+    right: calc(1.25em + var(--right-toggle));
+    opacity: 0;
+  }
+
+  .menu-round.open a:nth-of-type(1) .btn-app {
+    right: calc(1.25em + var(--right-toggle));
+    bottom: calc(var(--bottom-toggle) - 2em - 1 * (var(--circle-size) + var(--void)));
+    transition-delay: 0.1s;
+    opacity: 1;
+  }
+
+  .menu-round.open a:nth-of-type(2) .btn-app {
+    right: calc(1.25em + var(--right-toggle));
+    bottom: calc(var(--bottom-toggle) - 2em - 2 * (var(--circle-size) + var(--void)));
+    transition-delay: 0.2s;
+    opacity: 1;
+  }
+
+  .menu-round.open a:nth-of-type(3) .btn-app {
+    right: calc(1.25em + var(--right-toggle));
+    bottom: calc(var(--bottom-toggle) - 2em - 3 * (var(--circle-size) + var(--void)));
+    transition-delay: 0.3s;
+    opacity: 1;
   }
 }
 

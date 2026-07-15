@@ -8,12 +8,7 @@
   display: flex;
   justify-content: space-between;
   height: 100vh;
-  /*height: -moz-available;*/
-  /* WebKit-based browsers will ignore this. */
   height: -webkit-fill-available;
-  /* Mozilla-based browsers will ignore this. */
-  width: 7vw;
-  /*z-index: 100;*/
 }
 
 .stack-container .btn {
@@ -24,6 +19,7 @@
   top: 0;
   left: 0;
   max-width: 100px;
+  height: 100vh;
 }
 
 .stack-left .stack-link {
@@ -100,25 +96,13 @@
 
 @media (max-width: 767px) {
   .stack-container {
-    width: 13vw;
-  }
-
-  .stack-container.right {
-    right: 1.25em;
-    width: 14.5vw;
-  }
-}
-
-@media (max-width: 478px) {
-  .stack-container {
-    width: 23vw;
+    width: var(--width-button);
   }
 }
 
 @media (max-height: 700px) {
   .stack-container {
     --height-button: 3em;
-    --width-button: 5em;
   }
 }
 

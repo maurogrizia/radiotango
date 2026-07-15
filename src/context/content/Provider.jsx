@@ -45,6 +45,7 @@ const ContextProvider = ({ children }) => {
     const [glosary, setGlosary] = useState(defaultGlosary);
     
     const [isError, setIsError] = useState(false);
+    const [isErrorRight, setIsErrorRight] = useState(false);
     const [isAnimated, setIsAnimated] = useState(false);
     const [contentLeft, setContentLeft] = useState(defaultCL);
     const [contentRight, setContentRight] = useState(defaultCR);
@@ -74,6 +75,7 @@ const ContextProvider = ({ children }) => {
             return response;
         } catch (e) {
             console.log(e.message);
+            throw e;
         }
     };
 
@@ -128,6 +130,7 @@ const ContextProvider = ({ children }) => {
         isClosedRight,
         isLoadingContentRight,
         isError,
+        isErrorRight,
         isPlaying,
         showCanvas,
         weeksArtist,
@@ -165,6 +168,7 @@ const ContextProvider = ({ children }) => {
         },
         changeContentRight: async (lang, cl, cr) => {
             setIsLoadingContentRight(true);
+            setIsErrorRight(false);
             try {
                 lang = lang? lang.toLowerCase() : defaults.lang;
                 cl = cl? cl.toLowerCase() : defaults.cl;
@@ -211,9 +215,7 @@ const ContextProvider = ({ children }) => {
                         newState[cl][cr] = newContent;
                         setGlosary(newState);
                     } else {
-                        // show error toast with not-found or general error
-                        console.log('Error catching data: not found');
-                        return;
+                        throw new Error(`Content not found: ${cl}/${cr}`);
                     }
                 }
 
@@ -227,6 +229,10 @@ const ContextProvider = ({ children }) => {
                     removeNoAnimateClass();
                     setIsAnimated(true);
                 }
+            } catch (error) {
+                setIsErrorRight(true);
+                setContentRight(defaultCR);
+                throw error;
             } finally {
                 setIsLoadingContentRight(false);
             }
@@ -235,6 +241,9 @@ const ContextProvider = ({ children }) => {
         changeIsClosedRight,
         changeIsError: err => {
             setIsError(err);
+        },
+        changeIsErrorRight: err => {
+            setIsErrorRight(err);
         },
         changeIsPlaying: ip => {
             setIsPlaying(ip);

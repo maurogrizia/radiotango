@@ -1,23 +1,28 @@
 .stack-container.right {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    height: 100vh;
-    /*height: -moz-available;*/          /* WebKit-based browsers will ignore this. */
-    height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    /*height: stretch;*/
-    /*width: 7vw;*/
-    top: 0;
-    right: 0.5em;
-    z-index: 110;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  height: -webkit-fill-available;
+  top: 0;
+  right: 0.5em;
+  z-index: 110;
 }
 
 .stack-right {
-    position: relative;
-    top: 0;
-    right: 0;
-    max-width: 100px;
+  position: relative;
+  top: 0;
+  right: 0;
+  max-width: 100px;
 }
+
 .stack-right button {
-    width: 100%;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .stack-container.right {
+    width: var(--width-button);
+    right: 1.25em;
+  }
 }
