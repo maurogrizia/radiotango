@@ -4,6 +4,7 @@ import {    useState,
             useContext }    from 'react';
 
 import      Form            from 'react-bootstrap/Form';
+import      ToggleSwitch    from 'components/toggle-switch/Component';
 //import      ContentContext  from 'context/content/Context';
 import      LanguageContext from 'context/language/Context';
 import      * as dictionary from './lang/index.js';
@@ -85,9 +86,8 @@ const Component = () => {
         <Form
             id="f-mode"
         >
-            <Form.Check
+            <ToggleSwitch
                 ref={ref}
-                type="switch"
                 label={text['lbl-1']}
                 onChange={toggleFullscreen}
             />

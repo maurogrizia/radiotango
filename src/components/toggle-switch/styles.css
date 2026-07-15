@@ -1,0 +1,24 @@
+.toggle-switch {
+  font-size: var(--font-size-sm);
+}
+
+.toggle-switch .form-check-input {
+  cursor: pointer;
+  border-color: var(--color-text-soft);
+  border-radius: var(--radius-pill);
+}
+
+.toggle-switch .form-check-input:checked {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.toggle-switch .form-check-input:focus {
+  border-color: var(--color-secondary-soft);
+  box-shadow: 0 0 0 0.1rem var(--color-secondary);
+}
+
+.toggle-switch .form-check-label {
+  color: var(--color-text);
+  cursor: pointer;
+}

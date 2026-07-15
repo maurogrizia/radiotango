@@ -93,3 +93,38 @@
   color: var(--color-background);
   transform: translateX(var(--space-3xs));
 }
+
+.search-page .pill-new {
+  margin-left: auto;
+  padding: 0.15em 0.6em;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.search-page .list-group-item-action:hover .pill-new,
+.search-page .list-group-item-action:focus .pill-new,
+.search-page .list-group-item.active .pill-new {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+
+.search-page .list-group-heading {
+  background: transparent;
+  border: none;
+  color: var(--color-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  list-style: none;
+  padding: var(--space-sm) var(--space-xl) 0.2em;
+  text-transform: uppercase;
+}
+
+.search-page .list-group-heading:first-child {
+  padding-top: 0;
+}

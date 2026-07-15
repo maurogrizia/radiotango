@@ -1,4 +1,10 @@
 {
     "p-1": "Here I bring you my curated tango selections for different moments in life",
-    "search": "Search playlist..."
+    "search": "Search playlist...",
+    "new": "New",
+    "genre-classic": "Classic",
+    "genre-nuevo": "Nuevo Tango",
+    "genre-neo": "Neotango",
+    "genre-modern": "Modern",
+    "genre-other": "Other"
 }

@@ -1,4 +1,10 @@
 {
     "p-1": "Acá les traigo mis selecciones de tango curadas para distintos momentos de la vida:",
-    "search": "Buscar playlist..."
+    "search": "Buscar playlist...",
+    "new": "Nuevo",
+    "genre-classic": "Clásico",
+    "genre-nuevo": "Nuevo Tango",
+    "genre-neo": "Neotango",
+    "genre-modern": "Moderno",
+    "genre-other": "Otro"
 }

@@ -1,4 +1,11 @@
 {
     "p-1": "La siguiente es una lista no exhaustiva de los distintos artistas relacionados al tango.",
-    "search": "Buscar artista..."
+    "search": "Buscar artista...",
+    "new": "Nuevo",
+    "lbl-group-genre": "Agrupar por género",
+    "genre-classic": "Clásico",
+    "genre-nuevo": "Nuevo Tango",
+    "genre-neo": "Neotango",
+    "genre-modern": "Moderno",
+    "genre-other": "Otro"
 }

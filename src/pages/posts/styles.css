@@ -102,6 +102,17 @@
   transition: color 80ms ease;
 }
 
+.search-page .pill-new {
+  padding: 0.15em 0.6em;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .search-page .list-group-item-action:hover,
 .search-page .list-group-item-action:focus,
 .search-page .list-group-item.active {
@@ -114,4 +125,11 @@
 .search-page .list-group-item-action:focus .post-date,
 .search-page .list-group-item.active .post-date {
   color: var(--color-background);
+}
+
+.search-page .list-group-item-action:hover .pill-new,
+.search-page .list-group-item-action:focus .pill-new,
+.search-page .list-group-item.active .pill-new {
+  background-color: var(--color-background);
+  color: var(--color-primary);
 }
