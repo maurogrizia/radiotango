@@ -1,7 +1,8 @@
 import    	React				from 'react';
-import {  	BrowserRouter, 
-          	Route, 
-          	Routes }			from 'react-router-dom';
+import {  	BrowserRouter,
+          	Route,
+          	Routes,
+          	Navigate }			from 'react-router-dom';
 
 import {  	ToastContainer }	from "react-toastify";
 
@@ -32,6 +33,7 @@ const App = () => {
 						<Route exact path="/:lang" element={<Land/>}/>
 						<Route exact path="/:lang/:cl" element={<HandlerLeftPanel/>}/>
 						<Route exact path="/:lang/:cl/:cr" element={<HandlerRightPanel/>}/>
+						<Route path="*" element={<Navigate to="/es/error" replace/>}/>
 					</Routes>
 
 					<BarLeft/>

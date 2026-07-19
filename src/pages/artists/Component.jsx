@@ -75,7 +75,7 @@ const Component = () => {
       const collection = await getArtists();
 
       setArtists(collection);
-      const wa = getWeeksArtist();
+      const wa = await getWeeksArtist();
 
       changeWeeksArtist(wa);
     };
