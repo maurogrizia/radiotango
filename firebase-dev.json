@@ -9,15 +9,39 @@
     "rewrites": [
       {
         "source": "/sitemap",
-        "function": "app"
+        "run": { "serviceId": "radiotango-api-prod", "region": "southamerica-east1" }
       },
       {
         "source": "/sitemap.xml",
-        "function": "app"
+        "run": { "serviceId": "radiotango-api-prod", "region": "southamerica-east1" }
       },
       {
         "source": "/api/**",
-        "function": "app"
+        "run": { "serviceId": "radiotango-api-prod", "region": "southamerica-east1" }
+      },
+      {
+        "source": "/ES/artists/**",
+        "run": { "serviceId": "radiotango-api-prod", "region": "southamerica-east1" }
+      },
+      {
+        "source": "/EN/artists/**",
+        "run": { "serviceId": "radiotango-api-prod", "region": "southamerica-east1" }
+      },
+      {
+        "source": "/ES/playlists/**",
+        "run": { "serviceId": "radiotango-api-prod", "region": "southamerica-east1" }
+      },
+      {
+        "source": "/EN/playlists/**",
+        "run": { "serviceId": "radiotango-api-prod", "region": "southamerica-east1" }
+      },
+      {
+        "source": "/ES/posts/**",
+        "run": { "serviceId": "radiotango-api-prod", "region": "southamerica-east1" }
+      },
+      {
+        "source": "/EN/posts/**",
+        "run": { "serviceId": "radiotango-api-prod", "region": "southamerica-east1" }
       },
       {
         "source": "**",
