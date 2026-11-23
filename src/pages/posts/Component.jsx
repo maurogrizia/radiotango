@@ -132,6 +132,10 @@ const data = {
     ES: "Posts",
     EN: "Posts"
   },
+  description: {
+    ES: "Blog de Radio Tango: notas sobre historia, cultura y artistas del tango.",
+    EN: "Radio Tango blog: articles on tango history, culture and artists."
+  },
   href: 'posts',
   body: <Component />
 };

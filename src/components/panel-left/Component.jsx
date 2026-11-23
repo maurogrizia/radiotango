@@ -6,17 +6,22 @@ import { 	useContext,
 import { 	Card }       		from 'react-bootstrap';
 import { 	FaRegWindowClose } 	from "react-icons/fa";
 import { 	Tooltip }			from 'react-tooltip';
+import { 	Helmet }			from 'react-helmet-async';
+import { 	useLocation }		from 'react-router-dom';
 
 import 		ContentContext     	from 'context/content/Context';
 import 		LanguageContext     from 'context/language/Context';
 
 import './styles.css';
 
+const SITE_URL = 'https://radiotango.net.ar';
+
 const PanelLeft = (props) => {
 	const { contentLeft,
 			isClosedLeft,
 			changeIsClosedLeft } = useContext(ContentContext);
 	const { language } = useContext(LanguageContext);
+	const location = useLocation();
 
 	const titleRef = useRef(null);
 	const [isTitleOverflowing, setIsTitleOverflowing] = useState(false);
@@ -50,8 +55,48 @@ const PanelLeft = (props) => {
 		}
 	};
 	
+	// Normalizamos el segmento de idioma a mayúsculas: react-router matchea /:lang sin importar
+	// mayúsculas/minúsculas, así que sin esto "/en/..." y "/EN/..." generaban cada uno su propio
+	// canonical autorreferenciado (duplicado sin canonical elegido en Search Console).
+	const pathSegments = location.pathname.split('/');
+	const restPath = pathSegments.slice(2).join('/');
+	const langUpper = language.toUpperCase();
+	const otherLang = langUpper === 'ES'? 'EN' : 'ES';
+	const canonicalUrl = `${SITE_URL}/${langUpper}${restPath? `/${restPath}` : ''}`;
+	const alternateUrl = `${SITE_URL}/${otherLang}${restPath? `/${restPath}` : ''}`;
+	const pageTitle = contentLeft.title[language];
+	const pageDescription = contentLeft.description?.[language];
+	const jsonLd = contentLeft.href === 'home'
+		? {
+			'@context': 'https://schema.org',
+			'@type': 'WebSite',
+			name: 'Radio Tango',
+			url: SITE_URL,
+			...(pageDescription && { description: pageDescription }),
+		}
+		: null;
+
 	return (
 		<section id="panel-left" className={isClosedLeft? "close" : "open"} inert={isClosedLeft? "" : undefined}>
+			{contentLeft.href !== '???' &&
+				<Helmet>
+					<title>{`${pageTitle} - Radio Tango`}</title>
+					{pageDescription && <meta name="description" content={pageDescription} />}
+					<link rel="canonical" href={canonicalUrl} />
+					<link rel="alternate" hreflang={language.toLowerCase()} href={canonicalUrl} />
+					<link rel="alternate" hreflang={otherLang.toLowerCase()} href={alternateUrl} />
+					<link rel="alternate" hreflang="x-default" href={`${SITE_URL}/ES${restPath? `/${restPath}` : ''}`} />
+					<meta property="og:title" content={`${pageTitle} - Radio Tango`} />
+					{pageDescription && <meta property="og:description" content={pageDescription} />}
+					<meta property="og:url" content={canonicalUrl} />
+					{contentLeft.noindex && <meta name="robots" content="noindex, follow" />}
+					{jsonLd &&
+						<script type="application/ld+json">
+							{JSON.stringify(jsonLd)}
+						</script>
+					}
+				</Helmet>
+			}
 			<button
 				type="button"
 				className="but-close"

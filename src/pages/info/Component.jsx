@@ -3,7 +3,6 @@ import {    FaFacebook,
             FaXTwitter,
             FaThreads,
             FaMedium,
-            FaTelegram,
             FaEnvelope }        from 'react-icons/fa6';
 
 import      * as dictionary     from './lang/index.js';
@@ -41,9 +40,6 @@ const Component = () => {
             {text["p-1"]}
         </p>
         <div className="container-socials-inline">
-            <a href="tg://resolve?domain=supermaramau">
-                <FaTelegram />
-            </a>
             <a href="mailto:griziamauro@gmail.com">
                 <FaEnvelope/>
             </a>
@@ -56,6 +52,10 @@ const data = {
     title: {
         ES: "Sobre",
         EN: "About"
+    },
+    description: {
+        ES: "Sobre Radio Tango: qué es este proyecto y por qué existe.",
+        EN: "About Radio Tango: what this project is and why it exists."
     },
     href: 'about',
     body: <Component/>,

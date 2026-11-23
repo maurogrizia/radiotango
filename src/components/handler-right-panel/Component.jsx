@@ -44,7 +44,7 @@ const Component = () => {
     }
 
     fetchData();
-  }, []);
+  }, [cr]);
 
   useEffect(() => {
     changeIsClosedRight(false);
@@ -58,6 +58,8 @@ const Component = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (cr === 'star') return;
+
       try {
         await changeContentRight(lang, cl, cr);
       } catch (error) {

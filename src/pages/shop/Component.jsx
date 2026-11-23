@@ -13,6 +13,11 @@ const data = {
         ES: "Tienda",
         EN: "Shop"
     },
+    description: {
+        ES: "Tienda de Radio Tango.",
+        EN: "Radio Tango shop."
+    },
+    noindex: true,
     href: 'shop',
     body: <Component/>,
 }

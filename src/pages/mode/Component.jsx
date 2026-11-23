@@ -102,6 +102,11 @@ const data = {
         ES: "Modo",
         EN: "Mode"
     },
+    description: {
+        ES: "Preferencias de visualización de Radio Tango.",
+        EN: "Radio Tango display preferences."
+    },
+    noindex: true,
     href: 'mode',
     body: <Component/>
 };

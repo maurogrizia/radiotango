@@ -77,6 +77,10 @@ const data = {
         ES: 'Géneros',
         EN: "Genres"
     },
+    description: {
+        ES: "Los géneros del tango explicados: clásico, nuevo, neo y moderno.",
+        EN: "Tango genres explained: classic, nuevo, neo and modern."
+    },
     href: 'genres',
     body: <Component/>
 };

@@ -166,6 +166,10 @@ const data = {
     ES: "Artistas",
     EN: "Artists",
   },
+  description: {
+    ES: "Explorá el archivo de artistas de tango: orquestas, cantores y músicos clásicos y modernos.",
+    EN: "Explore the tango artists archive: classic and modern orchestras, singers and musicians."
+  },
   href: 'artists',
   body: <Component />
 };

@@ -79,6 +79,10 @@ const data = {
     ES: "Inicio",
     EN: "Home"
   },
+  description: {
+    ES: "Descubrí Radio Tango: escuchá tango clásico y moderno, conocé a los artistas y la historia del género.",
+    EN: "Discover Radio Tango: listen to classic and modern tango, and learn about the artists and history of the genre."
+  },
   href: 'home',
   body: <Component />
 };

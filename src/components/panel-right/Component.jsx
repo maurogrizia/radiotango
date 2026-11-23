@@ -21,7 +21,9 @@ import {  	FaRegWindowClose,
 			FaTwitter }        	from 'react-icons/fa';
 import {  	Tooltip }         	from 'react-tooltip';
 import 		ReactLoading 		from 'react-loading';
-import { 	useNavigate }		from 'react-router-dom';
+import { 	useNavigate,
+			useLocation }		from 'react-router-dom';
+import { 	Helmet }			from 'react-helmet-async';
 
 // Use only for user-generated content
 //import 		DOMPurify 			from 'dompurify';
@@ -37,6 +39,23 @@ import './styles.css';
 let lang = 'ES';
 let text = dictionary[lang];
 
+const SITE_URL = 'https://radiotango.net.ar';
+
+const JSON_LD_TYPE_BY_CL = {
+	artists: 'MusicGroup',
+	posts: 'Article',
+	playlists: 'MusicPlaylist',
+};
+
+const stripHtml = (html) => html
+	? html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+	: '';
+
+// meta.json a veces trae URLs de redes sociales sin protocolo (ej. "www.facebook.com/x").
+// Sin esto, el navegador (y Googlebot) las trata como rutas internas relativas y arma URLs
+// rotas como /ES/artists/www.facebook.com/x, que Search Console reporta como rastreadas sin indexar.
+const withProtocol = (url) => /^https?:\/\//i.test(url) ? url : `https://${url}`;
+
 const PanelRight = (props) => {
 	const { 	isClosedRight,
 				contentRight,
@@ -49,6 +68,7 @@ const PanelRight = (props) => {
 				isAutoplay } = useContext(ContentContext);
   	const { 	language } = useContext(LanguageContext);
 	const 		navigate 			= useNavigate();
+	const 		location 			= useLocation();
 
 	const [isClosedUp, setIsClosedUp] = useState(true);
 	//const [contentWithAds, setContentWithAds] = useState('');
@@ -238,6 +258,32 @@ const PanelRight = (props) => {
 		return () => observer.disconnect();
 	}, [contentRight.meta, language]);
 
+	const cl = location.pathname.split('/')[2];
+	// Normalizamos el segmento de idioma a mayúsculas: react-router matchea /:lang sin importar
+	// mayúsculas/minúsculas, así que sin esto "/en/..." y "/EN/..." generaban cada uno su propio
+	// canonical autorreferenciado (duplicado sin canonical elegido en Search Console).
+	const pathSegments = location.pathname.split('/');
+	const restPath = pathSegments.slice(2).join('/');
+	const langUpper = language.toUpperCase();
+	const otherLang = langUpper === 'ES'? 'EN' : 'ES';
+	const canonicalUrl = `${SITE_URL}/${langUpper}${restPath? `/${restPath}` : ''}`;
+	// "star" no es contenido propio: es un atajo que redirige client-side al artista destacado
+	// de la semana (rotativo). Search Console lo reportaba como "rastreada, sin indexar" porque
+	// el crawl nunca ve contenido estable ahí.
+	const isStarRoute = pathSegments[3] === 'star';
+	const alternateUrl = `${SITE_URL}/${otherLang}${restPath? `/${restPath}` : ''}`;
+	const pageDescription = stripHtml(contentRight.html?.[language.toLowerCase()]).slice(0, 155);
+	const jsonLdType = JSON_LD_TYPE_BY_CL[cl];
+	const jsonLd = jsonLdType && contentRight.meta?.title
+		? {
+			'@context': 'https://schema.org',
+			'@type': jsonLdType,
+			name: contentRight.meta.title,
+			url: canonicalUrl,
+			...(pageDescription && { description: pageDescription }),
+		}
+		: null;
+
 	return (
 		<>
 		{isClosedRight
@@ -277,6 +323,25 @@ const PanelRight = (props) => {
 			>
 				<FaRegWindowClose/>
 			</button>
+			{!isErrorRight &&
+				<Helmet>
+					<title>{`${contentRight.meta.title} - Radio Tango`}</title>
+					{pageDescription && <meta name="description" content={pageDescription} />}
+					<link rel="canonical" href={canonicalUrl} />
+					<link rel="alternate" hreflang={language.toLowerCase()} href={canonicalUrl} />
+					<link rel="alternate" hreflang={otherLang.toLowerCase()} href={alternateUrl} />
+					<link rel="alternate" hreflang="x-default" href={`${SITE_URL}/ES${restPath? `/${restPath}` : ''}`} />
+					{isStarRoute && <meta name="robots" content="noindex, follow" />}
+					<meta property="og:title" content={`${contentRight.meta.title} - Radio Tango`} />
+					{pageDescription && <meta property="og:description" content={pageDescription} />}
+					<meta property="og:url" content={canonicalUrl} />
+					{jsonLd &&
+						<script type="application/ld+json">
+							{JSON.stringify(jsonLd)}
+						</script>
+					}
+				</Helmet>
+			}
 			{props.content}
 
 			{isLoadingContentRight &&
@@ -338,7 +403,7 @@ const PanelRight = (props) => {
 								};
 
 								return (
-									<a target="_blank" rel="noreferrer" href={v} key={k}>
+									<a target="_blank" rel="noreferrer" href={withProtocol(v)} key={k}>
 										{iconFuncs[k](v)}
 									</a>);
 							})}
@@ -389,7 +454,7 @@ const PanelRight = (props) => {
 						onPlay={() => {changeIsPlaying(true)}}
 						onPause={() => {changeIsPlaying(false)}}
 						onEnd={() => {chooseSong({go: 'next'})}}
-						opts={{width: "100%", height: "auto", playerVars: {autoplay: isAutoplay, start: player.ytStart || 0, end: player.ytEnd || 0}}}
+						opts={{width: "100%", height: "auto", host: 'https://www.youtube-nocookie.com', playerVars: {autoplay: isAutoplay, start: player.ytStart || 0, end: player.ytEnd || 0}}}
 					/>}
 					</Card.Body>
 				</Card>

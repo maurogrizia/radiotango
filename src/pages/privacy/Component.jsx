@@ -374,6 +374,10 @@ const data = {
         ES: "Política de Privacidad",
         EN: "Privacy Policy"
     },
+    description: {
+        ES: "Política de privacidad de Radio Tango.",
+        EN: "Radio Tango's privacy policy."
+    },
     href: 'privacy',
     body: <Component/>
 };

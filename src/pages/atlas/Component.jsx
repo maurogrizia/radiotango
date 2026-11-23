@@ -13,6 +13,11 @@ const data = {
         ES: "Atlas",
         EN: "Atlas",
     },
+    description: {
+        ES: "Atlas de Radio Tango.",
+        EN: "Radio Tango atlas."
+    },
+    noindex: true,
     href: 'atlas',
     body: <Component/>,
 }

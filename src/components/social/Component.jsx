@@ -3,6 +3,7 @@ import {    useState,
 
 import      ContentContext      from 'context/content/Context';
 import      LanguageContext     from 'context/language/Context';
+import      { trackEvent }      from 'utils/analytics';
 
 import {    FaShareNodes,
             FaFacebook,
@@ -76,17 +77,17 @@ const Social = () => {
             </button>
             
             <div className={`menu-round ${showSocials? 'open' : ''}`}>
-                <a target="_blank" rel="noreferrer" href={urls.tw} aria-label={text['al-tt']}>
+                <a target="_blank" rel="noreferrer" href={urls.tw} aria-label={text['al-tt']} onClick={() => trackEvent('share_click', { platform: 'twitter' })}>
                     <div className="btn-app">
                         <FaXTwitter/>
                     </div>
                 </a>
-                <a target="_blank" rel="noreferrer" href={urls.fb} aria-label={text['al-fb']}>
+                <a target="_blank" rel="noreferrer" href={urls.fb} aria-label={text['al-fb']} onClick={() => trackEvent('share_click', { platform: 'facebook' })}>
                     <div className="btn-app">
                         <FaFacebook/>
                     </div>
                 </a>
-                <a target="_blank" rel="noreferrer" href={urls.th} aria-label={text['al-th']}>
+                <a target="_blank" rel="noreferrer" href={urls.th} aria-label={text['al-th']} onClick={() => trackEvent('share_click', { platform: 'threads' })}>
                     <div className="btn-app">
                         <FaThreads/>
                     </div>

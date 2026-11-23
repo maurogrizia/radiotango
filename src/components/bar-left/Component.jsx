@@ -24,6 +24,7 @@ import { Tooltip } from 'react-tooltip';
 
 import ContentContext from 'context/content/Context';
 import LanguageContext from 'context/language/Context';
+import { trackEvent } from 'utils/analytics';
 import * as dictionary from './lang/index.js';
 
 import './styles.css';
@@ -109,6 +110,7 @@ const BarLeft = () => {
             className={stackLinkClassName("btn-primary btn-star")}
             {...disabledProps}
             to={`/${language}/artists/star`}
+            rel="nofollow"
             aria-label={text['al-star']}
             data-tooltip-id="tt-star"
             data-tooltip-content={text['tt-star']}
@@ -156,10 +158,11 @@ const BarLeft = () => {
               <FaHandHoldingHeart />
             </Dropdown.Toggle>
             <Dropdown.Menu className="dropdown-r0">
-              <Dropdown.Item className="a-donation" href='https://cafecito.app/maurogrizia' rel='noopener' target='_blank' aria-label={text['al-cafecito']}>
+              <p className="donation-note">{text['donation-note']}</p>
+              <Dropdown.Item className="a-donation" href='https://cafecito.app/maurogrizia' rel='noopener' target='_blank' aria-label={text['al-cafecito']} onClick={() => trackEvent('donation_click', { platform: 'cafecito' })}>
                 <img className="img-donation" srcSet='https://cdn.cafecito.app/imgs/buttons/button_6.png 1x, https://cdn.cafecito.app/imgs/buttons/button_6_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_6_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_6.png' alt={text['alt-cafecito']} />
               </Dropdown.Item>
-              <Dropdown.Item className="a-donation" href='https://ko-fi.com/N4N3O2G9M' rel="noopener noreferrer" target='_blank' aria-label={text['al-kofi']}>
+              <Dropdown.Item className="a-donation" href='https://ko-fi.com/N4N3O2G9M' rel="noopener noreferrer" target='_blank' aria-label={text['al-kofi']} onClick={() => trackEvent('donation_click', { platform: 'kofi' })}>
                 <img className="img-donation" src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt={text['alt-kofi']} />
               </Dropdown.Item>
             </Dropdown.Menu>

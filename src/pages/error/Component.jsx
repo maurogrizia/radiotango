@@ -21,6 +21,11 @@ const data = {
         ES: 'Error',
         EN: "Error"
     },
+    description: {
+        ES: "Página no encontrada.",
+        EN: "Page not found."
+    },
+    noindex: true,
     href: 'error',
     body: <Component/>
 };

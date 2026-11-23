@@ -139,6 +139,10 @@ const data = {
     ES: "Playlists especiales",
     EN: "Special Playlists"
   },
+  description: {
+    ES: "Playlists temáticas de tango, curadas por género y estilo.",
+    EN: "Curated tango playlists, organized by genre and style."
+  },
   href: 'playlists',
   body: <Component />
 };

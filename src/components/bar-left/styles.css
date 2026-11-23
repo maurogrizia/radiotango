@@ -66,6 +66,15 @@
   background-color: var(--color-donation-soft);
 }
 
+.donation-note {
+  max-width: 245px;
+  margin: 0 auto var(--space-xs);
+  padding: 0 var(--space-xs);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
 .a-donation {
   position: relative;
   display: flex;
