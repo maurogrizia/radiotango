@@ -4,10 +4,12 @@ import { 	useContext,
 			useState }    		from 'react';
 
 import { 	Card }       		from 'react-bootstrap';
-import { 	FaRegWindowClose } 	from "react-icons/fa";
+import { 	FaArrowLeft,
+			FaRegWindowClose } 	from "react-icons/fa";
 import { 	Tooltip }			from 'react-tooltip';
 import { 	Helmet }			from 'react-helmet-async';
-import { 	useLocation }		from 'react-router-dom';
+import { 	useLocation,
+			useNavigate }		from 'react-router-dom';
 
 import 		ContentContext     	from 'context/content/Context';
 import 		LanguageContext     from 'context/language/Context';
@@ -18,10 +20,13 @@ const SITE_URL = 'https://radiotango.net.ar';
 
 const PanelLeft = (props) => {
 	const { contentLeft,
+			contentHistory,
 			isClosedLeft,
-			changeIsClosedLeft } = useContext(ContentContext);
+			changeIsClosedLeft,
+			popContentHistory } = useContext(ContentContext);
 	const { language } = useContext(LanguageContext);
 	const location = useLocation();
+	const navigate = useNavigate();
 
 	const titleRef = useRef(null);
 	const [isTitleOverflowing, setIsTitleOverflowing] = useState(false);
@@ -55,6 +60,20 @@ const PanelLeft = (props) => {
 		}
 	};
 	
+	// El último elemento del historial es el artículo abierto en el panel derecho; el botón
+	// vuelve al anterior. Al navegar, changeContentRight no lo duplica porque ya queda último.
+	const previousContent = contentHistory.length > 1? contentHistory[contentHistory.length - 2] : null;
+	const backLabel = previousContent
+		? `${language === 'EN'? 'Back to' : 'Volver a'} ${previousContent.title || previousContent.cr}`
+		: '';
+
+	const goBack = () => {
+		if (!previousContent) return;
+
+		popContentHistory();
+		navigate(`/${language}/${previousContent.cl}/${previousContent.cr}`);
+	};
+
 	// Normalizamos el segmento de idioma a mayúsculas: react-router matchea /:lang sin importar
 	// mayúsculas/minúsculas, así que sin esto "/en/..." y "/EN/..." generaban cada uno su propio
 	// canonical autorreferenciado (duplicado sin canonical elegido en Search Console).
@@ -110,6 +129,19 @@ const PanelLeft = (props) => {
 			
 			<Card className="mb-0 card-first">
 				<Card.Header>
+					{previousContent &&
+						<button
+							type="button"
+							className="but-back"
+							aria-label={backLabel}
+							data-tooltip-id="tt-panel-left-back"
+							data-tooltip-content={backLabel}
+							data-tooltip-place="bottom"
+							onClick={goBack}
+						>
+							<FaArrowLeft/>
+						</button>
+					}
 					<h1
 						ref={titleRef}
 						data-tooltip-id={isTitleOverflowing? "tt-panel-left-title" : undefined}
@@ -124,6 +156,7 @@ const PanelLeft = (props) => {
 				</Card.Body>
 			</Card>
 			<Tooltip id="tt-panel-left-title" positionStrategy="fixed" style={{zIndex: 999}} />
+			<Tooltip id="tt-panel-left-back" positionStrategy="fixed" style={{zIndex: 999}} />
 		</section>
 	);
 }

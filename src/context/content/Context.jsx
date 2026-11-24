@@ -4,6 +4,7 @@ const ContentContext = createContext({
     player: null,
     contentLeft: null,
     contentRight: null,
+    contentHistory: [],
     isClosedLeft: true,
     isClosedRight: true,
     isLoadingContentRight: false,

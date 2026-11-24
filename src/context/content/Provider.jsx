@@ -4,6 +4,8 @@ import      axios                from 'axios';
 import      ContentContext       from "./Context";
 import      * as Pages           from "pages/index";
 
+const MAX_CONTENT_HISTORY = 20;
+
 const ContextProvider = ({ children }) => {
     //const defaultArtist = {title: 'Artista de la semana', playlist: [], body: <></>};
     const defaultGlosary = {
@@ -56,6 +58,11 @@ const ContextProvider = ({ children }) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [showCanvas, setShowCanvas] = useState(false);
     const [weeksArtist, setWeeksArtist] = useState();
+    // Historial de artículos abiertos en el panel derecho (rt-link, listados y búsquedas del
+    // panel izquierdo). Es propio de la app y no usa el history del navegador: ese mezcla
+    // cambios de página del panel izquierdo y de idioma, y navigate(-1) puede sacar al
+    // usuario del sitio si entró por un link externo.
+    const [contentHistory, setContentHistory] = useState([]);
     
     const defaults = {
         lang: 'es',
@@ -104,6 +111,20 @@ const ContextProvider = ({ children }) => {
         }
     };
 
+    // Agrega el artículo al historial salvo que ya sea el último (cambio de idioma, recarga del
+    // mismo artículo o la navegación que dispara el propio botón atrás).
+    const pushContentHistory = (cl, cr, title) => {
+        setContentHistory(history => {
+            const last = history[history.length - 1];
+
+            if (last && last.cl === cl && last.cr === cr) {
+                return history;
+            }
+
+            return [...history, {cl, cr, title}].slice(-MAX_CONTENT_HISTORY);
+        });
+    };
+
     const changeIsClosedLeft = isClosed => {
         setIsClosedLeft(isClosed);
         if (!isAnimated) {
@@ -125,6 +146,7 @@ const ContextProvider = ({ children }) => {
         player,
         contentLeft,
         contentRight,
+        contentHistory,
         isAutoplay,
         isClosedLeft,
         isClosedRight,
@@ -225,6 +247,7 @@ const ContextProvider = ({ children }) => {
                 }
 
                 setContentRight(newContent);
+                pushContentHistory(cl, cr, newContent.meta?.title);
                 if (!isAnimated) {
                     removeNoAnimateClass();
                     setIsAnimated(true);
@@ -239,6 +262,10 @@ const ContextProvider = ({ children }) => {
         },
         changeIsClosedLeft,
         changeIsClosedRight,
+        // Saca el artículo actual del historial; quien lo llama navega al anterior.
+        popContentHistory: () => {
+            setContentHistory(history => history.slice(0, -1));
+        },
         changeIsError: err => {
             setIsError(err);
         },
